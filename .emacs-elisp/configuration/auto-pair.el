@@ -18,7 +18,7 @@
   (local-set-key (kbd "\'") 'skeleton-pair-insert-maybe)
   (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
 (defun most-common-mode-auto-pair ()
-    (interactive)
+  (interactive)
   (make-local-variable 'skeleton-pair-alist)
   (setq skeleton-pair-alist  '(
                                (? ? _ "''")
@@ -31,7 +31,7 @@
   (local-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
   (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
   (local-set-key (kbd "\'") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe)))
+  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
 
 (add-hook 'c-mode-hook 'cc-common-mode-auto-pair)
 (add-hook 'c++-mode-hook 'cc-common-mode-auto-pair)

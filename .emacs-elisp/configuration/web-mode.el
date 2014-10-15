@@ -1,5 +1,6 @@
 ;;------------------- web mode ----------------------
 (require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode)) 
@@ -27,14 +28,12 @@
 
 
 ;;Auto-pairing
-(setq web-mode-disable-auto-pairing t)
+(setq web-mode-enable-auto-pairing nil)
 
-;;CSS colorization
-(setq web-mode-disable-css-colorization t)
 ;;Block face: can be used to set blocks background(see web-mode-block-face)
-(setq web-mode-enable-block-face t)
+;; (setq web-mode-enable-block-face t)
 ;;Part face: can be used to set parts background (see web-mode-part-face)
-(setq web-mode-enable-part-face t)
+;; (setq web-mode-enable-part-face t)
 ;;Comment keywords (see web-mode-comment-keyword-face)
 (setq web-mode-enable-comment-keywords t)
 ;;Highlight current HTML element (see web-mode-current-element-highlight-face)
@@ -66,3 +65,4 @@
 (setq web-mode-script-padding 2)
 (setq web-mode-block-padding 0)
 (define-key web-mode-map (kbd "C-.") 'web-mode-comment-or-uncomment)
+(define-key web-mode-map (kbd "C-c /")     'web-mode-element-close)

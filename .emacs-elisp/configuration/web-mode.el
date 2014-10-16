@@ -66,3 +66,9 @@
 (setq web-mode-block-padding 0)
 (define-key web-mode-map (kbd "C-.") 'web-mode-comment-or-uncomment)
 (define-key web-mode-map (kbd "C-c /")     'web-mode-element-close)
+;; complement with auto-complete
+(setq web-mode-ac-sources-alist
+  '(("css" . (ac-source-css-property))
+    ("html" . (ac-source-words-in-buffer ac-source-abbrev ac-source-dictionary))
+    ("php" . (ac-source-words-in-buffer ac-source-abbrev))
+    ))

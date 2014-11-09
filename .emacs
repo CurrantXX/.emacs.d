@@ -80,3 +80,11 @@
 (show-paren-mode 1)  
 ;;; This is the binary name of my scheme implementation  
 (setq scheme-program-name "mit-scheme")  
+
+
+;;------------------- jde-mode ---------------------------
+
+(add-to-list 'load-path "~/.emacs-elisp/jdee-2.4.1/lisp")
+(autoload 'jde-mode "jde" "JDE mode" t)
+(setq auto-mode-alist
+      (append '(("\\.java\\'" . jde-mode)) auto-mode-alist))

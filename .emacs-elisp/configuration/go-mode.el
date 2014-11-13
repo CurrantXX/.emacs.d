@@ -26,3 +26,5 @@
 (add-hook 'go-mode-hook '(lambda ()
                            (local-set-key (kbd "C-c C-e") 'flymake-display-err-menu-for-current-line)
                            (cc-common-mode-auto-pair)))
+(require 'go-autocomplete)
+(require 'auto-complete-config)

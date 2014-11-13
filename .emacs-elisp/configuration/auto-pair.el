@@ -36,6 +36,7 @@
 (add-hook 'c-mode-hook 'cc-common-mode-auto-pair)
 (add-hook 'c++-mode-hook 'cc-common-mode-auto-pair)
 (add-hook 'java-mode-hook 'cc-common-mode-auto-pair)
+(add-hook 'go-mode-hook 'cc-common-mode-auto-pair)
 (add-hook 'lisp-mode-hook 'cc-common-mode-auto-pair)
 (add-hook 'web-mode-hook 'most-common-mode-auto-pair)
 (add-hook 'js2-mode-hook 'cc-common-mode-auto-pair)

@@ -21,7 +21,6 @@
 (add-hook 'go-mode-hook '(lambda ()
                            (local-set-key (kbd "C-c C-k") 'godoc)))
 
-(load "~/.emacs-elisp/go-oracle/oracle.el")
-(add-hook 'go-mode-hook 'go-oracle-mode)
-;; FIXME: Set $GOPATH then ...
-(custom-set-variables '(go-oracle-command "~/.emacs-elisp/go-oracle"))
+;; go-flymake
+(add-to-list 'load-path "~/.emacs-elisp/goflymake")
+(require 'go-flymake)

@@ -185,3 +185,5 @@ occurence of CHAR."
 (global-set-key "\C-cw" 'gud-watch)
 ;;==========================================================
 
+;; FIXME
+(global-set-key "\C-j" 'newline-and-indent)

@@ -44,6 +44,6 @@
 (add-hook 'scheme-mode-hook 'cc-common-mode-auto-pair)
 (add-hook 'css-mode-hook 'cc-common-mode-auto-pair)
 (add-hook 'sql-mode-hook 'cc-common-mode-auto-pair)
-(add-hook 'emacs-lisp-mode-hook 'most-common-mode-auto-pair)
+(add-hook 'emacs-lisp-mode-hook 'autopair-mode)
 (add-hook 'text-mode-hook 'most-common-mode-auto-pair)
 (add-hook 'slime-repl-mode-hook 'cc-common-mode-auto-pair)

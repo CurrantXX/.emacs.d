@@ -34,4 +34,13 @@
 (add-to-list 'ac-modes 'web-mode)
 ;;lisp-mode auto complete
 (add-to-list 'ac-modes 'lisp-mode)
+
+
+;; Bug fixes
+;; Issue: https://github.com/capitaomorte/yasnippet/issues/311
+;; Solution:http://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet/
+
+;; (defalias 'yas/get-snippet-tables 'yas--get-snippet-tables)
+;; (defalias 'yas/table-hash 'yas--table-hash)
+(delq 'ac-source-yasnippet ac-sources)
 ;;===============================================================

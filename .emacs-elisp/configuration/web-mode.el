@@ -1,5 +1,6 @@
 ;;------------------- web mode ----------------------
 (require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode)) 
@@ -9,8 +10,6 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
-(add-to-list 'auto-mode-alist '("\\.blade\\.php\\'" . web-mode))
 (set-face-attribute 'web-mode-html-tag-face nil :foreground "dodgerblue")
 (set-face-attribute 'web-mode-html-tag-bracket-face nil :foreground "white")
 (set-face-attribute 'web-mode-html-attr-name-face nil :foreground "#7070f0")
@@ -26,10 +25,9 @@
 
 
 ;;Auto-pairing
-(setq web-mode-disable-auto-pairing t)
-
+(setq web-mode-enable-auto-pairing nil)
 ;;CSS colorization
-(setq web-mode-disable-css-colorization t)
+(setq web-mode-enable-css-colorization t)
 ;;Block face: can be used to set blocks background(see web-mode-block-face)
 (setq web-mode-enable-block-face t)
 ;;Part face: can be used to set parts background (see web-mode-part-face)

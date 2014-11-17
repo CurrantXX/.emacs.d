@@ -458,7 +458,7 @@
   (add-to-list 'ac-sources 'ac-source-filename))
 
 (defun ac-emacs-lisp-mode-setup ()
-  (setq ac-sources (append '(ac-source-features ac-source-functions ac-source-variables ac-source-symbols) ac-sources)))
+  (setq ac-sources (append '(ac-source-features ac-source-functions ac-source-yasnippet ac-source-variables ac-source-symbols) ac-sources)))
 
 (defun ac-cc-mode-setup ()
   (setq ac-sources (append '(ac-source-gtags) ac-sources)))
@@ -475,7 +475,7 @@
   (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
   (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
   (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
-  (add-hook 'web-mode-hook 'ac-css-mode-setup)
+  (add-hook 'css-mode-hook 'ac-css-mode-setup)
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
   (global-auto-complete-mode t))
 

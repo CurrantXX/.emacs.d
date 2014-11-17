@@ -3901,9 +3901,8 @@ This function does not modify point or mark."
                   "UserWarning" "ValueError" "Warning" "ZeroDivisionError")
               word-end) . py-exception-name-face)
         ;; (,(rx (or space line-start) symbol-start "range
-        (,(rx (or line-start "." (1+ space)) (group (1+(or word ?_))) "(") . py-builtins-face)
         ;; Builtins
-        (,(rx word-start
+        (,(rx (or space line-start) symbol-start
               (or "_" "__doc__" "__import__" "__name__" "__package__" "abs" "all"
                   "any" "apply" "basestring" "bin" "bool" "buffer" "bytearray"
                   "bytes" "callable" "chr" "classmethod" "cmp" "coerce" "compile"
@@ -3916,7 +3915,7 @@ This function does not modify point or mark."
                   "reload" "repr" "reversed" "round" "set" "setattr" "slice"
                   "sorted" "staticmethod" "str" "sum" "super" "tuple" "type"
                   "unichr" "unicode" "vars" "xrange" "zip")
-              word-end) . py-builtins-face)
+              symbol-end) . py-builtins-face)
         ;; (,(python-rx line-start (* (any " \t"))(group (** 0 2 "_") word (0+ (or word ?_))(** 0 2 "_"))(* (any " \t")) assignment-operator)
         ;; 1 py-variable-name-face)
         ;; asignations

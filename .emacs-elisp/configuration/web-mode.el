@@ -1,6 +1,5 @@
 ;;------------------- web mode ----------------------
 (require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode)) 
@@ -15,7 +14,6 @@
 (set-face-attribute 'web-mode-html-tag-face nil :foreground "dodgerblue")
 (set-face-attribute 'web-mode-html-tag-bracket-face nil :foreground "white")
 (set-face-attribute 'web-mode-html-attr-name-face nil :foreground "#7070f0")
-;; (set-face-attribute 'web-mode-html-attr-name-face nil :foreground "#2AA198")
 (set-face-attribute 'web-mode-doctype-face nil :foreground "#66d9ef")
 (set-face-attribute 'web-mode-block-face nil :background "#1b1d1e")
 (set-face-attribute 'web-mode-current-element-highlight-face nil :background "#465457")
@@ -28,12 +26,14 @@
 
 
 ;;Auto-pairing
-(setq web-mode-enable-auto-pairing nil)
+(setq web-mode-disable-auto-pairing t)
 
+;;CSS colorization
+(setq web-mode-disable-css-colorization t)
 ;;Block face: can be used to set blocks background(see web-mode-block-face)
-;; (setq web-mode-enable-block-face t)
+(setq web-mode-enable-block-face t)
 ;;Part face: can be used to set parts background (see web-mode-part-face)
-;; (setq web-mode-enable-part-face t)
+(setq web-mode-enable-part-face t)
 ;;Comment keywords (see web-mode-comment-keyword-face)
 (setq web-mode-enable-comment-keywords t)
 ;;Highlight current HTML element (see web-mode-current-element-highlight-face)
@@ -65,10 +65,3 @@
 (setq web-mode-script-padding 2)
 (setq web-mode-block-padding 0)
 (define-key web-mode-map (kbd "C-.") 'web-mode-comment-or-uncomment)
-(define-key web-mode-map (kbd "C-c /")     'web-mode-element-close)
-;; complement with auto-complete
-(setq web-mode-ac-sources-alist
-  '(("css" . (ac-source-css-property))
-    ("html" . (ac-source-words-in-buffer ac-source-abbrev ac-source-dictionary))
-    ("php" . (ac-source-words-in-buffer ac-source-abbrev))
-    ))

@@ -63,3 +63,5 @@
 (setq web-mode-script-padding 2)
 (setq web-mode-block-padding 0)
 (define-key web-mode-map (kbd "C-.") 'web-mode-comment-or-uncomment)
+(define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
+;; (define-key web-mode-map (kbd "C-c <") 'web-mode-element-beginning)

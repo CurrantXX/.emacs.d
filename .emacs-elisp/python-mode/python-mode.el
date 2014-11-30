@@ -3938,7 +3938,10 @@ This function does not modify point or mark."
               res))
          (1 py-variable-name-face nil nil))
         ;; Numbers
-        (,(rx symbol-start (or (1+ digit) (1+ hex-digit)) symbol-end) . py-number-face)))
+        ;; Custom update: remvoe hex
+        ;; (,(rx symbol-start (or (1+ digit) (1+ hex-digit)) symbol-end) . py-number-face)))
+        (,(rx symbol-start (or (1+ digit)) symbol-end) . py-number-face)))
+
 
 (defconst py-font-lock-syntactic-keywords
   '(("[^\\]\\\\\\(?:\\\\\\\\\\)*\\(\\s\"\\)\\1\\(\\1\\)"

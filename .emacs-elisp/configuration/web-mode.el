@@ -1,6 +1,5 @@
 ;;------------------- web mode ----------------------
 (require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode)) 
@@ -65,3 +64,61 @@
 (define-key web-mode-map (kbd "C-.") 'web-mode-comment-or-uncomment)
 (define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
 ;; (define-key web-mode-map (kbd "C-c <") 'web-mode-element-beginning)
+
+(require 'scss-mode)
+(autoload 'scss-mode "scss-mode")
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+
+(require 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(add-hook 'scss-mode-hook 'emmet-mode)
+
+;; (add-hook 'web-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(define-key emmet-mode-keymap (kbd "C-c C-j") 'emmet-expand-line)
+(define-key emmet-mode-keymap (kbd "C-j") 'newline-and-indent)
+(setq emmet-move-cursor-between-quotes t) ;; default nil
+(require 'ac-emmet)
+
+(defun css-syntax-color-hex ()
+  "Syntax color hex color spec such as '#ff1100' or '#fff' or 'rgb(1,1,1)' in current buffer."
+  (interactive)
+  (font-lock-add-keywords
+   nil
+   '(("#[0-9a-fA-F]\\{6\\}\\|#[0-9a-fA-F]\\{3\\}\\|rgb([ ]*\\([[:digit:]]\\{1,3\\}\\)[ ]*,[ ]*\\([[:digit:]]\\{1,3\\}\\)[ ]*,[ ]*\\([[:digit:]]\\{1,3\\}\\)\\(.*?\\))"
+      (0 (css-colorize
+          (match-beginning 0)
+          (match-end 0)
+          )))))
+  (font-lock-fontify-buffer)
+  )
+(defun css-colorize-foreground (color)
+  "Colorize foreground based on background luminance."
+  (let* ((values (x-color-values color))
+	 (r (car values))
+	 (g (cadr values))
+	 (b (car (cdr (cdr values)))))
+    (if (> 128.0 (floor (+ (* .3 r) (* .59 g) (* .11 b)) 256))
+	"white" "black")))
+(defun css-colorize (beg end)
+  (let (str plist len)
+    (setq str (buffer-substring-no-properties beg end))
+    (setq len (length str))
+    (cond
+     ((string= (substring str 0 1) "#")
+      (setq plist (list :background str
+                        :foreground (css-colorize-foreground str)))
+      (put-text-property beg end 'face plist))
+     ((string= (substring str 0 4) "rgb(")
+      (setq str (format "#%02X%02X%02X"
+                        (string-to-number (match-string-no-properties 1))
+                        (string-to-number (match-string-no-properties 2))
+                        (string-to-number (match-string-no-properties 3))))
+      (setq plist (list :background str
+                        :foreground (css-colorize-foreground str)))
+      (put-text-property beg end 'face plist))
+     ) ;cond
+    ))
+
+(add-hook 'scss-mode-hook 'css-syntax-color-hex)
+(add-hook 'css-mode-hook 'css-syntax-color-hex)

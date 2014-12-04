@@ -10,7 +10,7 @@
 ;;===============================================================
 (add-to-list 'load-path "~/.emacs-elisp/auto-complete/")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs-elisp/auto-complete/ac-dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs-elisp/auto-complete/dict")
 (ac-config-default)
 ;; (setq ac-sources
 ;;       '(ac-source-filename

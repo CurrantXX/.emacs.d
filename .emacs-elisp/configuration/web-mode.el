@@ -73,6 +73,7 @@
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 (add-hook 'scss-mode-hook 'emmet-mode)
+(add-hook 'web-mode-hook 'emmet-mode)
 
 ;; (add-hook 'web-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 (define-key emmet-mode-keymap (kbd "C-c C-j") 'emmet-expand-line)

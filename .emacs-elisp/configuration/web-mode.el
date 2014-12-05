@@ -75,9 +75,11 @@
 (add-hook 'scss-mode-hook 'emmet-mode)
 (add-hook 'web-mode-hook 'emmet-mode)
 
-;; (add-hook 'web-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+;; Emmet-mode keyblinding
 (define-key emmet-mode-keymap (kbd "C-c C-j") 'emmet-expand-line)
 (define-key emmet-mode-keymap (kbd "C-j") 'newline-and-indent)
+(define-key emmet-mode-keymap (kbd "C-c C-n") 'emmet-next-edit-point)
+(define-key emmet-mode-keymap (kbd "C-c C-p") 'emmet-prev-edit-point)
 (setq emmet-move-cursor-between-quotes t) ;; default nil
 (require 'ac-emmet)
 

@@ -83,6 +83,7 @@ your recently and most frequently used commands.")
 (display-time-mode 1)
 ;;column number
 (column-number-mode t)
+(size-indication-mode t)
 ;;calendar color
 (setq calendar-load-hook
       '(lambda ()

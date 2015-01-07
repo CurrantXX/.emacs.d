@@ -38,7 +38,6 @@
 (add-hook 'java-mode-hook 'cc-common-mode-auto-pair)
 (add-hook 'go-mode-hook 'cc-common-mode-auto-pair)
 (add-hook 'lisp-mode-hook 'cc-common-mode-auto-pair)
-(add-hook 'web-mode-hook 'most-common-mode-auto-pair)
 (add-hook 'js2-mode-hook 'cc-common-mode-auto-pair)
 (add-hook 'python-mode-hook 'most-common-mode-auto-pair)
 (add-hook 'html-mode-hook 'cc-common-mode-auto-pair)
@@ -48,3 +47,5 @@
 (add-hook 'emacs-lisp-mode-hook 'autopair-mode)
 (add-hook 'text-mode-hook 'most-common-mode-auto-pair)
 (add-hook 'slime-repl-mode-hook 'cc-common-mode-auto-pair)
+(add-hook 'web-mode-hook 'autopair-mode)
+(add-hook 'ruby-mode-hook 'autopair-mode)

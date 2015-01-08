@@ -52,7 +52,7 @@
                   ("name" . ("beg" . "end"))))
         ))
 (defun web-mode-hook ()
-  (setq web-mode-markup-indent-offset 2) )
+  (setq web-mode-markup-indent-offset 2))
 (add-hook 'web-mode-hook 'web-mode-hook)
 (setq web-mode-markup-indent-offset 4)
 (setq web-mode-css-indent-offset 4)
@@ -64,6 +64,10 @@
 (define-key web-mode-map (kbd "C-.") 'web-mode-comment-or-uncomment)
 (define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
 ;; (define-key web-mode-map (kbd "C-c <") 'web-mode-element-beginning)
+
+;;================== Rainbow-mode ====================
+(require 'rainbow-mode)
+(add-hook 'web-mode-hook 'rainbow-mode)
 
 (require 'scss-mode)
 (autoload 'scss-mode "scss-mode")

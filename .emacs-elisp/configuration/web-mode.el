@@ -12,9 +12,9 @@
 (set-face-attribute 'web-mode-html-tag-face nil :foreground "dodgerblue")
 (set-face-attribute 'web-mode-html-tag-bracket-face nil :foreground "white")
 ;; (set-face-attribute 'web-mode-html-attr-name-face nil :foreground "#7070f0")
-(set-face-attribute 'web-mode-html-attr-name-face nil :foreground "#00ffff")
+(set-face-attribute 'web-mode-html-attr-name-face nil :foreground "#728a05")
 (set-face-attribute 'web-mode-doctype-face nil :foreground "#66d9ef")
-(set-face-attribute 'web-mode-block-face nil :background "#1b1d1e")
+(set-face-attribute 'web-mode-block-face nil :background "#002b36")
 (set-face-attribute 'web-mode-current-element-highlight-face nil :background "#465457")
 
 

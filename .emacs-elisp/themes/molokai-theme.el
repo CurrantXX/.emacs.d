@@ -1,6 +1,6 @@
 ;;; molokai-theme.el --- Yet another molokai theme for Emacs 24
 
-;; Copyright (C) 2013-2014 Huang Bin
+;; Copyright (C) 2013-2015 Huang Bin
 
 ;; Author: Huang Bin <embrace.hbin@gmail.com>
 ;; URL: https://github.com/hbin/molokai-theme
@@ -82,10 +82,10 @@
 
    ;; font lock
    `(font-lock-builtin-face ((t (:foreground ,molokai-chartreuse))))
-   `(font-lock-comment-face ((t (:foreground ,molokai-base01))))
-   `(font-lock-comment-delimiter-face ((t (:foreground ,molokai-base01))))
-   ;; `(font-lock-comment-face ((t (:foreground ,molokai-wheat))))
-   ;; `(font-lock-comment-delimiter-face ((t (:foreground ,molokai-wheat))))
+   ;; `(font-lock-comment-face ((t (:foreground ,molokai-base01))))
+   ;; `(font-lock-comment-delimiter-face ((t (:foreground ,molokai-base01))))
+   `(font-lock-comment-face ((t (:foreground ,molokai-wheat))))
+   `(font-lock-comment-delimiter-face ((t (:foreground ,molokai-wheat))))
    `(font-lock-constant-face ((t (:foreground ,molokai-purple))))
    `(font-lock-doc-string-face ((t (:foreground ,molokai-darkgoldenrod))))
    `(font-lock-function-name-face ((t (:foreground ,molokai-chartreuse))))
@@ -101,7 +101,7 @@
 
    ;; mode line
    `(mode-line ((t (:foreground ,molokai-fg
-                                :background ,molokai-base03
+                                :background ,molokai-dodgerblue
                                 :box nil))))
    `(mode-line-buffer-id ((t (:weight bold))))
    `(mode-line-inactive ((t (:foreground ,molokai-fg

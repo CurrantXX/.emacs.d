@@ -217,6 +217,8 @@ occurence of CHAR."
 
 
 ;; expand-region
-
 (require 'expand-region)
 (global-set-key (kbd "C-c RET") 'er/expand-region)
+
+;; restclient
+(require 'restclient)

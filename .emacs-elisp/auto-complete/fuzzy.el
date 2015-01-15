@@ -49,7 +49,7 @@
   (apply 'string (nreverse (append string nil))))
 
 (defun fuzzy-regexp-compile (string)
-  (labels ((oddp (n) (eq (logand n 1) 1))
+  (cl-labels ((oddp (n) (eq (logand n 1) 1))
            (evenp (n) (eq (logand n 1) 0))
            (opt (n) (regexp-opt-charset (append (substring string
                                                            (max 0 (- n 1))

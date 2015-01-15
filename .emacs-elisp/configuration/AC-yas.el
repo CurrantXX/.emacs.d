@@ -22,8 +22,6 @@
 ;;         ac-source-words-in-same-mode-buffers
 ;;         ac-source-dictionary
 ;;         ))
-(ac-set-trigger-key "TAB")
-(ac-set-trigger-key "<tab>")
 (setq ac-use-quick-help t)
 (setq ac-quick-help-delay 1.0)
 (setq ac-fuzzy-enable t)
@@ -35,3 +33,5 @@
 ;;lisp-mode auto complete
 (add-to-list 'ac-modes 'lisp-mode)
 ;;===============================================================
+(ac-set-trigger-key "TAB")
+(ac-set-trigger-key "<tab>")

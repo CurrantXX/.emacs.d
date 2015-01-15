@@ -12,7 +12,7 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode)) 
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("/\\(views\\|html\\|templates\\)/.*\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("/\\(views\\|html\\|templates\\|template\\)/.*\\.php\\'" . web-mode))
 (set-face-attribute 'web-mode-html-tag-face nil :foreground "dodgerblue")
 (set-face-attribute 'web-mode-html-tag-bracket-face nil :foreground "white")
 ;; (set-face-attribute 'web-mode-html-attr-name-face nil :foreground "#7070f0")

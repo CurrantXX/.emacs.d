@@ -1,6 +1,6 @@
 ;;; php-mode.el --- Major mode for editing PHP code
 
-;; Copyright (C) 1999, 2000, 2001, 2003, 2004 Turadg Aleahmad
+;; Copyright (C) 1999, 2000, 2001, 2003, 2004, 2015 Turadg Aleahmad
 ;;               2008 Aaron S. Hawley
 ;;               2011, 2012, 2013, 2014, 2015 Eric James Michael Ritz
 
@@ -405,7 +405,7 @@ This variable can take one of the following symbol values:
     ;; Use the Emacs standard indentation binding. This may upset c-mode
     ;; which does not follow this at the moment, but I see no better
     ;; choice.
-    (define-key map [tab] 'indent-for-tab-command)
+    ;; (define-key map [tab] 'indent-for-tab-command)
     map)
   "Keymap for `php-mode'")
 

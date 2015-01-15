@@ -11,7 +11,7 @@
 
 
 ;;; (set-face-foreground 'py-variable-name-face "#74E32D")
-(set-face-foreground 'py-variable-name-face "#FF7F50")
+;; (set-face-foreground 'py-variable-name-face "#FF7F50")
 (set-face-foreground 'py-number-face "#AE81FF")
 (set-face-foreground 'py-decorators-face "#FD971F")
 (set-face-foreground 'py-pseudo-keyword-face "#FD971F")

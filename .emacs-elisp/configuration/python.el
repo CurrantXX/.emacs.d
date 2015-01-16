@@ -8,7 +8,7 @@
 (autoload 'jedi:setup "jedi" nil t)
 (add-hook 'python-mode-hook 'jedi:setup)
 (define-key python-mode-map (kbd "C-3") 'comment-or-uncomment-region)
-
+(define-key python-mode-map (kbd "C-c C-a") 'py-pep8-run)
 
 ;;; (set-face-foreground 'py-variable-name-face "#74E32D")
 ;; (set-face-foreground 'py-variable-name-face "#FF7F50")

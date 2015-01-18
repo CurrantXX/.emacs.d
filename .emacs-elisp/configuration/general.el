@@ -79,7 +79,8 @@ your recently and most frequently used commands.")
 ;;=============================================================
 ;;time
 (setq display-time-24hr-format t)
-(setq display-time-interval 10);;时间更新频率
+(setq display-time-format "%02H:%02M:%02S %Y-%02m-%02d %3a")
+(setq display-time-interval 1);;时间更新频率
 (display-time-mode 1)
 ;;column number
 (column-number-mode t)
@@ -172,6 +173,12 @@ occurence of CHAR."
       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
 (global-set-key (kbd "M-9") 'transpose-buffers)
 ;;==========================================================
+
+;; ==================== 滚动缩放 ====================
+;; http://zhuoqiang.me/torture-emacs.html
+;; For Linux
+(global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
+(global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
 
 ;;gdb按键设置
 ;;==========================================================

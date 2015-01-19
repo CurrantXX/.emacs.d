@@ -34,7 +34,7 @@
     (propertize "] " 'face 'font-lock-comment-face)
 
     (propertize "[" 'face 'font-lock-comment-face)
-    '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
+    '(:eval (propertize (if overwrite-mode "Ovrewrite" "Insert")
                         'face 'font-lock-preprocessor-face
                         'help-echo (concat "Buffer is in "
                                            (if overwrite-mode "overwrite" "insert") " mode")))
@@ -42,14 +42,14 @@
     ;; was this buffer modified since the last save?
     '(:eval (when (buffer-modified-p)
               (concat (propertize "," 'face 'font-lock-comment-face)
-                      (propertize "Mod"
+                      (propertize "Modidfied"
                                   'face 'font-lock-warning-face
                                   'help-echo "Buffer has been modified"))))
 
     ;; is this buffer read-only?
     '(:eval (when buffer-read-only
               (concat (propertize "," 'face 'font-lock-comment-face)
-                      (propertize "RO"
+                      (propertize "Read-only"
                                   'face 'font-lock-type-face
                                   'help-echo "Buffer is read-only"))))
 

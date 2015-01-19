@@ -97,3 +97,5 @@
 (setq org-latex-pdf-process
       '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
+(require 'magic-latex-buffer)
+(add-hook 'latex-mode-hook 'magic-latex-buffer)

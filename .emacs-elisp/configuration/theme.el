@@ -120,3 +120,6 @@
   ;; (setq default-mode-line-format mode-line-format) ; 奇葩了，没有这行它就没法设置成功
   )
 (my-mode-line)
+
+(require 'window-numbering)
+(window-numbering-mode 1)

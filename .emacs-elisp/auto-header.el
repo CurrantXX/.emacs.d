@@ -1,6 +1,6 @@
 ;;; auto-header.el --- Support for automatically updated file headers.
 
-;; Copyright (C) 1996, 1998-2002, 2004, 2011-2012, 2014, Espen Skoglund.
+;; Copyright (C) 1996, 1998-2002, 2004, 2011-2012, 2014-2015, Espen Skoglund.
 
 ;; Author: Espen Skoglund <esk@ira.uka.de>
 ;; Keywords: file headers
@@ -320,7 +320,7 @@ SUCH DAMAGE."))
                       "from the School of Computer, \n  "
                       "Guangdong University of Technology, GZ 510006, P. R. China" )))
     ("text-2" . (nil (concat "  "
-                      header-project-name ", 2014 by " header-full-name " is licensed under a\n  Creative Commons 署名-相同方式共享 2.5 中国大陆 License.")))
+                      header-project-name ", 2015 by " header-full-name " is licensed under a\n  Creative Commons 署名-相同方式共享 2.5 中国大陆 License.")))
     )
   "List of header fields -- their text and their default value.")
 
@@ -332,11 +332,12 @@ SUCH DAMAGE."))
     (asm-mode        . ("/*"   "*/"  " *"   "*"))
     (eiffel-mode     . ("--"   ""    "--"   "-"))
     (emacs-lisp-mode . (";"    ""    ";;"   ";"))
-    (web-mode       . ("<!--" "-->" " ---" "-"))
+    (web-mode        . ("<!--" "-->" " ---" "-"))
     (html-mode       . ("<!--" "-->" " ---" "-"))
     (idl-mode        . ("//"   ""    "//"   "="))
     (java-mode       . ("/*"   "*/"  " *"   "*"))
     (jde-mode        . ("/*"   "*/"  " *"   "*"))
+    (js2-mode        . ("/*"   "*/"  " *"   "*"))
     (ksh-mode        . ("#"    ""    "##"   "#"))
     (latex-mode      . ("%"    ""    "%%"   "%"))
     (LaTeX-mode      . ("%"    ""    "%%"   "%"))

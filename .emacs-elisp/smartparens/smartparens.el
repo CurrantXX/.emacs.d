@@ -7548,13 +7548,17 @@ the opening delimiter or before the closing delimiter."
 
 (defface sp-show-pair-match-face
   '((((class color) (background light))
-     :background "turquoise")       ; looks OK on tty (becomes cyan)
+     :foreground "turquoise")       ; looks OK on tty (becomes cyan)
+     ;; :background "turquoise")       ; looks OK on tty (becomes cyan)
     (((class color) (background dark))
-     :background "steelblue3")      ; looks OK on tty (becomes blue)
+     :foreground "steelblue3")      ; looks OK on tty (becomes blue)
+     ;; :background "steelblue3")      ; looks OK on tty (becomes blue)
     (((background dark))
-     :background "grey50")
+        :background "#002b36")
+     ;; :background "grey50")
     (t
-     :background "gray"))
+        :background "#002b36"))
+     ;; :background "gray"))
   "`show-smartparens-mode' face used for a matching pair."
   :group 'show-smartparens)
 

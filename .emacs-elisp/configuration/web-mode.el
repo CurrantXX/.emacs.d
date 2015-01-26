@@ -74,15 +74,24 @@
 (require 'rainbow-mode)
 (add-hook 'web-mode-hook 'rainbow-mode)
 
-(require 'scss-mode)
-(autoload 'scss-mode "scss-mode")
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 
 (require 'emmet-mode)
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-(add-hook 'scss-mode-hook 'emmet-mode)
 (add-hook 'web-mode-hook 'emmet-mode)
+(add-hook 'web-mode-before-auto-complete-hooks
+          '(lambda ()
+             (let ((web-mode-cur-language
+                    (web-mode-language-at-pos)))
+               (if (string= web-mode-cur-language "scss")
+                   (setq emmet-use-css-transform t)
+                 (setq emmet-use-css-transform nil))
+               (if (string= web-mode-cur-language "css")
+                   (setq emmet-use-css-transform t)
+                 (setq emmet-use-css-transform nil)))))
+
 
 ;; Emmet-mode keyblinding
 (define-key emmet-mode-keymap (kbd "C-c C-j") 'emmet-expand-line)
@@ -107,11 +116,11 @@
 (defun css-colorize-foreground (color)
   "Colorize foreground based on background luminance."
   (let* ((values (x-color-values color))
-	 (r (car values))
-	 (g (cadr values))
-	 (b (car (cdr (cdr values)))))
+         (r (car values))
+         (g (cadr values))
+         (b (car (cdr (cdr values)))))
     (if (> 128.0 (floor (+ (* .3 r) (* .59 g) (* .11 b)) 256))
-	"white" "black")))
+        "white" "black")))
 (defun css-colorize (beg end)
   (let (str plist len)
     (setq str (buffer-substring-no-properties beg end))
@@ -132,5 +141,4 @@
      ) ;cond
     ))
 
-(add-hook 'scss-mode-hook 'css-syntax-color-hex)
 (add-hook 'css-mode-hook 'css-syntax-color-hex)

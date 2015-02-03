@@ -1,17 +1,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;   Filename:    .emacs
-;;                
+;;
 ;;   Description: Configuration file of Emacs
-;;                
-;;   Created at:  Tue Feb  3 13:24:19 UTC 2015
-
-;;                
+;;
+;;   Created at:  Tue Feb 03 13:26:20 UTC 2015
 ;;   Gallon Choi is a student majoring in Software Engineering,
 ;;   from the School of Computer, 
 ;;   Guangdong University of Technology, GZ 510006, P. R. China
-;;                
+;;
 ;;   Status:      Experimental, do not distribute.
-;;                
+;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;Personal message
@@ -84,4 +82,38 @@
 
 (global-set-key (kbd "C-M-y") 'query-replace-regexp)
 (global-set-key (kbd "M-k") 'kill-sexp)
-;; C-c C-d: hungry delete
+(global-set-key (kbd "M-.") 'delete-horizontal-space)
+
+;; Hungry-delete
+(require 'hungry-delete)
+(global-hungry-delete-mode)
+(global-set-key (kbd "C-c C-d") 'hungry-delete-forward)
+(global-set-key (kbd "C-c DEL") 'hungry-delete-backward)
+
+;; ====================
+;; insert date and time
+
+(defvar current-date-time-format "%a %b %d %H:%M:%S %Z %Y"
+  "Format of date to insert with `insert-current-date-time' func
+See help of `format-time-string' for possible replacements")
+
+(defvar current-time-format "%a %H:%M:%S"
+  "Format of date to insert with `insert-current-time' func.
+Note the weekly scope of the command's precision.")
+
+(defun insert-current-date-time ()
+  "insert the current date and time into current buffer.
+Uses `current-date-time-format' for the formatting the date/time."
+       (interactive)
+;       (insert (let () (comment-start)))
+       (insert (format-time-string current-date-time-format (current-time)))
+       )
+
+(defun insert-current-time ()
+  "insert the current time (1-week scope) into the current buffer."
+       (interactive)
+       (insert (format-time-string current-time-format (current-time)))
+       )
+
+(global-set-key "\C-c\C-t" 'insert-current-date-time)
+;; (global-set-key "\C-c\C-t" 'insert-current-time)

@@ -3,7 +3,8 @@
 ;;                
 ;;   Description: Configuration file of Emacs
 ;;                
-;;   Created at:  Tue Jun 24 02:44:56 2014
+;;   Created at:  Tue Feb  3 13:24:19 UTC 2015
+
 ;;                
 ;;   Gallon Choi is a student majoring in Software Engineering,
 ;;   from the School of Computer, 
@@ -83,4 +84,4 @@
 
 (global-set-key (kbd "C-M-y") 'query-replace-regexp)
 (global-set-key (kbd "M-k") 'kill-sexp)
-(global-set-key (kbd "M-.") 'delete-horizontal-space)
+;; C-c C-d: hungry delete

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: comment
+# key: yac
+# --
+/** 
+ * ${}
+ *
+ * @param ${}
+ * @return ${}
+ */

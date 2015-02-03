@@ -6,12 +6,12 @@
 
 ;;; Author: Eric James Michael Ritz
 ;;; URL: https://github.com/ejmr/php-mode
-;;; Version: 1.15.2
+;;; Version: 1.15.3
 
-(defconst php-mode-version-number "1.15.2"
+(defconst php-mode-version-number "1.15.3"
   "PHP Mode version number.")
 
-(defconst php-mode-modified "2015-01-26"
+(defconst php-mode-modified "2015-01-31"
   "PHP Mode build date.")
 
 ;;; License
@@ -546,6 +546,7 @@ PHP does not have an \"enum\"-like keyword."
     "isset"
     "list"
     "or"
+    "parent"
     "static"
     "unset"
     "var"
@@ -631,8 +632,7 @@ code and modules."
   (c-set-style "pear")
 
   ;; Undo drupal/PSR-2 coding style whitespace effects
-  (set (make-local-variable 'show-trailing-whitespace) nil)
-  (remove-hook 'before-save-hook 'delete-trailing-whitespace))
+  (set (make-local-variable 'show-trailing-whitespace) nil))
 
 (c-add-style
  "drupal"
@@ -647,7 +647,7 @@ working with Drupal."
         indent-tabs-mode nil
         fill-column 78)
   (set (make-local-variable 'show-trailing-whitespace) t)
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)
   (c-set-style "drupal"))
 
 (c-add-style
@@ -666,8 +666,7 @@ working with Wordpress."
   (c-set-style "wordpress")
 
   ;; Undo drupal/PSR-2 coding style whitespace effects
-  (set (make-local-variable 'show-trailing-whitespace) nil)
-  (remove-hook 'before-save-hook 'delete-trailing-whitespace))
+  (set (make-local-variable 'show-trailing-whitespace) nil))
 
 (c-add-style
   "symfony2"
@@ -685,8 +684,7 @@ working with Symfony2."
   (c-set-style "symfony2")
 
   ;; Undo drupal/PSR-2 coding style whitespace effects
-  (set (make-local-variable 'show-trailing-whitespace) nil)
-  (remove-hook 'before-save-hook 'delete-trailing-whitespace))
+  (set (make-local-variable 'show-trailing-whitespace) nil))
 
 (c-add-style
   "psr2"
@@ -704,7 +702,7 @@ working with Symfony2."
   ;; Apply drupal-like coding style whitespace effects
   (set (make-local-variable 'require-final-newline) t)
   (set (make-local-variable 'show-trailing-whitespace) t)
-  (add-hook 'before-save-hook 'delete-trailing-whitespace))
+  (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
 
 (defconst php-beginning-of-defun-regexp
   "^\\s-*\\(?:\\(?:abstract\\|final\\|private\\|protected\\|public\\|static\\)\\s-+\\)*function\\s-+&?\\(\\(?:\\sw\\|\\s_\\)+\\)\\s-*("
@@ -1343,6 +1341,9 @@ a completion list."
      ;; Highlight variables, e.g. 'var' in '$var' and '$obj->var', but
      ;; not in $obj->var()
      ("->\\(\\sw+\\)\\s-*(" 1 'default)
+
+     ;; Highlight special variables
+     ("\\$\\(this\\|that\\)" 1 font-lock-constant-face)
      ("\\(\\$\\|->\\)\\([a-zA-Z0-9_]+\\)" 2 font-lock-variable-name-face)
 
      ;; Highlight function/method names
@@ -1369,13 +1370,9 @@ a completion list."
    ;;   already fontified by another pattern. Note that using OVERRIDE
    ;;   is usually overkill.
    `(
-     
      ;; Highlight variables, e.g. 'var' in '$var' and '$obj->var', but
      ;; not in $obj->var()
      ("->\\(\\sw+\\)\\s-*(" 1 'default)
-
-     ;; Highlight special variables
-     ("\\$\\(this\\|that\\)" 1 font-lock-constant-face)
 
      ("\\(\\$\\|->\\)\\([a-zA-Z0-9_]+\\)" 2 font-lock-variable-name-face)
 

@@ -68,6 +68,8 @@
 (setq web-mode-block-padding 0)
 (define-key web-mode-map (kbd "C-.") 'web-mode-comment-or-uncomment)
 (define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
+(define-key web-mode-map (kbd "C-c C-d") 'hungry-delete-forward)
+(define-key web-mode-map (kbd "C-c DEL") 'hungry-delete-backward)
 ;; (define-key web-mode-map (kbd "C-c <") 'web-mode-element-beginning)
 
 ;;================== Rainbow-mode ====================

@@ -35,3 +35,5 @@
 ;;===============================================================
 (ac-set-trigger-key "TAB")
 (ac-set-trigger-key "<tab>")
+;; (set-face-background 'popup-face "#1c1c1c")
+;; (set-face-foreground 'popup-face "#0087ff")

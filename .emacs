@@ -81,3 +81,6 @@
 ;;; This is the binary name of my scheme implementation  
 (setq scheme-program-name "mit-scheme")  
 
+(global-set-key (kbd "C-M-y") 'query-replace-regexp)
+(global-set-key (kbd "M-k") 'kill-sexp)
+(global-set-key (kbd "M-.") 'delete-horizontal-space)

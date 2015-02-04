@@ -53,5 +53,5 @@
 ;;------------------- smartparens-mode ------------------
 (add-to-list 'load-path "~/.emacs-elisp/smartparens/")
 (require 'smartparens-config)
- (smartparens-global-mode)
- (show-smartparens-global-mode t)
+(smartparens-global-mode)
+(show-smartparens-global-mode t)

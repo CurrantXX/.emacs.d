@@ -89,6 +89,12 @@
 ;; automatically.  If you want to call sp-local-pair outside this
 ;; macro, you MUST supply the major mode argument.
 
+(sp-with-modes 'web-mode
+  (sp-local-pair "{%" "%}"))
+
+(sp-with-modes 'php-mode
+  (sp-local-pair "/*" "*/"))
+
 (--each sp--html-modes
   (eval-after-load (symbol-name it) '(require 'smartparens-html)))
 (eval-after-load "latex"         '(require 'smartparens-latex))

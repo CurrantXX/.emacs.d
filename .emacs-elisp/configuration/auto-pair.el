@@ -55,3 +55,5 @@
 (require 'smartparens-config)
 (smartparens-global-mode)
 (show-smartparens-global-mode t)
+(global-set-key (kbd "M-S-<left>") 'sp-add-to-next-sexp)
+(global-set-key (kbd "M-S-<right>") 'sp-add-to-previous-sexp)

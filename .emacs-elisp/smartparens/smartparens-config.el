@@ -102,7 +102,7 @@
 (eval-after-load "lua-mode"      '(require 'smartparens-lua))
 (eval-after-load "ruby-mode"     '(require 'smartparens-ruby))
 (eval-after-load "enh-ruby-mode" '(require 'smartparens-ruby))
-
+(show-smartparens-mode nil)
 (provide 'smartparens-config)
 
 ;;; smartparens-config.el ends here

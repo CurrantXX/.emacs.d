@@ -54,6 +54,6 @@
 (add-to-list 'load-path "~/.emacs-elisp/smartparens/")
 (require 'smartparens-config)
 (smartparens-global-mode)
-(show-smartparens-global-mode t)
+(show-smartparens-global-mode nil)
 (global-set-key (kbd "M-S-<left>") 'sp-add-to-next-sexp)
 (global-set-key (kbd "M-S-<right>") 'sp-add-to-previous-sexp)

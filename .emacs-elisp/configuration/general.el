@@ -209,7 +209,8 @@ occurence of CHAR."
       (progn
         (indent-buffer)
         (message "Indented buffer.")))
-    (whitespace-cleanup)))
+    (whitespace-cleanup)
+    (untabify (point-min) (point-max))))
 (global-set-key (kbd "C-c C-i") 'indent-region-or-buffer)
 
 (global-set-key "\C-j" 'newline-and-indent)

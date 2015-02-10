@@ -19,3 +19,15 @@
 (setq default-buffer-file-coding-system 'utf-8)
 ;;读取或写入文件名的编码方式
 (setq file-name-coding-system 'utf-8)
+
+(defun my-one-blank-line-end ()
+"Leave exactly one blank line at the end of the file."
+ (interactive)
+ (save-excursion
+     (goto-char (point-max))
+     (open-line 1)
+     (delete-blank-lines)))
+(defun my-write-file-hook ()
+  (whitespace-cleanup)                  ; delelte trailing blanks/tabs.
+  (my-one-blank-line-end))              ; leave one line in the end.
+(add-hook 'write-file-hooks 'my-write-file-hook)

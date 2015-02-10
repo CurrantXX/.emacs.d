@@ -1,17 +1,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;   Filename:    general.el
 ;;   Version:     1.0
-;;                
+;;
 ;;   Description: General Configuration for Emacs
-;;                
+;;
 ;;   Created at:  Mon Jun 23 21:53:01 2014
-;;                
+;;
 ;;   Gallon Choi is a student majoring in Software Engineering,
-;;   from the School of Computer, 
+;;   from the School of Computer,
 ;;   Guangdong University of Technology, GZ 510006, P. R. China
-;;                
+;;
 ;;   Status:      Experimental, do not distribute.
-;;                
+;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq default-direct "~/Workspace/")
 ;;Line number
@@ -104,7 +104,7 @@ your recently and most frequently used commands.")
 (global-set-key [mouse-5] 'up-slightly)
 ;;==============================================================
 
-;;Find the next nearest charactor and jump to it 
+;;Find the next nearest charactor and jump to it
 ;;==============================================================
 (defun my-go-to-char (n char)
   "Move forward to Nth occurence of CHAR.
@@ -154,7 +154,7 @@ occurence of CHAR."
 ;;===========================================================
 ;;next window
 (global-set-key [(control \')] 'next-multiframe-window)
-;;split and delete windows 
+;;split and delete windows
 (global-set-key (kbd "M-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-below)
 (global-set-key (kbd "M-3") 'split-window-right)
@@ -208,7 +208,8 @@ occurence of CHAR."
           (message "Indented selected region."))
       (progn
         (indent-buffer)
-        (message "Indented buffer.")))))
+        (message "Indented buffer.")))
+    (whitespace-cleanup)))
 (global-set-key (kbd "C-c C-i") 'indent-region-or-buffer)
 
 (global-set-key "\C-j" 'newline-and-indent)

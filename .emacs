@@ -5,7 +5,7 @@
 ;;
 ;;   Created at:  Tue Feb 03 13:26:20 UTC 2015
 ;;   Gallon Choi is a student majoring in Software Engineering,
-;;   from the School of Computer, 
+;;   from the School of Computer,
 ;;   Guangdong University of Technology, GZ 510006, P. R. China
 ;;
 ;;   Status:      Experimental, do not distribute.
@@ -72,18 +72,16 @@
 (setq html-helper-build-new-buffer nil)
 (setq html-helper-address-string "<a href= \"http://gallon.cc\">G_allon<\\a>")
 
-(global-font-lock-mode 1)  
-;;; Also highlight parens  
-(setq show-paren-delay 0  
-      show-paren-style 'parenthesis)  
-(show-paren-mode 1)  
-;;; This is the binary name of my scheme implementation  
-(setq scheme-program-name "mit-scheme")  
+(global-font-lock-mode 1)
+;;; Also highlight parens
+(setq show-paren-delay 0
+      show-paren-style 'parenthesis)
+(show-paren-mode 1)
+;;; This is the binary name of my scheme implementation
+(setq scheme-program-name "mit-scheme")
 
 (global-set-key (kbd "C-M-y") 'query-replace-regexp)
-(global-set-key (kbd "M-k") 'kill-sexp)
 (global-set-key (kbd "M-.") 'delete-horizontal-space)
-
 ;; Hungry-delete
 (require 'hungry-delete)
 (global-hungry-delete-mode)

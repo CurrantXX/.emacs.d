@@ -3,7 +3,7 @@
 
 ;; Copyright 2011-2015 François-Xavier Bois
 
-;; Version: 11.0.19
+;; Version: 11.0.23
 ;; Author: François-Xavier Bois <fxbois AT Google Mail Service>
 ;; Maintainer: François-Xavier Bois
 ;; Created: July 2011
@@ -26,7 +26,7 @@
 
 ;;---- CONSTS ------------------------------------------------------------------
 
-(defconst web-mode-version "11.0.19"
+(defconst web-mode-version "11.0.23"
   "Web Mode version.")
 
 ;;---- GROUPS ------------------------------------------------------------------
@@ -593,6 +593,9 @@ Must be used in conjunction with web-mode-enable-block-face."
 
 ;;---- VARS --------------------------------------------------------------------
 
+(defvar font-lock-beg)
+(defvar font-lock-end)
+
 (defvar web-mode-auto-pairs nil)
 (defvar web-mode-block-regexp nil)
 (defvar web-mode-chunk-length 64)
@@ -842,25 +845,25 @@ Must be used in conjunction with web-mode-enable-block-face."
     ("yacute" . 253) ("yen" . 165) ("yuml" . 255) ("zeta" . 950)
     ("zwj" . 8205) ("zwnj" . 8204)))
 
-(defvar web-mode-engines-alternate-delimiters
-  (if (boundp 'web-mode-engines-alternate-delimiters)
-      web-mode-engines-alternate-delimiters
-    '())
-  "Engine delimiters. Useful for engines that provide alternate delimiters.")
+;; (defvar web-mode-engines-alternate-delimiters
+;;   (if (boundp 'web-mode-engines-alternate-delimiters)
+;;       web-mode-engines-alternate-delimiters
+;;     '())
+;;   "Engine delimiters. Useful for engines that provide alternate delimiters.")
 
-(defun web-mode-engine-delimiter-open (engine default)
-  "alternative open delimiter"
-  (let (delim)
-    (setq delim (car (cdr (assoc engine web-mode-engines-alternate-delimiters))))
-    (or delim default)
-  ))
+;; (defun web-mode-engine-delimiter-open (engine default)
+;;   "alternative open delimiter"
+;;   (let (delim)
+;;     (setq delim (car (cdr (assoc engine web-mode-engines-alternate-delimiters))))
+;;     (or delim default)
+;;   ))
 
-(defun web-mode-engine-delimiter-close (engine default)
-  "alternative close delimiter"
-  (let (delim)
-    (setq delim (cdr (cdr (assoc engine web-mode-engines-alternate-delimiters))))
-    (or delim default)
-    ))
+;; (defun web-mode-engine-delimiter-close (engine default)
+;;   "alternative close delimiter"
+;;   (let (delim)
+;;     (setq delim (cdr (cdr (assoc engine web-mode-engines-alternate-delimiters))))
+;;     (or delim default)
+;;     ))
 
 ;; http://webdesign.about.com/od/localization/l/blhtmlcodes-ascii.htm
 (defvar web-mode-display-table
@@ -869,7 +872,7 @@ Must be used in conjunction with web-mode-enable-block-face."
     (aset table 10 (vector ?\xB6 ?\n)) ;line feed
     (aset table 32 (vector ?\xB7))
     table)
-  "Display table used when switching to the internal whitespace mode.")
+  "Display table used when switching to the whitespace visualization.")
 
 (defvar web-mode-expanders
   '(("a/" . "<a href=\"|\"></a>")
@@ -904,6 +907,8 @@ Must be used in conjunction with web-mode-enable-block-face."
                       ("<%-" . "- | --%>")))
     ("blade"       . (("{{{" . " | }}}")
                       ("{{ " . " }}")
+                      ("{!!" . " | !!}")
+                      ("@{{" . " | }}")
                       ("{{-" . "- | --}}")))
     ("cl-emb"      . (("<% " . " %>")
                       ("<%=" . " | %>")
@@ -1014,7 +1019,7 @@ Must be used in conjunction with web-mode-enable-block-face."
    '("angular"          . "{{")
    '("asp"              . "<%\\|</?[[:alpha:]]+:[[:alpha:]]+\\|</?[[:alpha:]]+Template")
    '("aspx"             . "<%.")
-   '("blade"            . "{{.\\|^[ \t]*@[[:alpha:]]")
+   '("blade"            . "{{.\\|{!!\\|@{{\\|^[ \t]*@[[:alpha:]]")
    '("cl-emb"           . "<%")
    '("closure"          . "{.\\|/\\*\\| //")
    '("clip"             . "</?c:[[:alpha:]-]+")
@@ -1034,7 +1039,7 @@ Must be used in conjunction with web-mode-enable-block-face."
    '("php"              . "<\\?")
    '("python"           . "<\\?")
    '("razor"            . "@.\\|^[ \t]*}")
-   (cons "smarty"       (concat (web-mode-engine-delimiter-open "smarty" "{") "[[:alpha:]#$/*\"]"))
+   '("smarty"           . "{[[:alpha:]#$/*\"]")
    '("template-toolkit" . "\\[[%#]")
    '("underscore"       . "<%")
    '("velocity"         . "^[ \t]*#[[:alpha:]#*]\\|$[[:alpha:]!{]")
@@ -1505,7 +1510,7 @@ Must be used in conjunction with web-mode-enable-block-face."
    '("\\<\\(new\\|instanceof\\) \\([[:alnum:]_.]+\\)\\>" 2 'web-mode-type-face)
    '("\\<\\([[:alnum:]_]+\\):[ ]*function[ ]*(" 1 'web-mode-function-name-face)
    '("\\<function[ ]+\\([[:alnum:]_]+\\)" 1 'web-mode-function-name-face)
-   '("\\<var[ ]+\\([[:alnum:]_]+\\)" 1 'web-mode-variable-name-face)
+   '("\\<\\(var\\|let\\|const\\)[ ]+\\([[:alnum:]_]+\\)" 2 'web-mode-variable-name-face)
    '("\\<\\(function\\)[ ]*("
      (1 'web-mode-keyword-face)
      ("\\([[:alnum:]_]+\\)\\([ ]*=[^,)]*\\)?[,)]" nil nil (1 'web-mode-variable-name-face)))
@@ -1544,8 +1549,7 @@ Must be used in conjunction with web-mode-enable-block-face."
   (list
    (cons (concat "[ ]\\(" web-mode-smarty-keywords "\\)[ ]")
          '(1 'web-mode-keyword-face))
-   (cons (concat (web-mode-engine-delimiter-open "smarty" "{") "/?\\([[:alpha:]_]+\\)")
-         '(1 'web-mode-block-control-face))
+   '("{/?\\([[:alpha:]_]+\\)" 1 'web-mode-block-control-face)
    '("\\([}{]\\)" 0 'web-mode-block-delimiter-face)
    '("\\<\\([$]\\)\\([[:alnum:]_]+\\)" (1 nil) (2 'web-mode-variable-name-face))
    '("\\<\\(\\sw+\\)[ ]?(" 1 'web-mode-function-call-face)
@@ -2148,6 +2152,7 @@ the environment as needed for ac-sources, right before they're used.")
   (make-local-variable 'fill-paragraph-function)
   (make-local-variable 'font-lock-beg)
   (make-local-variable 'font-lock-defaults)
+  (make-local-variable 'font-lock-extend-region-functions)
   (make-local-variable 'font-lock-end)
   (make-local-variable 'font-lock-support-mode)
   (make-local-variable 'font-lock-unfontify-region-function)
@@ -2156,6 +2161,7 @@ the environment as needed for ac-sources, right before they're used.")
   (make-local-variable 'imenu-generic-expression)
   (make-local-variable 'indent-line-function)
   (make-local-variable 'parse-sexp-lookup-properties)
+;;  (make-local-variable 'syntax-propertize-function)
   (make-local-variable 'yank-excluded-properties)
 
   ;; NOTE: required for block-code-beg|end
@@ -2165,12 +2171,14 @@ the environment as needed for ac-sources, right before they're used.")
 
   (setq fill-paragraph-function 'web-mode-fill-paragraph
         font-lock-defaults '(web-mode-font-lock-keywords t)
+        font-lock-extend-region-functions '(web-mode-extend-region)
         font-lock-support-mode nil
         font-lock-unfontify-region-function 'web-mode-unfontify-region
         imenu-case-fold-search t
         imenu-create-index-function 'web-mode-imenu-index
         indent-line-function 'web-mode-indent-line
         parse-sexp-lookup-properties t
+;;        syntax-propertize-function nil
         yank-excluded-properties t)
 
   (add-hook 'after-change-functions 'web-mode-on-after-change nil t)
@@ -2472,6 +2480,12 @@ the environment as needed for ac-sources, right before they're used.")
           (cond
            ((string= tagopen "{{-")
             (setq closing-string "--}}"))
+           ((string= tagopen "{!!")
+            (setq closing-string "!!}"
+                  delim-open "{!!"
+                  delim-close "!!}"))
+           ((string= tagopen "@{{")
+            (setq closing-string nil))
            ((string= tagopen "{{{")
             (setq closing-string "}}}"
                   delim-open "{{{"
@@ -2488,19 +2502,18 @@ the environment as needed for ac-sources, right before they're used.")
 
          ((string= web-mode-engine "smarty")
           (cond
-           ((string= tagopen (concat (web-mode-engine-delimiter-open web-mode-engine "{") "*"))
-            (setq closing-string (concat "*" (web-mode-engine-delimiter-close web-mode-engine "}")))
+           ((string= tagopen "{*")
+            (setq closing-string "*}")
             )
-           ((string= tagopen (concat (web-mode-engine-delimiter-open web-mode-engine "{") "#"))
-            (setq closing-string (concat "#" (web-mode-engine-delimiter-close web-mode-engine "}"))
-                  delim-open (concat (web-mode-engine-delimiter-open web-mode-engine "{") "#")
-                  delim-close (concat "#" (web-mode-engine-delimiter-close web-mode-engine "}")))
+           ((string= tagopen "{#")
+            (setq closing-string "#}"
+                  delim-open "{#"
+                  delim-close "#}")
             )
            (t
-            (setq closing-string (cons (web-mode-engine-delimiter-open web-mode-engine "{")
-                                       (web-mode-engine-delimiter-close web-mode-engine "}"))
-                  delim-open (concat (web-mode-engine-delimiter-open web-mode-engine "{") "/?")
-                  delim-close (web-mode-engine-delimiter-close web-mode-engine "}"))
+            (setq closing-string (cons "{" "}")
+                  delim-open "{/?"
+                  delim-close "}")
             ) ;t
            ) ;cond
           ) ;smarty
@@ -2690,10 +2703,10 @@ the environment as needed for ac-sources, right before they're used.")
             ) ;case listp
 
            ((and (string= web-mode-engine "smarty")
-                 (string= closing-string (web-mode-engine-delimiter-close web-mode-engine "}")))
+                 (string= closing-string "}"))
             (goto-char open)
             (setq tmp (web-mode-closing-delimiter-position
-                       (web-mode-engine-delimiter-close web-mode-engine "}")
+                       "}"
                        (point)
                        (line-end-position)))
             (if tmp
@@ -2797,7 +2810,7 @@ the environment as needed for ac-sources, right before they're used.")
 
       (cond
        ((>= i 2000)
-        (message "scan-blocks ** crazy loop (%S) **" i))
+        (message "scan-blocks ** warning (%S) **" i))
        ((string= web-mode-engine "razor")
         (web-mode-process-blocks reg-beg reg-end 'web-mode-block-scan))
        ((string= web-mode-engine "django")
@@ -2845,7 +2858,7 @@ the environment as needed for ac-sources, right before they're used.")
         (setq block-end (web-mode-block-end-position block-beg)))
       (cond
        ((> (setq i (1+ i)) 2000)
-        (message "process-blocks ** crazy loop (%S) **" (point))
+        (message "process-blocks ** warning (%S) **" (point))
         (setq continue nil))
        ((or (null block-end) (> block-end reg-end))
         (setq continue nil))
@@ -2868,7 +2881,7 @@ the environment as needed for ac-sources, right before they're used.")
         (setq part-end (web-mode-part-end-position part-beg)))
       (cond
        ((> (setq i (1+ i)) 100)
-        (message "process-parts ** crazy loop (%S) **" (point))
+        (message "process-parts ** warning (%S) **" (point))
         (setq continue nil))
        ((or (null part-end) (> part-end reg-end))
         (setq continue nil))
@@ -3081,7 +3094,7 @@ the environment as needed for ac-sources, right before they're used.")
 
      ((string= web-mode-engine "smarty")
       (cond
-       ((string= sub2 (concat (web-mode-engine-delimiter-open web-mode-engine "{") "*"))
+       ((string= sub2 "{*")
         (setq token-type 'comment))
        (t
         (setq regexp "\"\\|'")))
@@ -3209,8 +3222,12 @@ the environment as needed for ac-sources, right before they're used.")
         (when (eq token-type 'comment)
           (put-text-property beg (1+ beg) 'syntax-table (string-to-syntax "<"))
           ;;(put-text-property (1- (point)) (point) 'syntax-table (string-to-syntax ">"))
-          (when (< (point) (point-max))
-            (put-text-property (point) (1+ (point)) 'syntax-table (string-to-syntax ">")))
+          (if (< (point) (line-end-position))
+              (put-text-property (1- (point)) (point) 'syntax-table (string-to-syntax ">")) ;#445
+            (put-text-property (point) (1+ (point)) 'syntax-table (string-to-syntax ">")) ;#377
+            )
+          ;;(when (< (point) (point-max))
+          ;;  (put-text-property (point) (1+ (point)) 'syntax-table (string-to-syntax ">")))
           )
 
         ) ;while
@@ -3369,7 +3386,7 @@ the environment as needed for ac-sources, right before they're used.")
 
        ((string= web-mode-engine "smarty")
         (cond
-         ((and (eq (char-after (+ (length (web-mode-engine-delimiter-open web-mode-engine "{")) reg-beg)) ?\/)
+         ((and (eq (char-after (1+ reg-beg)) ?\/)
                (web-mode-block-starts-with "\\([[:alpha:]]+\\)" reg-beg))
           (setq controls (append controls (list (cons 'close (match-string-no-properties 1))))))
          ((web-mode-block-starts-with "\\(else\\|elseif\\)" reg-beg)
@@ -3516,10 +3533,12 @@ the environment as needed for ac-sources, right before they're used.")
                 type (if (eq (aref (match-string-no-properties 0) 0) ?e) 'close 'open))
           (setq controls (append controls (list (cons type control))))
           )
-         ((web-mode-block-starts-with "stop\\|show" reg-beg)
+         ((web-mode-block-starts-with "stop\\|show\\|overwrite" reg-beg)
           (setq controls (append controls (list (cons 'close "section")))))
          ((web-mode-block-starts-with "else\\|elseif" reg-beg)
           (setq controls (append controls (list (cons 'inside "if")))))
+         ((web-mode-block-starts-with "empty" reg-beg)
+          (setq controls (append controls (list (cons 'inside "forelse")))))
          )
         ) ;blade
 
@@ -4230,7 +4249,7 @@ the environment as needed for ac-sources, right before they're used.")
       (while continue
         (skip-chars-forward "a-zA-Z0-9_-")
         (when (> (setq i (1+ i)) 500)
-          (message "velocity-skip-forward ** crazy loop (%S) **" pos)
+          (message "velocity-skip-forward ** warning (%S) **" pos)
           (setq continue nil))
         (when (member (char-after) '(?\())
           (search-forward ")" nil t))
@@ -4248,7 +4267,7 @@ the environment as needed for ac-sources, right before they're used.")
       (skip-chars-forward " =@a-zA-Z0-9_-")
       (cond
        ((> (setq i (1+ i)) 500)
-        (message "razor-skip-forward ** crazy loop **")
+        (message "razor-skip-forward ** warning **")
         (setq continue nil))
        ((and (eq (char-after) ?\*)
              (eq (char-before) ?@))
@@ -4295,7 +4314,7 @@ the environment as needed for ac-sources, right before they're used.")
       (while continue
         (cond
          ((> (setq i (1+ i)) 100)
-          (message "jsx-skip-forward ** crazy loop **")
+          (message "jsx-skip-forward ** warning **")
           (setq continue nil))
          ((not (web-mode-dom-rsf ">\\([ \t\n]*[;,)']\\)\\|{" reg-end))
           (setq continue nil)
@@ -4514,6 +4533,7 @@ the environment as needed for ac-sources, right before they're used.")
     (web-mode-invalidate-part-region beg end))
 
    (t
+    ;;(message "%S %S" beg end)
     (web-mode-invalidate-region beg end))
 
    ) ;cond
@@ -4589,7 +4609,11 @@ the environment as needed for ac-sources, right before they're used.")
                 (setq beg part-beg))
               (goto-char pos-end)
               (if (web-mode-javascript-rsf "[;{})][ ]*\n" part-end)
-                  (setq end (1- (match-end 0)))
+                  (progn
+                    ;;(setq end (1- (match-end 0)))
+                    (setq end (match-end 0))
+                    ;;(message "END=%S" end)
+                    )
                 (setq end part-end))
               )
              ((string= language "css")
@@ -4607,9 +4631,11 @@ the environment as needed for ac-sources, right before they're used.")
               (setq beg part-beg
                     end part-end))
              ) ;cond
+            ;;(message "beg(%S) end(%S)" beg end)
             (web-mode-scan-region beg end language)
             ;; (message "[%S] scan-region beg=%S end=%S" language beg end)
             ) ;progn
+        ;;(message "pos-beg(%S) pos-end(%S)" pos-beg pos-end)
         (web-mode-invalidate-region pos-beg pos-end)
         ) ;if
       )))
@@ -4633,9 +4659,9 @@ the environment as needed for ac-sources, right before they're used.")
         (cond
          ((bobp)
           (setq continue nil))
-         ;; Note: Going back to the first start tag is necessary
-         ;;       when inserting, for example, a </script>.
-         ;;       Indeed, parts should be identified asap.
+         ;; Note: Going back to the previous start tag is necessary
+         ;;       when inserting a part end tag (e.g. </script>).
+         ;;       Indeed, parts must be identified asap.
          ((and (progn (back-to-indentation) t)
                (get-text-property (point) 'tag-beg)
                (eq (get-text-property (point) 'tag-type) 'start)
@@ -4683,40 +4709,83 @@ the environment as needed for ac-sources, right before they're used.")
 
 (defun web-mode-font-lock-highlight (limit)
   ;;(message "font-lock-highlight: point(%S) limit(%S) change-beg(%S) change-end(%S)" (point) limit web-mode-change-beg web-mode-change-end)
-  (let ((inhibit-modification-hooks t)
-        (buffer-undo-list t)
-        (region nil))
+  (let (
+        ;;(inhibit-modification-hooks t)
+        ;;(buffer-undo-list t)
+        ;;(region nil)
+        )
+    ;; (cond
+    ;;  (web-mode-inhibit-fontification
+    ;;   )
+    ;;  ((and web-mode-change-beg web-mode-change-end)
+    ;;   (setq region (web-mode-propertize))
+    ;;   )
+    ;;  (t
+    ;;   (setq region (web-mode-propertize (point) limit)))
+    ;;  ) ;cond
+    ;; (when (and region (car region))
+    ;;   (web-mode-highlight-region (car region) (cdr region)))
     (cond
      (web-mode-inhibit-fontification
       )
-     ((and web-mode-change-beg web-mode-change-end)
-      (setq region (web-mode-propertize))
-      )
-     (t
-      (setq region (web-mode-propertize (point) limit)))
-     ) ;cond
-    ;;(message "region=%S" region)
-    (when (and region (car region))
-      (web-mode-highlight-region (car region) (cdr region)))
+     (t ;;(and web-mode-change-beg web-mode-change-end)
+      ;;(web-mode-highlight-region web-mode-change-beg web-mode-change-end)
+      (web-mode-highlight-region (point) limit))
+     )
     nil))
 
 (defun web-mode-buffer-highlight ()
   (interactive)
-  (setq web-mode-change-beg (point-min)
-        web-mode-change-end (point-max))
-  (web-mode-font-lock-highlight (point-max)))
+  ;;(setq web-mode-change-beg (point-min)
+  ;;      web-mode-change-end (point-max))
+  ;;  (web-mode-font-lock-highlight (point-max))
+  (if (fboundp 'font-lock-flush)
+      (font-lock-flush)
+    (font-lock-fontify-buffer)))
+
+(defun web-mode-extend-region ()
+  ;;(message "extend-region: flb(%S) fle(%S) wmcb(%S) wmce(%S)" font-lock-beg font-lock-end web-mode-change-beg web-mode-change-end)
+  ;;  (setq font-lock-beg web-mode-change-beg
+  ;;        font-lock-end web-mode-change-end)
+  (cond
+   (web-mode-inhibit-fontification
+    )
+   (t ;;(and web-mode-change-beg web-mode-change-end)
+    (when (or (null web-mode-change-beg) (< font-lock-beg web-mode-change-beg))
+      ;;(message "font-lock-beg(%S) < web-mode-change-beg(%S)" font-lock-beg web-mode-change-beg)
+      (setq web-mode-change-beg font-lock-beg))
+    (when (or (null web-mode-change-end) (> font-lock-end web-mode-change-end))
+      ;;(message "font-lock-end(%S) > web-mode-change-end(%S)" font-lock-end web-mode-change-end)
+      (setq web-mode-change-end font-lock-end))
+    (let ((region (web-mode-propertize web-mode-change-beg web-mode-change-end)))
+      (when region
+        ;;(message "region: %S" region)
+        (setq font-lock-beg (car region)
+              font-lock-end (cdr region)
+              ;;web-mode-change-beg (car region)
+              ;;web-mode-change-end (cdr region)
+              )
+        ) ;when
+      ) ;let
+    ) ;t
+   ;;(t
+   ;; (setq region (web-mode-propertize font-lock-beg font-lock-end)))
+   ) ;cond
+  nil)
 
 (defun web-mode-unfontify-region (beg end)
-;;  (message "unfontify: %S %S" beg end)
+  ;;(message "unfontify: %S %S" beg end)
   )
 
-(defun web-mode-highlight-region (&optional beg end content-type)
-  ;;  (message "highlight-region: beg(%S) end(%S) ct(%S)" beg end content-type)
+(defun web-mode-highlight-region (&optional beg end) ;; content-type)
+;;  (message "highlight-region: beg(%S) end(%S) ct(%S)" beg end content-type)
   (web-mode-with-silent-modifications
    (save-excursion
      (save-restriction
        (save-match-data
-         (let ((inhibit-modification-hooks t)
+         (let (
+               (buffer-undo-list t)
+               ;;(inhibit-modification-hooks t)
                (inhibit-point-motion-hooks t)
                (inhibit-quit t))
            (remove-list-of-text-properties beg end '(font-lock-face face))
@@ -4725,7 +4794,7 @@ the environment as needed for ac-sources, right before they're used.")
                   (not (get-text-property beg 'block-beg)))
              (web-mode-block-highlight beg end))
             ((or (member web-mode-content-type web-mode-part-content-types)
-                 (member content-type web-mode-part-content-types)
+                 ;;(member content-type web-mode-part-content-types)
                  (get-text-property beg 'part-side))
              (web-mode-part-highlight beg end)
              (web-mode-process-blocks beg end 'web-mode-block-highlight))
@@ -5384,7 +5453,7 @@ the environment as needed for ac-sources, right before they're used.")
                   (or (get-text-property (point) 'tag-beg)
                       (web-mode-tag-next)))
         (when (> (setq i (1+ i)) 2000)
-          (message "content-apply ** crazy loop **")
+          (message "content-apply ** warning **")
           (setq continue nil))
         (when (and beg (> (point) beg))
           (message "content-apply ** beg(%S) > pt(%S) **" beg (point)))
@@ -7408,7 +7477,7 @@ the environment as needed for ac-sources, right before they're used.")
           (cond
            ((> (setq i (1+ i)) 100)
             (setq continue nil)
-            (message "element-children ** crazy loop **"))
+            (message "element-children ** warning **"))
            ((= i 1)
             (goto-char child))
            ((web-mode-element-sibling-next)
@@ -7880,12 +7949,7 @@ Pos should be in a tag."
            ((and (= web-mode-comment-style 2) (string= web-mode-engine "aspx"))
             (setq content (concat "<%-- " sel " --%>")))
            ((and (= web-mode-comment-style 2) (string= web-mode-engine "smarty"))
-            (setq content (concat
-                           (web-mode-engine-delimiter-open web-mode-engine "{")
-                           "* "
-                           sel
-                           " *"
-                           (web-mode-engine-delimiter-close web-mode-engine "}"))))
+            (setq content (concat "{* " sel " *}")))
            ((and (= web-mode-comment-style 2) (string= web-mode-engine "blade"))
             (setq content (concat "{{-- " sel " --}}")))
            ((and (= web-mode-comment-style 2) (string= web-mode-engine "razor"))
@@ -8561,7 +8625,9 @@ Pos should be in a tag."
 
     (when (member this-command '(yank))
       (setq web-mode-inhibit-fontification nil)
-      (web-mode-font-lock-highlight web-mode-change-end))
+      ;;(web-mode-font-lock-highlight web-mode-change-end)
+      (font-lock-fontify-region web-mode-change-beg web-mode-change-end)
+      )
 
     (when (< (point) 16)
       (web-mode-detect-content-type))
@@ -8956,7 +9022,10 @@ Pos should be in a tag."
    ((string= web-mode-engine "php")       (concat "<?php end" type "; ?>"))
    ((string= web-mode-engine "django")    (concat "{% end" type " %}"))
    ((string= web-mode-engine "ctemplate") (concat "{{/" type "}}"))
-   ((string= web-mode-engine "blade")     (concat "@end" type))
+   ((string= web-mode-engine "blade")
+    (if (string= type "section")
+        (concat "@show")
+      (concat "@end" type)))
    ((string= web-mode-engine "dust")      (concat "{/" type "}"))
    ((string= web-mode-engine "mako")      (concat "% end" type))
    ((string= web-mode-engine "closure")   (concat "{/" type "}"))
@@ -9005,7 +9074,7 @@ Pos should be in a tag."
       (while (and continue (re-search-backward regexp limit t))
         (cond
          ((> (setq counter (1+ counter)) 500)
-          (message "opening-paren-position ** crazy loop **")
+          (message "opening-paren-position ** warning **")
           (setq continue nil))
          ((or (web-mode-is-comment-or-string)
               (and block-side (not (get-text-property (point) 'block-side))))
@@ -9566,7 +9635,7 @@ Pos should be in a tag."
       (setq char (char-after pos))
       (cond
        ((> (setq i (1+ i)) 20000)
-        (message "javascript-string-beginning-position ** crazy loop (%S) **" pos)
+        (message "javascript-string-beginning-position ** warning (%S) **" pos)
         (setq continue nil
               pos nil))
        ((null pos)
@@ -9619,7 +9688,7 @@ Pos should be in a tag."
       (setq char (char-after pos))
       (cond
        ((> (setq i (1+ i)) 20000)
-        (message "javascript-statement-beginning-position ** crazy loop (%S) **" pos)
+        (message "javascript-statement-beginning-position ** warning (%S) **" pos)
         (setq continue nil
               pos nil))
        ((null pos)
@@ -9674,7 +9743,7 @@ Pos should be in a tag."
       (setq char (char-after pos))
       (cond
        ((> (setq i (1+ i)) 20000)
-        (message "javascript-args-beginning-position ** crazy loop (%S) **" pos)
+        (message "javascript-args-beginning-position ** warning (%S) **" pos)
         (setq continue nil
               pos nil))
        ((null pos)
@@ -9734,7 +9803,7 @@ Pos should be in a tag."
       (setq char (char-after pos))
       (cond
        ((> (setq i (1+ i)) 20000)
-        (message "javascript-calls-beginning-position ** crazy loop (%S) **" pos)
+        (message "javascript-calls-beginning-position ** warning (%S) **" pos)
         (setq continue nil
               pos nil))
        ((null pos)
@@ -10811,6 +10880,7 @@ Pos should be in a tag."
     (setq web-mode-change-beg nil
           web-mode-change-end nil)
     (web-mode)
+    ;;(font-lock-refresh-defaults)
     ) ;silent
   )
 

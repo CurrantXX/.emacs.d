@@ -78,12 +78,13 @@
     '(:eval (propertize "%m" 'face 'font-lock-string-face
                         'help-echo buffer-file-coding-system))
     (propertize "] " 'face 'font-lock-comment-face)
-    
+
+    ;; vc-mode
     (propertize "[" 'face 'font-lock-comment-face)
     '(:eval (when vc-mode
-              (concat 
+              (concat
                (propertize (string-strip (format "%s" vc-mode)) 'face 'font-lock-variable-name-face)
-               
+
                )))
 
     ;; '(:eval (format "Proj[%s] " (projectile-project-name)))

@@ -1,6 +1,11 @@
 ;;-------------------- Color theme --------------------
 ;;     配色管理。
 ;;-----------------------------------------------------
+(add-to-list 'load-path "~/.emacs-elisp/themes/")
+(require 'hl-line+)
+(global-hl-line-mode t)
+;; (require 'col-highlight)
+;; (column-highlight-mode 1)
 (add-to-list 'custom-theme-load-path "~/.emacs-elisp/themes/")
 (set-frame-parameter nil 'background-mode 'dark)
 (load-theme 'solarized t)

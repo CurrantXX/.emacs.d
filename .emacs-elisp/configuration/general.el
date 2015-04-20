@@ -22,13 +22,20 @@
 (setq-default indent-tabs-mode nil)
 ;;eshell
 (global-set-key [(control =)] 'eshell)
+
 ;; Smex
-(autoload 'smex "smex"
-  "Smex is a M-x enhancement for Emacs, it provides a convenient interface to
-your recently and most frequently used commands.")
-(global-set-key (kbd "M-x") 'smex)
+;; (autoload 'smex "smex"
+;; "Smex is a M-x enhancement for Emacs, it provides a convenient interface to
+;; your recently and most frequently used commands.")
+;; (global-set-key (kbd "M-x") 'smex)
+;; Helm (Helm is better than smex)
+(add-to-list 'load-path "~/.emacs-elisp/helm")
+(require 'helm-config)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(helm-mode 1)
+
 ;;ido-mode cooporate with smex
-(ido-mode t)
+;; (ido-mode t)
 ;;Set Chinese punctuation
 (setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
 (setq sentence-end-double-space nil)

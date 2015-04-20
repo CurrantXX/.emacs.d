@@ -1,4 +1,7 @@
 ;;------------------------- Org-mode -------------------------
+(add-to-list 'load-path "~/.emacs-elisp/org-bullets")
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (setq org-hide-leading-stars t)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done 'time)

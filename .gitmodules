@@ -10,3 +10,6 @@
 [submodule ".emacs-elisp/s.el"]
 	path = .emacs-elisp/s.el
 	url = https://github.com/magnars/s.el.git
+[submodule ".emacs-elisp/undo-tree"]
+	path = .emacs-elisp/undo-tree
+	url = https://github.com/emacsmirror/undo-tree.git

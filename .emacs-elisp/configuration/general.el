@@ -156,6 +156,7 @@ occurence of CHAR."
 
 ;; Undo-Tree
 ;; Trigger-key: C-x u
+(add-to-list 'load-path "~/.emacs-elisp/undo-tree")
 (require 'undo-tree)
 (global-undo-tree-mode t)
 

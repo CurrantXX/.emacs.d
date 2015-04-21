@@ -182,7 +182,7 @@
 ;; (require 'sublimity)
 ;; (sublimity-mode 1)
 ;; (setq sublimity-map-on-scroll t)
-(add-to-list 'load-path "~/.emacs-elisp/minimap")
+(add-to-list 'load-path "~/.emacs-elisp/common/minimap")
 (require 'minimap)
 (setq minimap-window-location 'right)
 (minimap-mode t)

@@ -89,7 +89,7 @@
 	path = .emacs-elisp/python-mode/emacs-jedi
 	url = https://github.com/tkf/emacs-jedi.git
 [submodule ".emacs-elisp/minimap"]
-	path = .emacs-elisp/minimap
+	path = .emacs-elisp/common/minimap
 	url = https://github.com/dengste/minimap.git
 [submodule ".emacs-elisp/common/yasnippet"]
 	path = .emacs-elisp/common/yasnippet

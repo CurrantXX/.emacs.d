@@ -57,8 +57,8 @@
 (global-font-lock-mode t)
 ;;Highlight the chosen charactor
 (transient-mark-mode t)
-;;Default Text Mode: Markdown
-(setq default-major-mode 'markdown-mode)
+;;Default Text Mode
+(setq default-major-mode 'text-mode)
 ;;Support copy and paste from outside
 (setq x-select-enable-clipboard t)
 ;;C-k delete the whole line

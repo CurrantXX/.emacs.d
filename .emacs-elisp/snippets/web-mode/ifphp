@@ -1,8 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: ifphp
-# key: ifp
-# binding: direct-keybinding
-# --
-<?php if (${1:condition}): ?>
-    $0
-<?php endif; ?>

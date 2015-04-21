@@ -1,8 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: foreachphp
-# key: fep
-# binding: direct-keybinding
-# --
-<?php foreach ($${1:array} as $${2:element}): ?>
-    $0
-<?php endforeach; ?>

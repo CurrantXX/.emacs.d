@@ -19,3 +19,6 @@
 [submodule ".emacs-elisp/themes/hl-line-plus"]
 	path = .emacs-elisp/themes/hl-line-plus
 	url = https://github.com/emacsmirror/hl-line-plus.git
+[submodule ".emacs-elisp/yasnippet"]
+	path = .emacs-elisp/yasnippet
+	url = https://github.com/capitaomorte/yasnippet

@@ -86,6 +86,7 @@
 (global-set-key (kbd "C-M-y") 'query-replace-regexp)
 (global-set-key (kbd "M-.") 'delete-horizontal-space)
 ;; Hungry-delete
+(add-to-list 'load-path "~/.emacs-elisp/hungry-delete")
 (require 'hungry-delete)
 (global-hungry-delete-mode)
 (global-set-key (kbd "C-c C-d") 'hungry-delete-forward)

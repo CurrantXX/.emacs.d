@@ -1,9 +1,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;   Filename:    .emacs
+;;   Version:     1.9
 ;;
 ;;   Description: Configuration file of Emacs
 ;;
-;;   Created at:  Tue Feb 03 13:26:20 UTC 2015
+;;   Created at:  Tue Apr 21 22:41:38 2015
+;;
 ;;   Gallon Choi is a student majoring in Software Engineering,
 ;;   from the School of Computer,
 ;;   Guangdong University of Technology, GZ 510006, P. R. China
@@ -11,6 +13,7 @@
 ;;   Status:      Experimental, do not distribute.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;;Personal message
 (setq user-full-name "Gallon Choi")
@@ -25,7 +28,7 @@
 ;;-------------------- Smart Compile --------------------
 ;;    Load the smart-compile+ .                         .
 ;;-------------------------------------------------------
-(add-to-list 'load-path "~/.emacs-elisp/smart-compile-plus/")
+(add-to-list 'load-path "~/.emacs-elisp/lang/c/smart-compile-plus/")
 (require 'smart-compile+)
 (global-set-key [(f9)] 'smart-compile)
 
@@ -36,6 +39,7 @@
 (setq gdb-use-separate-io-buffer t)
 
 ;;-------------------- clang-completion-mode --------------------
+(add-to-list 'load-path "~/.emacs-elisp/lang/c/")
 (load-library "clang-completion-mode")
 
 ;;-------------------- 重定义注释方法 --------------------

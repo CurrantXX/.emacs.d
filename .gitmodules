@@ -125,3 +125,6 @@
 [submodule ".emacs-elisp/common/yasnippet"]
     path = .emacs-elisp/common/yasnippet
     url = https://github.com/capitaomorte/yasnippet
+[submodule ".emacs-elisp/lang/python/emacs-deferred"]
+	path = .emacs-elisp/lang/python/emacs-deferred
+	url = https://github.com/kiwanami/emacs-deferred.git

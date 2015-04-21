@@ -1,10 +1,10 @@
 ;;------------------- web mode ----------------------
-(add-to-list 'load-path "~/.emacs-elisp/php-mode")
+(add-to-list 'load-path "~/.emacs-elisp/lang/php/php-mode")
 (require 'php-mode)
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 (define-key php-mode-map (kbd "C-.") 'comment-or-uncomment-region)
 (define-key php-mode-map (kbd "C-c RET") 'er/expand-region)
-(add-to-list 'load-path "~/.emacs-elisp/web-mode")
+(add-to-list 'load-path "~/.emacs-elisp/lang/web/web-mode")
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -75,14 +75,14 @@
 ;; (define-key web-mode-map (kbd "C-c <") 'web-mode-element-beginning)
 
 ;;================== Rainbow-mode ====================
-(add-to-list 'load-path "~/.emacs-elisp/rainbow-mode")
+(add-to-list 'load-path "~/.emacs-elisp/common/rainbow-mode")
 (require 'rainbow-mode)
 (add-hook 'web-mode-hook 'rainbow-mode)
 
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 
-(add-to-list 'load-path "~/.emacs-elisp/emmet-mode")
+(add-to-list 'load-path "~/.emacs-elisp/lang/web/emmet-mode")
 (require 'emmet-mode)
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
@@ -105,7 +105,7 @@
 (define-key emmet-mode-keymap (kbd "C-c C-n") 'emmet-next-edit-point)
 (define-key emmet-mode-keymap (kbd "C-c C-p") 'emmet-prev-edit-point)
 (setq emmet-move-cursor-between-quotes t) ;; default nil
-(add-to-list 'load-path "~/.emacs-elisp/ac-emmet")
+(add-to-list 'load-path "~/.emacs-elisp/lang/web/ac-emmet")
 (require 'ac-emmet)
 
 (defun css-syntax-color-hex ()

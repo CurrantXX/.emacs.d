@@ -41,7 +41,7 @@
 	path = .emacs-elisp/scala-mode/scala-mode2
 	url = https://github.com/hvesalai/scala-mode2.git
 [submodule ".emacs-elisp/dash.el"]
-	path = .emacs-elisp/dash.el
+	path = .emacs-elisp/common/dash.el
 	url = https://github.com/magnars/dash.el.git
 [submodule ".emacs-elisp/auto-complete"]
 	path = .emacs-elisp/common/auto-complete

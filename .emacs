@@ -16,7 +16,7 @@
 (setq user-full-name "Gallon Choi")
 (setq user-mail-address "gallonq@gmail.com")
 
-(add-to-list 'load-path "~/.emacs-elisp/dash.el/")
+(add-to-list 'load-path "~/.emacs-elisp/common/dash.el/")
 (require 'dash)
 (add-to-list 'load-path (expand-file-name "~/.emacs-elisp"))
 (setq my-auto-lisp (list "~/.emacs-elisp/configuration"))

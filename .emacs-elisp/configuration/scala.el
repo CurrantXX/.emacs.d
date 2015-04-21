@@ -1,3 +1,4 @@
+(add-to-list 'load-path "~/.emacs-elisp/s.el/")
 (require 's)
 (add-to-list 'load-path "~/.emacs-elisp/scala-mode/scala-mode2/")
 (require 'scala-mode2)

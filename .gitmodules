@@ -7,3 +7,6 @@
 [submodule ".emacs-elisp/js2-mode"]
 	path = .emacs-elisp/js2-mode
 	url = https://github.com/mooz/js2-mode.git
+[submodule ".emacs-elisp/s.el"]
+	path = .emacs-elisp/s.el
+	url = https://github.com/magnars/s.el.git

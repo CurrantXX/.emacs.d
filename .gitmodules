@@ -71,7 +71,7 @@
 	path = .emacs-elisp/rainbow-mode
 	url = https://github.com/emacsmirror/rainbow-mode.git
 [submodule ".emacs-elisp/hungry-delete"]
-	path = .emacs-elisp/hungry-delete
+	path = .emacs-elisp/common/hungry-delete
 	url = https://github.com/nflath/hungry-delete.git
 [submodule ".emacs-elisp/python-mode/emacs-deferred"]
 	path = .emacs-elisp/python-mode/emacs-deferred

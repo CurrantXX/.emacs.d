@@ -1,96 +1,127 @@
-[submodule ".emacs-elisp/org-bullets"]
-	path = .emacs-elisp/org-bullets
-	url = https://github.com/sabof/org-bullets.git
-[submodule ".emacs-elisp/helm"]
-	path = .emacs-elisp/common/helm
-	url = https://github.com/emacs-helm/helm.git
-[submodule ".emacs-elisp/js2-mode"]
-	path = .emacs-elisp/js2-mode
-	url = https://github.com/mooz/js2-mode.git
-[submodule ".emacs-elisp/s.el"]
-	path = .emacs-elisp/s.el
-	url = https://github.com/magnars/s.el.git
-[submodule ".emacs-elisp/undo-tree"]
-	path = .emacs-elisp/common/undo-tree
-	url = https://github.com/emacsmirror/undo-tree.git
+[submodule ".emacs-elisp/lang/org/org-bullets"]
+    path = .emacs-elisp/lang/org/org-bullets
+    url = https://github.com/sabof/org-bullets.git
+
+[submodule ".emacs-elisp/common/helm"]
+    path = .emacs-elisp/common/helm
+    url = https://github.com/emacs-helm/helm.git
+
+[submodule ".emacs-elisp/lang/js/js2-mode"]
+    path = .emacs-elisp/lang/js/js2-mode
+    url = https://github.com/mooz/js2-mode.git
+
+[submodule ".emacs-elisp/lang/scala/s.el"]
+    path = .emacs-elisp/lang/scala/s.el
+    url = https://github.com/magnars/s.el.git
+
+[submodule ".emacs-elisp/common/undo-tree"]
+    path = .emacs-elisp/common/undo-tree
+    url = https://github.com/emacsmirror/undo-tree.git
+
 [submodule ".emacs-elisp/themes/emacs-color-theme-solarized"]
-	path = .emacs-elisp/themes/emacs-color-theme-solarized
-	url = https://github.com/sellout/emacs-color-theme-solarized.git
+    path = .emacs-elisp/themes/emacs-color-theme-solarized
+    url = https://github.com/sellout/emacs-color-theme-solarized.git
+
 [submodule ".emacs-elisp/themes/hl-line-plus"]
-	path = .emacs-elisp/themes/hl-line-plus
-	url = https://github.com/emacsmirror/hl-line-plus.git
-[submodule ".emacs-elisp/smartparens"]
-	path = .emacs-elisp/common/smartparens
-	url = https://github.com/Fuco1/smartparens.git
-[submodule ".emacs-elisp/web-mode"]
-	path = .emacs-elisp/web-mode
-	url = https://github.com/fxbois/web-mode.git
-[submodule ".emacs-elisp/php-mode"]
-	path = .emacs-elisp/php-mode
-	url = https://github.com/ejmr/php-mode.git
-[submodule ".emacs-elisp/yafolding.el"]
-	path = .emacs-elisp/common/yafolding.el
-	url = https://github.com/zenozeng/yafolding.el.git
-[submodule ".emacs-elisp/scala-mode/ensime-emacs"]
-	path = .emacs-elisp/scala-mode/ensime-emacs
-	url = https://github.com/ensime/ensime-emacs.git
-[submodule ".emacs-elisp/scala-mode/sbt-mode"]
-	path = .emacs-elisp/scala-mode/sbt-mode
-	url = https://github.com/hvesalai/sbt-mode.git
-[submodule ".emacs-elisp/scala-mode/scala-mode2"]
-	path = .emacs-elisp/scala-mode/scala-mode2
-	url = https://github.com/hvesalai/scala-mode2.git
-[submodule ".emacs-elisp/dash.el"]
-	path = .emacs-elisp/common/dash.el
-	url = https://github.com/magnars/dash.el.git
-[submodule ".emacs-elisp/auto-complete"]
-	path = .emacs-elisp/common/auto-complete
-	url = https://github.com/auto-complete/auto-complete.git
-[submodule ".emacs-elisp/popup-el"]
-	path = .emacs-elisp/common/popup-el
-	url = https://github.com/auto-complete/popup-el.git
-[submodule ".emacs-elisp/fuzzy-el"]
-	path = .emacs-elisp/common/fuzzy-el
-	url = https://github.com/auto-complete/fuzzy-el.git
-[submodule ".emacs-elisp/emmet-mode"]
-	path = .emacs-elisp/emmet-mode
-	url = https://github.com/smihica/emmet-mode.git
-[submodule ".emacs-elisp/ac-emmet"]
-	path = .emacs-elisp/ac-emmet
-	url = https://github.com/yasuyk/ac-emmet.git
-[submodule ".emacs-elisp/wcy-swbuff"]
-	path = .emacs-elisp/common/wcy-swbuff
-	url = https://github.com/emacsmirror/wcy-swbuff.git
-[submodule ".emacs-elisp/smart-compile-plus"]
-	path = .emacs-elisp/smart-compile-plus
-	url = https://github.com/emacsmirror/smart-compile-plus.git
-[submodule ".emacs-elisp/window-numbering.el"]
-	path = .emacs-elisp/common/window-numbering.el
-	url = https://github.com/nschum/window-numbering.el.git
-[submodule ".emacs-elisp/rainbow-mode"]
-	path = .emacs-elisp/rainbow-mode
-	url = https://github.com/emacsmirror/rainbow-mode.git
-[submodule ".emacs-elisp/hungry-delete"]
-	path = .emacs-elisp/common/hungry-delete
-	url = https://github.com/nflath/hungry-delete.git
-[submodule ".emacs-elisp/python-mode/emacs-deferred"]
-	path = .emacs-elisp/python-mode/emacs-deferred
-	url = https://github.com/kiwanami/emacs-deferred.git
-[submodule ".emacs-elisp/python-mode/emacs-ctable"]
-	path = .emacs-elisp/python-mode/emacs-ctable
-	url = https://github.com/kiwanami/emacs-ctable.git
-[submodule ".emacs-elisp/python-mode/emacs-epc"]
-	path = .emacs-elisp/python-mode/emacs-epc
-	url = https://github.com/kiwanami/emacs-epc.git
-[submodule ".emacs-elisp/python-mode/emacs-python-environment"]
-	path = .emacs-elisp/python-mode/emacs-python-environment
-	url = https://github.com/tkf/emacs-python-environment.git
-[submodule ".emacs-elisp/python-mode/emacs-jedi"]
-	path = .emacs-elisp/python-mode/emacs-jedi
-	url = https://github.com/tkf/emacs-jedi.git
-[submodule ".emacs-elisp/minimap"]
-	path = .emacs-elisp/common/minimap
-	url = https://github.com/dengste/minimap.git
+    path = .emacs-elisp/themes/hl-line-plus
+    url = https://github.com/emacsmirror/hl-line-plus.git
+
+[submodule ".emacs-elisp/common/smartparens"]
+    path = .emacs-elisp/common/smartparens
+    url = https://github.com/Fuco1/smartparens.git
+
+[submodule ".emacs-elisp/lang/web/web-mode"]
+    path = .emacs-elisp/lang/web/web-mode
+    url = https://github.com/fxbois/web-mode.git
+
+[submodule ".emacs-elisp/lang/php/php-mode"]
+    path = .emacs-elisp/lang/php/php-mode
+    url = https://github.com/ejmr/php-mode.git
+
+[submodule ".emacs-elisp/common/yafolding.el"]
+    path = .emacs-elisp/common/yafolding.el
+    url = https://github.com/zenozeng/yafolding.el.git
+
+[submodule ".emacs-elisp/lang/scala/ensime-emacs"]
+    path = .emacs-elisp/lang/scala/ensime-emacs
+    url = https://github.com/ensime/ensime-emacs.git
+
+[submodule ".emacs-elisp/lang/scala/sbt-mode"]
+    path = .emacs-elisp/lang/scala/sbt-mode
+    url = https://github.com/hvesalai/sbt-mode.git
+
+[submodule ".emacs-elisp/lang/scala/scala-mode2"]
+    path = .emacs-elisp/lang/scala/scala-mode2
+    url = https://github.com/hvesalai/scala-mode2.git
+
+[submodule ".emacs-elisp/common/dash.el"]
+    path = .emacs-elisp/common/dash.el
+    url = https://github.com/magnars/dash.el.git
+
+[submodule ".emacs-elisp/common/auto-complete"]
+    path = .emacs-elisp/common/auto-complete
+    url = https://github.com/auto-complete/auto-complete.git
+
+[submodule ".emacs-elisp/common/popup-el"]
+    path = .emacs-elisp/common/popup-el
+    url = https://github.com/auto-complete/popup-el.git
+
+[submodule ".emacs-elisp/common/fuzzy-el"]
+    path = .emacs-elisp/common/fuzzy-el
+    url = https://github.com/auto-complete/fuzzy-el.git
+
+[submodule ".emacs-elisp/lang/web/emmet-mode"]
+    path = .emacs-elisp/lang/web/emmet-mode
+    url = https://github.com/smihica/emmet-mode.git
+
+[submodule ".emacs-elisp/lang/web/ac-emmet"]
+    path = .emacs-elisp/lang/web/ac-emmet
+    url = https://github.com/yasuyk/ac-emmet.git
+
+[submodule ".emacs-elisp/common/wcy-swbuff"]
+    path = .emacs-elisp/common/wcy-swbuff
+    url = https://github.com/emacsmirror/wcy-swbuff.git
+
+[submodule ".emacs-elisp/lang/c/smart-compile-plus"]
+    path = .emacs-elisp/lang/c/smart-compile-plus
+    url = https://github.com/emacsmirror/smart-compile-plus.git
+
+[submodule ".emacs-elisp/common/window-numbering.el"]
+    path = .emacs-elisp/common/window-numbering.el
+    url = https://github.com/nschum/window-numbering.el.git
+
+[submodule ".emacs-elisp/common/rainbow-mode"]
+    path = .emacs-elisp/common/rainbow-mode
+    url = https://github.com/emacsmirror/rainbow-mode.git
+
+[submodule ".emacs-elisp/common/hungry-delete"]
+    path = .emacs-elisp/common/hungry-delete
+    url = https://github.com/nflath/hungry-delete.git
+
+[submodule ".emacs-elisp/common/python/emacs-deferred"]
+    path = .emacs-elisp/common/python/emacs-deferred
+    url = https://github.com/kiwanami/emacs-deferred.git
+
+[submodule ".emacs-elisp/lang/python/emacs-ctable"]
+    path = .emacs-elisp/lang/python/emacs-ctable
+    url = https://github.com/kiwanami/emacs-ctable.git
+
+[submodule ".emacs-elisp/lang/python/emacs-epc"]
+    path = .emacs-elisp/lang/python/emacs-epc
+    url = https://github.com/kiwanami/emacs-epc.git
+
+[submodule ".emacs-elisp/lang/python/emacs-python-environment"]
+    path = .emacs-elisp/lang/python/emacs-python-environment
+    url = https://github.com/tkf/emacs-python-environment.git
+
+[submodule ".emacs-elisp/lang/python/emacs-jedi"]
+    path = .emacs-elisp/lang/python/emacs-jedi
+    url = https://github.com/tkf/emacs-jedi.git
+
+[submodule ".emacs-elisp/common/minimap"]
+    path = .emacs-elisp/common/minimap
+    url = https://github.com/dengste/minimap.git
+
 [submodule ".emacs-elisp/common/yasnippet"]
-	path = .emacs-elisp/common/yasnippet
-	url = https://github.com/capitaomorte/yasnippet
+    path = .emacs-elisp/common/yasnippet
+    url = https://github.com/capitaomorte/yasnippet

@@ -22,3 +22,6 @@
 [submodule ".emacs-elisp/yasnippet"]
 	path = .emacs-elisp/yasnippet
 	url = https://github.com/capitaomorte/yasnippet
+[submodule ".emacs-elisp/smartparens"]
+	path = .emacs-elisp/smartparens
+	url = https://github.com/Fuco1/smartparens.git

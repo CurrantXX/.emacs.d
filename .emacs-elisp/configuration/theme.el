@@ -124,7 +124,7 @@
   )
 (my-mode-line)
 
-(add-to-list 'load-path "~/.emacs-elisp/window-numbering.el")
+(add-to-list 'load-path "~/.emacs-elisp/common/window-numbering.el")
 (require 'window-numbering)
 (define-key window-numbering-keymap (kbd "C-0") 'select-window-0)
 (define-key window-numbering-keymap (kbd "C-1") 'select-window-1)

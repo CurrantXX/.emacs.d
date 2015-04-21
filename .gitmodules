@@ -65,7 +65,7 @@
 	path = .emacs-elisp/smart-compile-plus
 	url = https://github.com/emacsmirror/smart-compile-plus.git
 [submodule ".emacs-elisp/window-numbering.el"]
-	path = .emacs-elisp/window-numbering.el
+	path = .emacs-elisp/common/window-numbering.el
 	url = https://github.com/nschum/window-numbering.el.git
 [submodule ".emacs-elisp/rainbow-mode"]
 	path = .emacs-elisp/rainbow-mode

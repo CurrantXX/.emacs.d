@@ -28,3 +28,6 @@
 [submodule ".emacs-elisp/web-mode"]
 	path = .emacs-elisp/web-mode
 	url = https://github.com/fxbois/web-mode.git
+[submodule ".emacs-elisp/php-mode"]
+	path = .emacs-elisp/php-mode
+	url = https://github.com/ejmr/php-mode.git

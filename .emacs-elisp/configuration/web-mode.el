@@ -1,4 +1,5 @@
 ;;------------------- web mode ----------------------
+(add-to-list 'load-path "~/.emacs-elisp/php-mode")
 (require 'php-mode)
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 (define-key php-mode-map (kbd "C-.") 'comment-or-uncomment-region)

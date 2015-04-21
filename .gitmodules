@@ -1,0 +1,6 @@
+[submodule ".emacs-elisp/org-bullets"]
+	path = .emacs-elisp/org-bullets
+	url = https://github.com/sabof/org-bullets.git
+[submodule ".emacs-elisp/helm"]
+	path = .emacs-elisp/helm
+	url = https://github.com/emacs-helm/helm.git

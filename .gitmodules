@@ -61,3 +61,6 @@
 [submodule ".emacs-elisp/ac-emmet"]
 	path = .emacs-elisp/ac-emmet
 	url = https://github.com/yasuyk/ac-emmet.git
+[submodule ".emacs-elisp/wcy-swbuff"]
+	path = .emacs-elisp/wcy-swbuff
+	url = https://github.com/emacsmirror/wcy-swbuff.git

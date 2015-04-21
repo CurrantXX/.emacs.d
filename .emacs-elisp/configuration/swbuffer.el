@@ -1,4 +1,5 @@
 ;;---------------wcy-swbuffer--------------------
+(add-to-list 'load-path "~/.emacs-elisp/wcy-swbuff/")
 (require 'wcy-swbuff)
 ;;then you can use C-` and <C-S-kp-tab> to switch buffer.
 (global-set-key (kbd "C-`") 'wcy-switch-buffer-forward)

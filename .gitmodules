@@ -55,3 +55,6 @@
 [submodule ".emacs-elisp/fuzzy-el"]
 	path = .emacs-elisp/fuzzy-el
 	url = https://github.com/auto-complete/fuzzy-el.git
+[submodule ".emacs-elisp/emmet-mode"]
+	path = .emacs-elisp/emmet-mode
+	url = https://github.com/smihica/emmet-mode.git

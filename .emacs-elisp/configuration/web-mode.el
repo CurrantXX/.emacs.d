@@ -75,6 +75,7 @@
 ;; (define-key web-mode-map (kbd "C-c <") 'web-mode-element-beginning)
 
 ;;================== Rainbow-mode ====================
+(add-to-list 'load-path "~/.emacs-elisp/rainbow-mode")
 (require 'rainbow-mode)
 (add-hook 'web-mode-hook 'rainbow-mode)
 

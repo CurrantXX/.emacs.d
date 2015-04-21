@@ -9,6 +9,7 @@
 ;;         C-x C-h f    -- Insert function header.
 ;;         C-x C-h a    -- Toggle auto-fill-mode for headers.
 ;;-----------------------------------------------------
+(add-to-list 'load-path "~/.emacs-elisp/common/")
 (require 'auto-header)
 (setq header-gdut-name "Gallon")
 (setq header-gdut-sno "3113006352" )
@@ -23,17 +24,17 @@
 (setq header-field-list '(
                           filename  ;;文件名
                           version
-                          blank	    ;空行，下同
-                          description	;描述
+                          blank     ;空行，下同
+                          description   ;描述
                           blank
-                          ;; text-2	;作者+SNO
-                          created	;创建时间
+                          ;; text-2 ;作者+SNO
+                          created   ;创建时间
                           blank
                           text-1
-                          ;;modified_by	;更改者
+                          ;;modified_by ;更改者
                           blank
-                          status	;状态，是否发布
-                          ;;update	;更新
+                          status    ;状态，是否发布
+                          ;;update  ;更新
                           blank
                           ))
 ;;setq header-copyright-notic

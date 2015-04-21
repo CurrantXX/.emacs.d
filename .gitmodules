@@ -11,7 +11,7 @@
 	path = .emacs-elisp/s.el
 	url = https://github.com/magnars/s.el.git
 [submodule ".emacs-elisp/undo-tree"]
-	path = .emacs-elisp/undo-tree
+	path = .emacs-elisp/common/undo-tree
 	url = https://github.com/emacsmirror/undo-tree.git
 [submodule ".emacs-elisp/themes/emacs-color-theme-solarized"]
 	path = .emacs-elisp/themes/emacs-color-theme-solarized

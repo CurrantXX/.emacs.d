@@ -16,3 +16,6 @@
 [submodule ".emacs-elisp/themes/emacs-color-theme-solarized"]
 	path = .emacs-elisp/themes/emacs-color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized.git
+[submodule ".emacs-elisp/themes/hl-line-plus"]
+	path = .emacs-elisp/themes/hl-line-plus
+	url = https://github.com/emacsmirror/hl-line-plus.git

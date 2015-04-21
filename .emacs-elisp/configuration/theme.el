@@ -1,7 +1,7 @@
 ;;-------------------- Color theme --------------------
 ;;     配色管理。
 ;;-----------------------------------------------------
-(add-to-list 'load-path "~/.emacs-elisp/themes/")
+(add-to-list 'load-path "~/.emacs-elisp/themes/hl-line-plus")
 (require 'hl-line+)
 (global-hl-line-mode t)
 ;; (require 'col-highlight)

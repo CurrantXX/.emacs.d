@@ -70,8 +70,11 @@
 ;;Disable scroll bar
 (set-scroll-bar-mode nil)
 ;;Prevent jumping while scrolling
-(setq scroll-margin 5
-      scroll-conservatively 10000)
+(setq redisplay-dont-pause t
+      scroll-step 1
+      scroll-margin 5
+      scroll-conservatively 10000
+      scroll-preserve-screen-position 1)
 ;;Show image
 (auto-image-file-mode)
 ;;Set title

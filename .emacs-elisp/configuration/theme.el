@@ -165,3 +165,13 @@
         (select-window (funcall selector)))
       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
 (global-set-key (kbd "M-9") 'transpose-buffers)
+
+
+;; (add-to-list 'load-path "~/.emacs-elisp/sublimity")
+;; (require 'sublimity)
+;; (sublimity-mode 1)
+;; (setq sublimity-map-on-scroll t)
+(add-to-list 'load-path "~/.emacs-elisp/minimap")
+(require 'minimap)
+(setq minimap-window-location 'right)
+(minimap-mode t)

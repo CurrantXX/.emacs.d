@@ -91,3 +91,6 @@
 [submodule ".emacs-elisp/python-mode/emacs-jedi"]
 	path = .emacs-elisp/python-mode/emacs-jedi
 	url = https://github.com/tkf/emacs-jedi.git
+[submodule ".emacs-elisp/minimap"]
+	path = .emacs-elisp/minimap
+	url = https://github.com/dengste/minimap.git

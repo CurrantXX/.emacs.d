@@ -64,3 +64,6 @@
 [submodule ".emacs-elisp/wcy-swbuff"]
 	path = .emacs-elisp/wcy-swbuff
 	url = https://github.com/emacsmirror/wcy-swbuff.git
+[submodule ".emacs-elisp/smart-compile-plus"]
+	path = .emacs-elisp/smart-compile-plus
+	url = https://github.com/emacsmirror/smart-compile-plus.git

@@ -25,6 +25,7 @@
 ;;-------------------- Smart Compile --------------------
 ;;    Load the smart-compile+ .                         .
 ;;-------------------------------------------------------
+(add-to-list 'load-path "~/.emacs-elisp/smart-compile-plus/")
 (require 'smart-compile+)
 (global-set-key [(f9)] 'smart-compile)
 

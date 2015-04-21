@@ -127,5 +127,44 @@
   )
 (my-mode-line)
 
+(add-to-list 'load-path "~/.emacs-elisp/window-numbering.el")
 (require 'window-numbering)
+(define-key window-numbering-keymap (kbd "C-0") 'select-window-0)
+(define-key window-numbering-keymap (kbd "C-1") 'select-window-1)
+(define-key window-numbering-keymap (kbd "C-2") 'select-window-2)
+(define-key window-numbering-keymap (kbd "C-3") 'select-window-3)
+(define-key window-numbering-keymap (kbd "C-4") 'select-window-4)
+(define-key window-numbering-keymap (kbd "C-5") 'select-window-5)
+(define-key window-numbering-keymap (kbd "C-6") 'select-window-6)
+(define-key window-numbering-keymap (kbd "C-7") 'select-window-7)
+(define-key window-numbering-keymap (kbd "C-8") 'select-window-8)
+(define-key window-numbering-keymap (kbd "C-9") 'select-window-9)
+(define-key window-numbering-keymap (kbd "M-1") 'delete-other-windows)
+(define-key window-numbering-keymap (kbd "M-2") 'split-window-below)
+(define-key window-numbering-keymap (kbd "M-3") 'split-window-right)
+(define-key window-numbering-keymap (kbd "M-0") 'delete-window)
 (window-numbering-mode 1)
+
+
+;;Window Configuration
+;;===========================================================
+;;next window
+(global-set-key [(control \')] 'next-multiframe-window)
+;;split and delete windows
+(global-set-key (kbd "M-1") 'delete-other-windows)
+(global-set-key (kbd "M-2") 'split-window-below)
+(global-set-key (kbd "M-3") 'split-window-right)
+(global-set-key (kbd "M-0") 'delete-window)
+;;Swap windows
+(defun transpose-buffers (arg)
+  "Transpose the buffers shown in two windows."
+  (interactive "p")
+  (let ((selector (if (>= arg 0) 'next-window 'previous-window)))
+    (while (/= arg 0)
+      (let ((this-win (window-buffer))
+            (next-win (window-buffer (funcall selector))))
+        (set-window-buffer (selected-window) next-win)
+        (set-window-buffer (funcall selector) this-win)
+        (select-window (funcall selector)))
+      (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
+(global-set-key (kbd "M-9") 'transpose-buffers)

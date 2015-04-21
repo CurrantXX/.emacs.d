@@ -9,9 +9,9 @@
 
 ;; Auto Complete
 ;;===============================================================
-(add-to-list 'load-path "~/.emacs-elisp/auto-complete/")
-(add-to-list 'load-path "~/.emacs-elisp/popup-el/")
-(add-to-list 'load-path "~/.emacs-elisp/fuzzy-el/")
+(add-to-list 'load-path "~/.emacs-elisp/common/auto-complete/")
+(add-to-list 'load-path "~/.emacs-elisp/common/popup-el/")
+(add-to-list 'load-path "~/.emacs-elisp/common/fuzzy-el/")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs-elisp/auto-complete/dict")
 (ac-config-default)

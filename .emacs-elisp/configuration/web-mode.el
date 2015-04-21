@@ -104,6 +104,7 @@
 (define-key emmet-mode-keymap (kbd "C-c C-n") 'emmet-next-edit-point)
 (define-key emmet-mode-keymap (kbd "C-c C-p") 'emmet-prev-edit-point)
 (setq emmet-move-cursor-between-quotes t) ;; default nil
+(add-to-list 'load-path "~/.emacs-elisp/ac-emmet")
 (require 'ac-emmet)
 
 (defun css-syntax-color-hex ()

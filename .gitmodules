@@ -58,3 +58,6 @@
 [submodule ".emacs-elisp/emmet-mode"]
 	path = .emacs-elisp/emmet-mode
 	url = https://github.com/smihica/emmet-mode.git
+[submodule ".emacs-elisp/ac-emmet"]
+	path = .emacs-elisp/ac-emmet
+	url = https://github.com/yasuyk/ac-emmet.git

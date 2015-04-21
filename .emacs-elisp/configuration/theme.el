@@ -124,6 +124,7 @@
   )
 (my-mode-line)
 
+;;-----------------window-numbering--------------------
 (add-to-list 'load-path "~/.emacs-elisp/common/window-numbering.el")
 (require 'window-numbering)
 (define-key window-numbering-keymap (kbd "C-0") 'select-window-0)
@@ -141,6 +142,16 @@
 (define-key window-numbering-keymap (kbd "M-3") 'split-window-right)
 (define-key window-numbering-keymap (kbd "M-0") 'delete-window)
 (window-numbering-mode 1)
+
+;;---------------wcy-swbuffer--------------------
+(add-to-list 'load-path "~/.emacs-elisp/common/wcy-swbuff/")
+(require 'wcy-swbuff)
+;;then you can use C-` and <C-S-kp-tab> to switch buffer.
+(global-set-key (kbd "C-`") 'wcy-switch-buffer-forward)
+(global-set-key (kbd "<C-S-kp-tab>") 'wcy-switch-buffer-backward)
+(setq wcy-switch-buffer-active-buffer-face 'highlight)
+(setq wcy-switch-buffer-inactive-buffer-face 'secondary-selection)
+
 
 
 ;;Window Configuration

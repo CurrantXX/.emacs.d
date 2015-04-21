@@ -13,3 +13,6 @@
 [submodule ".emacs-elisp/undo-tree"]
 	path = .emacs-elisp/undo-tree
 	url = https://github.com/emacsmirror/undo-tree.git
+[submodule ".emacs-elisp/themes/emacs-color-theme-solarized"]
+	path = .emacs-elisp/themes/emacs-color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git

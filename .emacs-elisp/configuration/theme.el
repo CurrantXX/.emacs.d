@@ -6,7 +6,7 @@
 (global-hl-line-mode t)
 ;; (require 'col-highlight)
 ;; (column-highlight-mode 1)
-(add-to-list 'custom-theme-load-path "~/.emacs-elisp/themes/")
+(add-to-list 'custom-theme-load-path "~/.emacs-elisp/themes/emacs-color-theme-solarized")
 (set-frame-parameter nil 'background-mode 'dark)
 (load-theme 'solarized t)
 ;; (load-theme 'molokai t)

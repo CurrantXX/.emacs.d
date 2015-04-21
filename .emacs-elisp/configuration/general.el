@@ -23,6 +23,8 @@
 ;;eshell
 (global-set-key [(control =)] 'eshell)
 
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; Smex
 ;; (autoload 'smex "smex"
 ;; "Smex is a M-x enhancement for Emacs, it provides a convenient interface to

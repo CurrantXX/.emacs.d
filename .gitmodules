@@ -46,3 +46,12 @@
 [submodule ".emacs-elisp/dash.el"]
 	path = .emacs-elisp/dash.el
 	url = https://github.com/magnars/dash.el.git
+[submodule ".emacs-elisp/auto-complete"]
+	path = .emacs-elisp/auto-complete
+	url = https://github.com/auto-complete/auto-complete.git
+[submodule ".emacs-elisp/popup-el"]
+	path = .emacs-elisp/popup-el
+	url = https://github.com/auto-complete/popup-el.git
+[submodule ".emacs-elisp/fuzzy-el"]
+	path = .emacs-elisp/fuzzy-el
+	url = https://github.com/auto-complete/fuzzy-el.git

@@ -19,9 +19,6 @@
 [submodule ".emacs-elisp/themes/hl-line-plus"]
 	path = .emacs-elisp/themes/hl-line-plus
 	url = https://github.com/emacsmirror/hl-line-plus.git
-[submodule ".emacs-elisp/yasnippet"]
-	path = .emacs-elisp/yasnippet
-	url = https://github.com/capitaomorte/yasnippet
 [submodule ".emacs-elisp/smartparens"]
 	path = .emacs-elisp/smartparens
 	url = https://github.com/Fuco1/smartparens.git
@@ -94,3 +91,6 @@
 [submodule ".emacs-elisp/minimap"]
 	path = .emacs-elisp/minimap
 	url = https://github.com/dengste/minimap.git
+[submodule ".emacs-elisp/common/yasnippet"]
+	path = .emacs-elisp/common/yasnippet
+	url = https://github.com/capitaomorte/yasnippet

@@ -1,6 +1,6 @@
 ;; Yasnippet
 ;;===============================================================
-(add-to-list `load-path "~/.emacs-elisp/yasnippet")
+(add-to-list `load-path "~/.emacs-elisp/common/yasnippet/")
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas-global-mode t)
 ;;===============================================================

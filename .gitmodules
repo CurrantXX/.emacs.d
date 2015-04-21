@@ -37,3 +37,6 @@
 [submodule ".emacs-elisp/scala-mode/ensime-emacs"]
 	path = .emacs-elisp/scala-mode/ensime-emacs
 	url = https://github.com/ensime/ensime-emacs.git
+[submodule ".emacs-elisp/scala-mode/sbt-mode"]
+	path = .emacs-elisp/scala-mode/sbt-mode
+	url = https://github.com/hvesalai/sbt-mode.git

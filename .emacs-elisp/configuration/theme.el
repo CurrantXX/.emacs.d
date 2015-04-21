@@ -1,12 +1,8 @@
 ;;-------------------- Color theme --------------------
-;;     配色管理。
-;;-----------------------------------------------------
-(add-to-list 'load-path "~/.emacs-elisp/themes/hl-line-plus")
 (require 'hl-line+)
 (global-hl-line-mode t)
 ;; (require 'col-highlight)
 ;; (column-highlight-mode 1)
-(add-to-list 'custom-theme-load-path "~/.emacs-elisp/themes/emacs-color-theme-solarized")
 (set-frame-parameter nil 'background-mode 'dark)
 (load-theme 'solarized t)
 ;; (load-theme 'molokai t)
@@ -125,30 +121,11 @@
 (my-mode-line)
 
 ;;-----------------window-numbering--------------------
-(add-to-list 'load-path "~/.emacs-elisp/common/window-numbering.el")
 (require 'window-numbering)
-(define-key window-numbering-keymap (kbd "C-0") 'select-window-0)
-(define-key window-numbering-keymap (kbd "C-1") 'select-window-1)
-(define-key window-numbering-keymap (kbd "C-2") 'select-window-2)
-(define-key window-numbering-keymap (kbd "C-3") 'select-window-3)
-(define-key window-numbering-keymap (kbd "C-4") 'select-window-4)
-(define-key window-numbering-keymap (kbd "C-5") 'select-window-5)
-(define-key window-numbering-keymap (kbd "C-6") 'select-window-6)
-(define-key window-numbering-keymap (kbd "C-7") 'select-window-7)
-(define-key window-numbering-keymap (kbd "C-8") 'select-window-8)
-(define-key window-numbering-keymap (kbd "C-9") 'select-window-9)
-(define-key window-numbering-keymap (kbd "M-1") 'delete-other-windows)
-(define-key window-numbering-keymap (kbd "M-2") 'split-window-below)
-(define-key window-numbering-keymap (kbd "M-3") 'split-window-right)
-(define-key window-numbering-keymap (kbd "M-0") 'delete-window)
 (window-numbering-mode 1)
-
 ;;---------------wcy-swbuffer--------------------
-(add-to-list 'load-path "~/.emacs-elisp/common/wcy-swbuff/")
 (require 'wcy-swbuff)
 ;;then you can use C-` and <C-S-kp-tab> to switch buffer.
-(global-set-key (kbd "C-`") 'wcy-switch-buffer-forward)
-(global-set-key (kbd "<C-S-kp-tab>") 'wcy-switch-buffer-backward)
 (setq wcy-switch-buffer-active-buffer-face 'highlight)
 (setq wcy-switch-buffer-inactive-buffer-face 'secondary-selection)
 
@@ -156,13 +133,6 @@
 
 ;;Window Configuration
 ;;===========================================================
-;;next window
-(global-set-key [(control \')] 'next-multiframe-window)
-;;split and delete windows
-(global-set-key (kbd "M-1") 'delete-other-windows)
-(global-set-key (kbd "M-2") 'split-window-below)
-(global-set-key (kbd "M-3") 'split-window-right)
-(global-set-key (kbd "M-0") 'delete-window)
 ;;Swap windows
 (defun transpose-buffers (arg)
   "Transpose the buffers shown in two windows."
@@ -175,14 +145,8 @@
         (set-window-buffer (funcall selector) this-win)
         (select-window (funcall selector)))
       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
-(global-set-key (kbd "M-9") 'transpose-buffers)
 
 
-;; (add-to-list 'load-path "~/.emacs-elisp/sublimity")
-;; (require 'sublimity)
-;; (sublimity-mode 1)
-;; (setq sublimity-map-on-scroll t)
-(add-to-list 'load-path "~/.emacs-elisp/common/minimap")
 (require 'minimap)
 (setq minimap-window-location 'right)
 (minimap-mode t)

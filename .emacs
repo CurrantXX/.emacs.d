@@ -25,6 +25,33 @@
 (add-to-list 'load-path "~/.emacs-elisp/common/helm")
 (add-to-list 'load-path "~/.emacs-elisp/common/undo-tree")
 (add-to-list 'load-path "~/.emacs-elisp/common/hungry-delete")
+(add-to-list `load-path "~/.emacs-elisp/common/yasnippet/")
+(add-to-list 'load-path "~/.emacs-elisp/common/auto-complete/")
+(add-to-list 'load-path "~/.emacs-elisp/common/popup-el/")
+(add-to-list 'load-path "~/.emacs-elisp/common/fuzzy-el/")
+(add-to-list 'load-path "~/.emacs-elisp/common/")
+(add-to-list 'load-path "~/.emacs-elisp/common/smartparens/")
+(add-to-list 'load-path "~/.emacs-elisp/lang/js/js2-mode/")
+(add-to-list 'load-path "~/.emacs-elisp/lang/js/")
+(add-to-list 'load-path "~/.emacs-elisp/lang/org/org-bullets")
+(add-to-list 'load-path "~/.emacs-elisp/lang/python")
+(add-to-list 'load-path "~/.emacs-elisp/lang/python/emacs-deferred")
+(add-to-list 'load-path "~/.emacs-elisp/lang/python/emacs-ctable")
+(add-to-list 'load-path "~/.emacs-elisp/lang/python/emacs-epc")
+(add-to-list 'load-path "~/.emacs-elisp/lang/python/emacs-python-environment")
+(add-to-list 'load-path "~/.emacs-elisp/lang/python/emacs-jedi")
+(add-to-list 'load-path "~/.emacs-elisp/lang/scala/s.el/")
+(add-to-list 'load-path "~/.emacs-elisp/lang/scala/scala-mode2/")
+(add-to-list 'load-path "~/.emacs-elisp/lang/scala/sbt-mode/")
+(add-to-list 'load-path "~/.emacs-elisp/lang/scala/ensime-emacs/")
+(add-to-list 'load-path "~/.emacs-elisp/themes/hl-line-plus")
+(add-to-list 'custom-theme-load-path "~/.emacs-elisp/themes/emacs-color-theme-solarized")
+(add-to-list 'load-path "~/.emacs-elisp/common/window-numbering.el")
+(add-to-list 'load-path "~/.emacs-elisp/common/wcy-swbuff/")
+(add-to-list 'load-path "~/.emacs-elisp/common/minimap")
+(add-to-list 'load-path "~/.emacs-elisp/lang/php/php-mode")
+(add-to-list 'load-path "~/.emacs-elisp/lang/web/web-mode")
+
 ;; before conf
 (require 'dash)
 
@@ -95,3 +122,43 @@
 
 ;; insert date time
 (global-set-key (kbd "C-c C-t") 'insert-current-date-time)
+
+;; auto-complete
+(ac-set-trigger-key "TAB")
+(ac-set-trigger-key "<tab>")
+
+;; autopair
+(global-set-key (kbd "M-k") 'sp-kill-sexp)
+(global-set-key (kbd "M-S-<left>") 'sp-add-to-next-sexp)
+(global-set-key (kbd "M-S-<right>") 'sp-add-to-previous-sexp)
+
+;; python
+(setq jedi:goto-definition (kbd "C-c C-.")) ;; change keybinds
+(define-key python-mode-map (kbd "C-c C-a") 'py-pep8-run)
+
+
+;; window-numbering
+(define-key window-numbering-keymap (kbd "C-0") 'select-window-0)
+(define-key window-numbering-keymap (kbd "C-1") 'select-window-1)
+(define-key window-numbering-keymap (kbd "C-2") 'select-window-2)
+(define-key window-numbering-keymap (kbd "C-3") 'select-window-3)
+(define-key window-numbering-keymap (kbd "C-4") 'select-window-4)
+(define-key window-numbering-keymap (kbd "C-5") 'select-window-5)
+(define-key window-numbering-keymap (kbd "C-6") 'select-window-6)
+(define-key window-numbering-keymap (kbd "C-7") 'select-window-7)
+(define-key window-numbering-keymap (kbd "C-8") 'select-window-8)
+(define-key window-numbering-keymap (kbd "C-9") 'select-window-9)
+(define-key window-numbering-keymap (kbd "M-1") 'delete-other-windows)
+(define-key window-numbering-keymap (kbd "M-2") 'split-window-below)
+(define-key window-numbering-keymap (kbd "M-3") 'split-window-right)
+(define-key window-numbering-keymap (kbd "M-0") 'delete-window)
+(global-set-key (kbd "C-`") 'wcy-switch-buffer-forward)
+(global-set-key (kbd "<C-S-kp-tab>") 'wcy-switch-buffer-backward)
+;;next window
+(global-set-key [(control \')] 'next-multiframe-window)
+;;split and delete windows
+(global-set-key (kbd "M-1") 'delete-other-windows)
+(global-set-key (kbd "M-2") 'split-window-below)
+(global-set-key (kbd "M-3") 'split-window-right)
+(global-set-key (kbd "M-0") 'delete-window)
+(global-set-key (kbd "M-9") 'transpose-buffers)

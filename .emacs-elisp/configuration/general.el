@@ -31,7 +31,7 @@
 ;; your recently and most frequently used commands.")
 ;; (global-set-key (kbd "M-x") 'smex)
 ;; Helm (Helm is better than smex)
-(add-to-list 'load-path "~/.emacs-elisp/helm")
+(add-to-list 'load-path "~/.emacs-elisp/common/helm")
 (require 'helm-config)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (helm-mode 1)

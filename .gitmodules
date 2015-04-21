@@ -2,7 +2,7 @@
 	path = .emacs-elisp/org-bullets
 	url = https://github.com/sabof/org-bullets.git
 [submodule ".emacs-elisp/helm"]
-	path = .emacs-elisp/helm
+	path = .emacs-elisp/common/helm
 	url = https://github.com/emacs-helm/helm.git
 [submodule ".emacs-elisp/js2-mode"]
 	path = .emacs-elisp/js2-mode

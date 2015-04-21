@@ -1,13 +1,19 @@
 ;;-------------------- Python --------------------
-(setq py-install-directory "~/.emacs-elisp/python-mode")
-(add-to-list 'load-path py-install-directory)
+(setq py-install-directory )
+(add-to-list 'load-path "~/.emacs-elisp/python-mode")
+(add-to-list 'load-path "~/.emacs-elisp/python-mode/emacs-deferred")
+(add-to-list 'load-path "~/.emacs-elisp/python-mode/emacs-ctable")
+(add-to-list 'load-path "~/.emacs-elisp/python-mode/emacs-epc")
+(add-to-list 'load-path "~/.emacs-elisp/python-mode/emacs-python-environment")
+(add-to-list 'load-path "~/.emacs-elisp/python-mode/emacs-jedi")
 (require 'python-mode)
 (require 'python-environment)
 (require 'epc)
+(require 'jedi)
 (setq jedi:setup-keys t)
 (autoload 'jedi:setup "jedi" nil t)
 (add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:key-goto-definition (kbd "C-c C-.")) ;; change keybinds
+(setq jedi:goto-definition (kbd "C-c C-.")) ;; change keybinds
 (define-key python-mode-map (kbd "C-c C-a") 'py-pep8-run)
 
 ;;; (set-face-foreground 'py-variable-name-face "#74E32D")

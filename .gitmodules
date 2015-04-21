@@ -76,3 +76,18 @@
 [submodule ".emacs-elisp/hungry-delete"]
 	path = .emacs-elisp/hungry-delete
 	url = https://github.com/nflath/hungry-delete.git
+[submodule ".emacs-elisp/python-mode/emacs-deferred"]
+	path = .emacs-elisp/python-mode/emacs-deferred
+	url = https://github.com/kiwanami/emacs-deferred.git
+[submodule ".emacs-elisp/python-mode/emacs-ctable"]
+	path = .emacs-elisp/python-mode/emacs-ctable
+	url = https://github.com/kiwanami/emacs-ctable.git
+[submodule ".emacs-elisp/python-mode/emacs-epc"]
+	path = .emacs-elisp/python-mode/emacs-epc
+	url = https://github.com/kiwanami/emacs-epc.git
+[submodule ".emacs-elisp/python-mode/emacs-python-environment"]
+	path = .emacs-elisp/python-mode/emacs-python-environment
+	url = https://github.com/tkf/emacs-python-environment.git
+[submodule ".emacs-elisp/python-mode/emacs-jedi"]
+	path = .emacs-elisp/python-mode/emacs-jedi
+	url = https://github.com/tkf/emacs-jedi.git

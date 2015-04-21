@@ -40,3 +40,6 @@
 [submodule ".emacs-elisp/scala-mode/sbt-mode"]
 	path = .emacs-elisp/scala-mode/sbt-mode
 	url = https://github.com/hvesalai/sbt-mode.git
+[submodule ".emacs-elisp/scala-mode/scala-mode2"]
+	path = .emacs-elisp/scala-mode/scala-mode2
+	url = https://github.com/hvesalai/scala-mode2.git

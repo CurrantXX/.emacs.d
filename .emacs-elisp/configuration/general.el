@@ -224,7 +224,6 @@ occurence of CHAR."
 (global-set-key (kbd "C-c C-i") 'indent-region-or-buffer)
 
 (global-set-key "\C-j" 'newline-and-indent)
-(require 'rfringe)
 
 (require 'package)
 (add-to-list 'package-archives

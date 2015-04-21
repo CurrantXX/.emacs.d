@@ -34,3 +34,6 @@
 [submodule ".emacs-elisp/yafolding.el"]
 	path = .emacs-elisp/yafolding.el
 	url = https://github.com/zenozeng/yafolding.el.git
+[submodule ".emacs-elisp/scala-mode/ensime-emacs"]
+	path = .emacs-elisp/scala-mode/ensime-emacs
+	url = https://github.com/ensime/ensime-emacs.git

@@ -9,14 +9,13 @@
 ;; Auto Complete
 ;;===============================================================
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs-elisp/auto-complete/dict")
 (ac-config-default)
 (setq ac-use-quick-help t)
 (setq ac-quick-help-delay 1.0)
 (setq ac-fuzzy-enable t)
 (put 'upcase-region 'disabled nil)
 (setq ac-trigger-commands
-      (cons 'backward-delete-char-untabify ac-trigger-commands))
+	  (cons 'backward-delete-char-untabify ac-trigger-commands))
 ;;web-mode auto complete
 (add-to-list 'ac-modes 'web-mode)
 ;;lisp-mode auto complete

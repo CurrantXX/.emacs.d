@@ -23,9 +23,9 @@
 
 
 (setq web-mode-engines-alist
-      '(("php" . "\\.phtml\\'")
-        ("blade" . "\\.blade\\."))
-      )
+	  '(("php" . "\\.phtml\\'")
+		("blade" . "\\.blade\\."))
+	  )
 
 
 ;;Auto-pairing
@@ -45,17 +45,17 @@
 
 ;; auto-pair
 (setq web-mode-extra-auto-pairs
-      '(("erb" . (("open" "close")))
-        ("php" . (("open" "close")
-                  ("open" "close")))
-        ))
+	  '(("erb" . (("open" "close")))
+		("php" . (("open" "close")
+				  ("open" "close")))
+		))
 
 ;;Snippet
 (setq web-mode-extra-snippets
-      '(("erb" . (("name" . ("beg" . "end"))))
-        ("php" . (("name" . ("beg" . "end"))
-                  ("name" . ("beg" . "end"))))
-        ))
+	  '(("erb" . (("name" . ("beg" . "end"))))
+		("php" . (("name" . ("beg" . "end"))
+				  ("name" . ("beg" . "end"))))
+		))
 (defun web-mode-hook ()
   (setq web-mode-markup-indent-offset 2))
 (add-hook 'web-mode-hook 'web-mode-hook)
@@ -73,28 +73,26 @@
 ;; (define-key web-mode-map (kbd "C-c <") 'web-mode-element-beginning)
 
 ;;================== Rainbow-mode ====================
-(add-to-list 'load-path "~/.emacs-elisp/common/rainbow-mode")
 (require 'rainbow-mode)
 (add-hook 'web-mode-hook 'rainbow-mode)
 
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 
-(add-to-list 'load-path "~/.emacs-elisp/lang/web/emmet-mode")
 (require 'emmet-mode)
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 (add-hook 'web-mode-hook 'emmet-mode)
 (add-hook 'web-mode-before-auto-complete-hooks
-          '(lambda ()
-             (let ((web-mode-cur-language
-                    (web-mode-language-at-pos)))
-               (if (string= web-mode-cur-language "scss")
-                   (setq emmet-use-css-transform t)
-                 (setq emmet-use-css-transform nil))
-               (if (string= web-mode-cur-language "css")
-                   (setq emmet-use-css-transform t)
-                 (setq emmet-use-css-transform nil)))))
+		  '(lambda ()
+			 (let ((web-mode-cur-language
+					(web-mode-language-at-pos)))
+			   (if (string= web-mode-cur-language "scss")
+				   (setq emmet-use-css-transform t)
+				 (setq emmet-use-css-transform nil))
+			   (if (string= web-mode-cur-language "css")
+				   (setq emmet-use-css-transform t)
+				 (setq emmet-use-css-transform nil)))))
 
 
 ;; Emmet-mode keyblinding
@@ -103,7 +101,6 @@
 (define-key emmet-mode-keymap (kbd "C-c C-n") 'emmet-next-edit-point)
 (define-key emmet-mode-keymap (kbd "C-c C-p") 'emmet-prev-edit-point)
 (setq emmet-move-cursor-between-quotes t) ;; default nil
-(add-to-list 'load-path "~/.emacs-elisp/lang/web/ac-emmet")
 (require 'ac-emmet)
 
 (defun css-syntax-color-hex ()
@@ -112,38 +109,38 @@
   (font-lock-add-keywords
    nil
    '(("#[0-9a-fA-F]\\{6\\}\\|#[0-9a-fA-F]\\{3\\}\\|rgb([ ]*\\([[:digit:]]\\{1,3\\}\\)[ ]*,[ ]*\\([[:digit:]]\\{1,3\\}\\)[ ]*,[ ]*\\([[:digit:]]\\{1,3\\}\\)\\(.*?\\))"
-      (0 (css-colorize
-          (match-beginning 0)
-          (match-end 0)
-          )))))
+	  (0 (css-colorize
+		  (match-beginning 0)
+		  (match-end 0)
+		  )))))
   (font-lock-fontify-buffer)
   )
 (defun css-colorize-foreground (color)
   "Colorize foreground based on background luminance."
   (let* ((values (x-color-values color))
-         (r (car values))
-         (g (cadr values))
-         (b (car (cdr (cdr values)))))
-    (if (> 128.0 (floor (+ (* .3 r) (* .59 g) (* .11 b)) 256))
-        "white" "black")))
+		 (r (car values))
+		 (g (cadr values))
+		 (b (car (cdr (cdr values)))))
+	(if (> 128.0 (floor (+ (* .3 r) (* .59 g) (* .11 b)) 256))
+		"white" "black")))
 (defun css-colorize (beg end)
   (let (str plist len)
-    (setq str (buffer-substring-no-properties beg end))
-    (setq len (length str))
-    (cond
-     ((string= (substring str 0 1) "#")
-      (setq plist (list :background str
-                        :foreground (css-colorize-foreground str)))
-      (put-text-property beg end 'face plist))
-     ((string= (substring str 0 4) "rgb(")
-      (setq str (format "#%02X%02X%02X"
-                        (string-to-number (match-string-no-properties 1))
-                        (string-to-number (match-string-no-properties 2))
-                        (string-to-number (match-string-no-properties 3))))
-      (setq plist (list :background str
-                        :foreground (css-colorize-foreground str)))
-      (put-text-property beg end 'face plist))
-     ) ;cond
-    ))
+	(setq str (buffer-substring-no-properties beg end))
+	(setq len (length str))
+	(cond
+	 ((string= (substring str 0 1) "#")
+	  (setq plist (list :background str
+						:foreground (css-colorize-foreground str)))
+	  (put-text-property beg end 'face plist))
+	 ((string= (substring str 0 4) "rgb(")
+	  (setq str (format "#%02X%02X%02X"
+						(string-to-number (match-string-no-properties 1))
+						(string-to-number (match-string-no-properties 2))
+						(string-to-number (match-string-no-properties 3))))
+	  (setq plist (list :background str
+						:foreground (css-colorize-foreground str)))
+	  (put-text-property beg end 'face plist))
+	 ) ;cond
+	))
 
 (add-hook 'css-mode-hook 'css-syntax-color-hex)

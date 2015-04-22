@@ -20,6 +20,7 @@
 (add-to-list 'ac-modes 'web-mode)
 ;;lisp-mode auto complete
 (add-to-list 'ac-modes 'lisp-mode)
+(setq ac-modes (remove 'scala-mode ac-modes))
 ;;===============================================================
 ;; (set-face-background 'popup-face "#1c1c1c")
 ;; (set-face-foreground 'popup-face "#0087ff")

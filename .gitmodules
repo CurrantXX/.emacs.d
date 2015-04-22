@@ -128,3 +128,6 @@
 [submodule ".emacs-elisp/lang/python/emacs-deferred"]
 	path = .emacs-elisp/lang/python/emacs-deferred
 	url = https://github.com/kiwanami/emacs-deferred.git
+[submodule ".emacs-elisp/common/expand-region.el"]
+	path = .emacs-elisp/common/expand-region.el
+	url = https://github.com/magnars/expand-region.el.git

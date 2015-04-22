@@ -58,10 +58,10 @@
 
 ;;Prevent jumping while scrolling
 (setq redisplay-dont-pause t
-      scroll-step 1
-      scroll-margin 5
-      scroll-conservatively 10000
-      scroll-preserve-screen-position 1)
+	  scroll-step 1
+	  scroll-margin 5
+	  scroll-conservatively 10000
+	  scroll-preserve-screen-position 1)
 
 ;;Show image
 (auto-image-file-mode t)
@@ -69,7 +69,7 @@
 (global-font-lock-mode 1)
 ;;; Also highlight parens
 (setq show-paren-delay 0
-      show-paren-style 'parenthesis)
+	  show-paren-style 'parenthesis)
 (show-paren-mode 1)
 
 ;;Cursor
@@ -89,20 +89,20 @@ Typing `my-go-to-char-key' again will move forwad to the next Nth
 occurence of CHAR."
   (interactive "p\ncGo to char: ")
   (let ((case-fold-search nil))
-    (if (eq n 1)
-        (progn                            ; forward
-          (search-forward (string char) nil nil n)
-          (backward-char)
-          (while (equal (read-key)
-                        char)
-            (forward-char)
-            (search-forward (string char) nil nil n)
-            (backward-char)))
-      (progn                              ; backward
-        (search-backward (string char) nil nil )
-        (while (equal (read-key)
-                      char)
-          (search-backward (string char) nil nil )))))
+	(if (eq n 1)
+		(progn                            ; forward
+		  (search-forward (string char) nil nil n)
+		  (backward-char)
+		  (while (equal (read-key)
+						char)
+			(forward-char)
+			(search-forward (string char) nil nil n)
+			(backward-char)))
+	  (progn                              ; backward
+		(search-backward (string char) nil nil )
+		(while (equal (read-key)
+					  char)
+		  (search-backward (string char) nil nil )))))
   (setq unread-command-events (list last-input-event)))
 (global-set-key (kbd "C-t") 'my-go-to-char)
 ;;==============================================================
@@ -113,11 +113,11 @@ occurence of CHAR."
 (defun toggle-fullscreen (&optional f)
   (interactive)
   (let ((current-value (frame-parameter nil 'fullscreen)))
-    (set-frame-parameter nil 'fullscreen
-                         (if (equal 'fullboth current-value)
-                             (if (boundp 'old-fullscreen) old-fullscreen nil)
-                           (progn (setq old-fullscreen current-value)
-                                  'fullboth)))))
+	(set-frame-parameter nil 'fullscreen
+						 (if (equal 'fullboth current-value)
+							 (if (boundp 'old-fullscreen) old-fullscreen nil)
+						   (progn (setq old-fullscreen current-value)
+								  'fullboth)))))
 (add-hook 'emacs-startup-hook 'toggle-fullscreen)
 ;;============================================================================
 
@@ -135,21 +135,21 @@ occurence of CHAR."
   "Indent a region if selected, otherwise the whole buffer."
   (interactive)
   (save-excursion
-    (if (region-active-p)
-        (progn
-          (indent-region (region-beginning) (region-end))
-          (message "Indented selected region."))
-      (progn
-        (indent-buffer)
-        (message "Indented buffer.")))
-    (whitespace-cleanup)
-    (untabify (point-min) (point-max))))
+	(if (region-active-p)
+		(progn
+		  (indent-region (region-beginning) (region-end))
+		  (message "Indented selected region."))
+	  (progn
+		(indent-buffer)
+		(message "Indented buffer.")))
+	(whitespace-cleanup)
+	(untabify (point-min) (point-max))))
 
 
 ;; package
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+			 '("melpa" . "http://melpa.org/packages/") t)
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
@@ -167,8 +167,8 @@ occurence of CHAR."
   "When called interactively with no active region, toggle comment on current line instead."
   (interactive
    (if mark-active (list (region-beginning) (region-end))
-     (list (line-beginning-position)
-           (line-beginning-position 2)))))
+	 (list (line-beginning-position)
+		   (line-beginning-position 2)))))
 
 ;;
 (defvar current-date-time-format "%a %b %d %H:%M:%S %Z %Y"
@@ -182,18 +182,36 @@ Note the weekly scope of the command's precision.")
 (defun insert-current-date-time ()
   "insert the current date and time into current buffer.
 Uses `current-date-time-format' for the formatting the date/time."
-       (interactive)
+	   (interactive)
 ;       (insert (let () (comment-start)))
-       (insert (format-time-string current-date-time-format (current-time)))
-       )
+	   (insert (format-time-string current-date-time-format (current-time)))
+	   )
 
 (defun insert-current-time ()
   "insert the current time (1-week scope) into the current buffer."
-       (interactive)
-       (insert (format-time-string current-time-format (current-time)))
-       )
+	   (interactive)
+	   (insert (format-time-string current-time-format (current-time)))
+	   )
 
 
 ;; Hungry-delete
 (require 'hungry-delete)
 (global-hungry-delete-mode)
+
+
+;; ace-jump-mode
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+;; you can select the key you prefer to
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)

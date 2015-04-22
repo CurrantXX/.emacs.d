@@ -59,7 +59,7 @@
 (add-to-list 'load-path "~/.emacs.d/lang/web/emmet-mode")
 (add-to-list 'load-path "~/.emacs.d/lang/web/ac-emmet")
 (add-to-list 'load-path "~/.emacs.d/common/yafolding.el")
-
+(add-to-list 'load-path "~/.emacs.d/common/ace-jump-mode")
 
 ;; before conf
 (require 'dash)

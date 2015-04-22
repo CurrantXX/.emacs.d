@@ -22,7 +22,7 @@
 
 ;; load-path
 (add-to-list 'load-path "~/.emacs.d/common/dash.el/")
-(add-to-list 'load-path "~/.emacs.d/common/helm")
+(add-to-list 'load-path "~/.emacs.d/common/helm/")
 (add-to-list 'load-path "~/.emacs.d/common/undo-tree")
 (add-to-list 'load-path "~/.emacs.d/common/hungry-delete")
 (add-to-list `load-path "~/.emacs.d/common/yasnippet/")
@@ -61,8 +61,6 @@
 (add-to-list 'load-path "~/.emacs.d/common/yafolding.el")
 
 
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/dict")
-
 ;; before conf
 (require 'dash)
 
@@ -81,6 +79,8 @@
 (load "~/.emacs.d/configuration/web-mode.el")
 (load "~/.emacs.d/configuration/yafolding.el")
 (load "~/.emacs.d/configuration/theme.el")
+
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/common/auto-complete/dict")
 
 ;; key bingdings
 ;;===================================================

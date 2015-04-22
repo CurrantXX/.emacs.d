@@ -36,6 +36,7 @@
 (add-to-list 'load-path "~/.emacs-elisp/lang/js/js2-mode/")
 (add-to-list 'load-path "~/.emacs-elisp/lang/js/")
 (add-to-list 'load-path "~/.emacs-elisp/lang/org/org-bullets")
+(add-to-list 'load-path "~/.emacs-elisp/lang/latex/magic-latex-buffer")
 (add-to-list 'load-path "~/.emacs-elisp/lang/python")
 (add-to-list 'load-path "~/.emacs-elisp/lang/python/emacs-deferred")
 (add-to-list 'load-path "~/.emacs-elisp/lang/python/emacs-ctable")

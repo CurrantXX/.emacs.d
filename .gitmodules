@@ -134,3 +134,6 @@
 [submodule ".emacs-elisp/common/restclient.el"]
 	path = .emacs-elisp/common/restclient.el
 	url = https://github.com/pashky/restclient.el.git
+[submodule ".emacs-elisp/lang/latex/magic-latex-buffer"]
+	path = .emacs-elisp/lang/latex/magic-latex-buffer
+	url = https://github.com/zk-phi/magic-latex-buffer.git

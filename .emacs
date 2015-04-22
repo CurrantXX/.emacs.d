@@ -29,6 +29,7 @@
 (add-to-list 'load-path "~/.emacs-elisp/common/auto-complete/")
 (add-to-list 'load-path "~/.emacs-elisp/common/popup-el/")
 (add-to-list 'load-path "~/.emacs-elisp/common/fuzzy-el/")
+(add-to-list 'load-path "~/.emacs-elisp/common/company-mode/")
 (add-to-list 'load-path "~/.emacs-elisp/common/")
 (add-to-list 'load-path "~/.emacs-elisp/common/smartparens/")
 (add-to-list 'load-path "~/.emacs-elisp/common/expand-region.el/")

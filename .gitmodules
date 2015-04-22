@@ -131,3 +131,6 @@
 [submodule ".emacs-elisp/common/expand-region.el"]
 	path = .emacs-elisp/common/expand-region.el
 	url = https://github.com/magnars/expand-region.el.git
+[submodule ".emacs-elisp/common/restclient.el"]
+	path = .emacs-elisp/common/restclient.el
+	url = https://github.com/pashky/restclient.el.git

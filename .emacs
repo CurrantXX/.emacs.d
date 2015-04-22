@@ -32,6 +32,7 @@
 (add-to-list 'load-path "~/.emacs-elisp/common/")
 (add-to-list 'load-path "~/.emacs-elisp/common/smartparens/")
 (add-to-list 'load-path "~/.emacs-elisp/common/expand-region.el/")
+(add-to-list 'load-path "~/.emacs-elisp/common/restclient.el/")
 (add-to-list 'load-path "~/.emacs-elisp/lang/js/js2-mode/")
 (add-to-list 'load-path "~/.emacs-elisp/lang/js/")
 (add-to-list 'load-path "~/.emacs-elisp/lang/org/org-bullets")

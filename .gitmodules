@@ -98,10 +98,6 @@
 	path = common/hungry-delete
 	url = https://github.com/nflath/hungry-delete.git
 
-[submodule "common/python/emacs-deferred"]
-	path = common/python/emacs-deferred
-	url = https://github.com/kiwanami/emacs-deferred.git
-
 [submodule "lang/python/emacs-ctable"]
 	path = lang/python/emacs-ctable
 	url = https://github.com/kiwanami/emacs-ctable.git

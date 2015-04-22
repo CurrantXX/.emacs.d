@@ -8,3 +8,7 @@ $ cd .emacs.d/common/helm
 $ make
 Enjoy
 ```
+#### TODO
+- lazy loading
+- restruct configuration files
+- arrange key bindings

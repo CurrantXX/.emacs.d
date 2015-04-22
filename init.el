@@ -173,3 +173,21 @@
 (global-set-key (kbd "M-3") 'split-window-right)
 (global-set-key (kbd "M-0") 'delete-window)
 (global-set-key (kbd "M-9") 'transpose-buffers)
+
+
+;; web-mode
+(define-key web-mode-map (kbd "C-.") 'web-mode-comment-or-uncomment)
+(define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
+(define-key web-mode-map (kbd "C-c C-d") 'hungry-delete-forward)
+(define-key web-mode-map (kbd "C-c DEL") 'hungry-delete-backward)
+
+
+;; emmet-mode
+(define-key emmet-mode-keymap (kbd "C-c C-j") 'emmet-expand-line)
+(define-key emmet-mode-keymap (kbd "C-j") 'newline-and-indent)
+(define-key emmet-mode-keymap (kbd "C-c C-n") 'emmet-next-edit-point)
+(define-key emmet-mode-keymap (kbd "C-c C-p") 'emmet-prev-edit-point)
+
+;; yafolding
+(define-key global-map (kbd "C-'") 'yafolding-toggle-element)
+(define-key global-map (kbd "C-c C-f") 'yafolding-toggle-all)

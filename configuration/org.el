@@ -1,28 +1,30 @@
 ;;------------------------- Org-mode -------------------------
 (require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-(setq org-hide-leading-stars t)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done 'time)
-
 (defun insert-loli ()
   "Insert the latest loli into current buffer."
   (interactive)
   (newline)
   (let ((filename (shell-command-to-string
-                   "readlink -n ~/loliday/latest")))
-    (message filename)
-    (insert-image (create-image filename)))
+				   "readlink -n ~/loliday/latest")))
+	(message filename)
+	(insert-image (create-image filename)))
   (start-process "loli-process" "*Messages*"  "~/loliday/loli.sh")
   (newline)
   (newline))
-(global-set-key (kbd "C-h 0") `insert-loli)
+(add-hook 'org-mode-hook
+		  (lambda ()
+			(org-bullets-mode 1)
+			(define-key org-mode-map (kbd "C-c a") 'org-agenda)
+			(define-key org-mode-map (kbd "C-h 0") `insert-loli)))
+(setq org-hide-leading-stars t)
+(setq org-log-done 'time)
+
 
 (add-hook 'eshell-proc-load-hook
-          '(lambda nil
-             (insert-loli)
-             (eshell-send-input "*eshell*")
-             ))
+		  '(lambda nil
+			 (insert-loli)
+			 (eshell-send-input "*eshell*")
+			 ))
 
 (load "auctex.el" nil t t)
 (load "preview-latex.el" nil t t)
@@ -39,7 +41,7 @@
 ;; execute external programs.
 ;; This obviously and can be dangerous to activate!
 (setq org-latex-pdf-process
-      '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+	  '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
 (require 'magic-latex-buffer)
 (add-hook 'latex-mode-hook 'magic-latex-buffer)

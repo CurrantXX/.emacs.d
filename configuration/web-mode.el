@@ -66,10 +66,6 @@
 (setq web-mode-style-padding 2)
 (setq web-mode-script-padding 2)
 (setq web-mode-block-padding 0)
-(define-key web-mode-map (kbd "C-.") 'web-mode-comment-or-uncomment)
-(define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
-(define-key web-mode-map (kbd "C-c C-d") 'hungry-delete-forward)
-(define-key web-mode-map (kbd "C-c DEL") 'hungry-delete-backward)
 ;; (define-key web-mode-map (kbd "C-c <") 'web-mode-element-beginning)
 
 ;;================== Rainbow-mode ====================
@@ -96,10 +92,6 @@
 
 
 ;; Emmet-mode keyblinding
-(define-key emmet-mode-keymap (kbd "C-c C-j") 'emmet-expand-line)
-(define-key emmet-mode-keymap (kbd "C-j") 'newline-and-indent)
-(define-key emmet-mode-keymap (kbd "C-c C-n") 'emmet-next-edit-point)
-(define-key emmet-mode-keymap (kbd "C-c C-p") 'emmet-prev-edit-point)
 (setq emmet-move-cursor-between-quotes t) ;; default nil
 (require 'ac-emmet)
 

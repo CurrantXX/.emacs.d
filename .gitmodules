@@ -1,142 +1,142 @@
-[submodule ".emacs-elisp/lang/org/org-bullets"]
-	path = .emacs-elisp/lang/org/org-bullets
+[submodule "lang/org/org-bullets"]
+	path = lang/org/org-bullets
 	url = https://github.com/sabof/org-bullets.git
 
-[submodule ".emacs-elisp/common/helm"]
-    path = .emacs-elisp/common/helm
-    url = https://github.com/emacs-helm/helm.git
+[submodule "common/helm"]
+	path = common/helm
+	url = https://github.com/emacs-helm/helm.git
 
-[submodule ".emacs-elisp/lang/js/js2-mode"]
-	path = .emacs-elisp/lang/js/js2-mode
+[submodule "lang/js/js2-mode"]
+	path = lang/js/js2-mode
 	url = https://github.com/mooz/js2-mode.git
 
-[submodule ".emacs-elisp/lang/scala/s.el"]
-	path = .emacs-elisp/lang/scala/s.el
+[submodule "lang/scala/s.el"]
+	path = lang/scala/s.el
 	url = https://github.com/magnars/s.el.git
 
-[submodule ".emacs-elisp/common/undo-tree"]
-    path = .emacs-elisp/common/undo-tree
-    url = https://github.com/emacsmirror/undo-tree.git
+[submodule "common/undo-tree"]
+	path = common/undo-tree
+	url = https://github.com/emacsmirror/undo-tree.git
 
-[submodule ".emacs-elisp/themes/emacs-color-theme-solarized"]
-	path = .emacs-elisp/themes/emacs-color-theme-solarized
+[submodule "themes/emacs-color-theme-solarized"]
+	path = themes/emacs-color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized.git
 
-[submodule ".emacs-elisp/themes/hl-line-plus"]
-	path = .emacs-elisp/themes/hl-line-plus
+[submodule "themes/hl-line-plus"]
+	path = themes/hl-line-plus
 	url = https://github.com/emacsmirror/hl-line-plus.git
 
-[submodule ".emacs-elisp/common/smartparens"]
-    path = .emacs-elisp/common/smartparens
-    url = https://github.com/Fuco1/smartparens.git
+[submodule "common/smartparens"]
+	path = common/smartparens
+	url = https://github.com/Fuco1/smartparens.git
 
-[submodule ".emacs-elisp/lang/web/web-mode"]
-	path = .emacs-elisp/lang/web/web-mode
+[submodule "lang/web/web-mode"]
+	path = lang/web/web-mode
 	url = https://github.com/fxbois/web-mode.git
 
-[submodule ".emacs-elisp/lang/php/php-mode"]
-	path = .emacs-elisp/lang/php/php-mode
+[submodule "lang/php/php-mode"]
+	path = lang/php/php-mode
 	url = https://github.com/ejmr/php-mode.git
 
-[submodule ".emacs-elisp/common/yafolding.el"]
-    path = .emacs-elisp/common/yafolding.el
-    url = https://github.com/zenozeng/yafolding.el.git
+[submodule "common/yafolding.el"]
+	path = common/yafolding.el
+	url = https://github.com/zenozeng/yafolding.el.git
 
-[submodule ".emacs-elisp/lang/scala/ensime-emacs"]
-	path = .emacs-elisp/lang/scala/ensime-emacs
+[submodule "lang/scala/ensime-emacs"]
+	path = lang/scala/ensime-emacs
 	url = https://github.com/ensime/ensime-emacs.git
 
-[submodule ".emacs-elisp/lang/scala/sbt-mode"]
-	path = .emacs-elisp/lang/scala/sbt-mode
+[submodule "lang/scala/sbt-mode"]
+	path = lang/scala/sbt-mode
 	url = https://github.com/hvesalai/sbt-mode.git
 
-[submodule ".emacs-elisp/lang/scala/scala-mode2"]
-	path = .emacs-elisp/lang/scala/scala-mode2
+[submodule "lang/scala/scala-mode2"]
+	path = lang/scala/scala-mode2
 	url = https://github.com/hvesalai/scala-mode2.git
 
-[submodule ".emacs-elisp/common/dash.el"]
-    path = .emacs-elisp/common/dash.el
-    url = https://github.com/magnars/dash.el.git
+[submodule "common/dash.el"]
+	path = common/dash.el
+	url = https://github.com/magnars/dash.el.git
 
-[submodule ".emacs-elisp/common/auto-complete"]
-    path = .emacs-elisp/common/auto-complete
-    url = https://github.com/auto-complete/auto-complete.git
+[submodule "common/auto-complete"]
+	path = common/auto-complete
+	url = https://github.com/auto-complete/auto-complete.git
 
-[submodule ".emacs-elisp/common/popup-el"]
-    path = .emacs-elisp/common/popup-el
-    url = https://github.com/auto-complete/popup-el.git
+[submodule "common/popup-el"]
+	path = common/popup-el
+	url = https://github.com/auto-complete/popup-el.git
 
-[submodule ".emacs-elisp/common/fuzzy-el"]
-    path = .emacs-elisp/common/fuzzy-el
-    url = https://github.com/auto-complete/fuzzy-el.git
+[submodule "common/fuzzy-el"]
+	path = common/fuzzy-el
+	url = https://github.com/auto-complete/fuzzy-el.git
 
-[submodule ".emacs-elisp/lang/web/emmet-mode"]
-	path = .emacs-elisp/lang/web/emmet-mode
+[submodule "lang/web/emmet-mode"]
+	path = lang/web/emmet-mode
 	url = https://github.com/smihica/emmet-mode.git
 
-[submodule ".emacs-elisp/lang/web/ac-emmet"]
-	path = .emacs-elisp/lang/web/ac-emmet
+[submodule "lang/web/ac-emmet"]
+	path = lang/web/ac-emmet
 	url = https://github.com/yasuyk/ac-emmet.git
 
-[submodule ".emacs-elisp/common/wcy-swbuff"]
-    path = .emacs-elisp/common/wcy-swbuff
-    url = https://github.com/emacsmirror/wcy-swbuff.git
+[submodule "common/wcy-swbuff"]
+	path = common/wcy-swbuff
+	url = https://github.com/emacsmirror/wcy-swbuff.git
 
-[submodule ".emacs-elisp/lang/c/smart-compile-plus"]
-	path = .emacs-elisp/lang/c/smart-compile-plus
+[submodule "lang/c/smart-compile-plus"]
+	path = lang/c/smart-compile-plus
 	url = https://github.com/emacsmirror/smart-compile-plus.git
 
-[submodule ".emacs-elisp/common/window-numbering.el"]
-    path = .emacs-elisp/common/window-numbering.el
-    url = https://github.com/nschum/window-numbering.el.git
+[submodule "common/window-numbering.el"]
+	path = common/window-numbering.el
+	url = https://github.com/nschum/window-numbering.el.git
 
-[submodule ".emacs-elisp/common/rainbow-mode"]
-	path = .emacs-elisp/common/rainbow-mode
+[submodule "common/rainbow-mode"]
+	path = common/rainbow-mode
 	url = https://github.com/emacsmirror/rainbow-mode.git
 
-[submodule ".emacs-elisp/common/hungry-delete"]
-    path = .emacs-elisp/common/hungry-delete
-    url = https://github.com/nflath/hungry-delete.git
+[submodule "common/hungry-delete"]
+	path = common/hungry-delete
+	url = https://github.com/nflath/hungry-delete.git
 
-[submodule ".emacs-elisp/common/python/emacs-deferred"]
-	path = .emacs-elisp/common/python/emacs-deferred
+[submodule "common/python/emacs-deferred"]
+	path = common/python/emacs-deferred
 	url = https://github.com/kiwanami/emacs-deferred.git
 
-[submodule ".emacs-elisp/lang/python/emacs-ctable"]
-	path = .emacs-elisp/lang/python/emacs-ctable
+[submodule "lang/python/emacs-ctable"]
+	path = lang/python/emacs-ctable
 	url = https://github.com/kiwanami/emacs-ctable.git
 
-[submodule ".emacs-elisp/lang/python/emacs-epc"]
-	path = .emacs-elisp/lang/python/emacs-epc
+[submodule "lang/python/emacs-epc"]
+	path = lang/python/emacs-epc
 	url = https://github.com/kiwanami/emacs-epc.git
 
-[submodule ".emacs-elisp/lang/python/emacs-python-environment"]
-	path = .emacs-elisp/lang/python/emacs-python-environment
+[submodule "lang/python/emacs-python-environment"]
+	path = lang/python/emacs-python-environment
 	url = https://github.com/tkf/emacs-python-environment.git
 
-[submodule ".emacs-elisp/lang/python/emacs-jedi"]
-	path = .emacs-elisp/lang/python/emacs-jedi
+[submodule "lang/python/emacs-jedi"]
+	path = lang/python/emacs-jedi
 	url = https://github.com/tkf/emacs-jedi.git
 
-[submodule ".emacs-elisp/common/minimap"]
-    path = .emacs-elisp/common/minimap
-    url = https://github.com/dengste/minimap.git
+[submodule "common/minimap"]
+	path = common/minimap
+	url = https://github.com/dengste/minimap.git
 
-[submodule ".emacs-elisp/common/yasnippet"]
-    path = .emacs-elisp/common/yasnippet
-    url = https://github.com/capitaomorte/yasnippet
-[submodule ".emacs-elisp/lang/python/emacs-deferred"]
-	path = .emacs-elisp/lang/python/emacs-deferred
+[submodule "common/yasnippet"]
+	path = common/yasnippet
+	url = https://github.com/capitaomorte/yasnippet
+[submodule "lang/python/emacs-deferred"]
+	path = lang/python/emacs-deferred
 	url = https://github.com/kiwanami/emacs-deferred.git
-[submodule ".emacs-elisp/common/expand-region.el"]
-	path = .emacs-elisp/common/expand-region.el
+[submodule "common/expand-region.el"]
+	path = common/expand-region.el
 	url = https://github.com/magnars/expand-region.el.git
-[submodule ".emacs-elisp/common/restclient.el"]
-	path = .emacs-elisp/common/restclient.el
+[submodule "common/restclient.el"]
+	path = common/restclient.el
 	url = https://github.com/pashky/restclient.el.git
-[submodule ".emacs-elisp/lang/latex/magic-latex-buffer"]
-	path = .emacs-elisp/lang/latex/magic-latex-buffer
+[submodule "lang/latex/magic-latex-buffer"]
+	path = lang/latex/magic-latex-buffer
 	url = https://github.com/zk-phi/magic-latex-buffer.git
-[submodule ".emacs-elisp/common/company-mode"]
-	path = .emacs-elisp/common/company-mode
+[submodule "common/company-mode"]
+	path = common/company-mode
 	url = https://github.com/company-mode/company-mode.git

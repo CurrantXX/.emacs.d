@@ -104,7 +104,7 @@ occurence of CHAR."
 					  char)
 		  (search-backward (string char) nil nil )))))
   (setq unread-command-events (list last-input-event)))
-(global-set-key (kbd "C-t") 'my-go-to-char)
+;; (global-set-key (kbd "C-t") 'my-go-to-char)
 ;;==============================================================
 
 ;;Full screen
@@ -206,7 +206,6 @@ Uses `current-date-time-format' for the formatting the date/time."
   "Emacs quick move minor mode"
   t)
 ;; you can select the key you prefer to
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (autoload
   'ace-jump-mode-pop-mark
   "ace-jump-mode"
@@ -214,4 +213,3 @@ Uses `current-date-time-format' for the formatting the date/time."
   t)
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)

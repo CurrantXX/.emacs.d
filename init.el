@@ -191,3 +191,7 @@
 ;; yafolding
 (define-key global-map (kbd "C-'") 'yafolding-toggle-element)
 (define-key global-map (kbd "C-c C-f") 'yafolding-toggle-all)
+
+;; ace-jump-mode
+(define-key global-map (kbd "C-t") 'ace-jump-mode)
+(define-key global-map (kbd "C-i") 'ace-jump-mode-pop-mark)

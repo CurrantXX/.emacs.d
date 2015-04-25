@@ -83,29 +83,48 @@
 
 ;;Find the next nearest charactor and jump to it
 ;;==============================================================
-(defun my-go-to-char (n char)
+;; (defun my-go-to-char (n char)
   "Move forward to Nth occurence of CHAR.
 Typing `my-go-to-char-key' again will move forwad to the next Nth
 occurence of CHAR."
-  (interactive "p\ncGo to char: ")
-  (let ((case-fold-search nil))
-	(if (eq n 1)
-		(progn                            ; forward
-		  (search-forward (string char) nil nil n)
-		  (backward-char)
-		  (while (equal (read-key)
-						char)
-			(forward-char)
-			(search-forward (string char) nil nil n)
-			(backward-char)))
-	  (progn                              ; backward
-		(search-backward (string char) nil nil )
-		(while (equal (read-key)
-					  char)
-		  (search-backward (string char) nil nil )))))
-  (setq unread-command-events (list last-input-event)))
+  ;; (interactive "p\ncGo to char: ")
+  ;; (let ((case-fold-search nil))
+  ;;    (if (eq n 1)
+  ;;        (progn                            ; forward
+  ;;          (search-forward (string char) nil nil n)
+  ;;          (backward-char)
+  ;;          (while (equal (read-key)
+  ;;                        char)
+  ;;            (forward-char)
+  ;;            (search-forward (string char) nil nil n)
+  ;;            (backward-char)))
+  ;;      (progn                              ; backward
+  ;;        (search-backward (string char) nil nil )
+  ;;        (while (equal (read-key)
+  ;;                      char)
+  ;;          (search-backward (string char) nil nil )))))
+  ;; (setq unread-command-events (list last-input-event)))
 ;; (global-set-key (kbd "C-t") 'my-go-to-char)
 ;;==============================================================
+
+
+;;------------ Redefine kill line or region ----------
+;;     When called interactively with no active
+;;     region, copy a single line instead.When
+;;     called interactively with no active region,
+;;     kill a single line instead.”
+;;----------------------------------------------------
+(defadvice kill-ring-save (before slickcopy activate compile)
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+	 (list (line-beginning-position)
+		   (line-beginning-position 2)))))
+(defadvice kill-region (before slickcut activate compile)
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+	 (list (line-beginning-position)
+		   (line-beginning-position 2)))))
+
 
 ;;Full screen
 ;;It seems not work well with Gnome or gtk?

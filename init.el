@@ -87,7 +87,7 @@
 (global-set-key (kbd "M-x") 'helm-M-x)  ;; helm
 (global-set-key (kbd "C-=") 'eshell)
 (global-set-key [f6] 'speedbar)
-;; (setq-default indent-tabs-mode nil) ;;Disable TAB triggering indent
+(setq-default indent-tabs-mode nil) ;;Disable TAB triggering indent
 ;;Set mark
 (global-unset-key (kbd "C-SPC"))
 (global-set-key (kbd "M-SPC") 'set-mark-command)
@@ -136,7 +136,6 @@
 
 ;; auto-complete
 (ac-set-trigger-key "TAB")
-(ac-set-trigger-key "<tab>")
 
 ;; autopair
 (global-set-key (kbd "M-k") 'sp-kill-sexp)
@@ -194,4 +193,3 @@
 
 ;; ace-jump-mode
 (define-key global-map (kbd "C-t") 'ace-jump-mode)
-(define-key global-map (kbd "C-i") 'ace-jump-mode-pop-mark)

@@ -21,6 +21,7 @@
 (setq default-direct "~/Workspace/")
 
 ;; load-path
+; common
 (add-to-list 'load-path "~/.emacs.d/common/dash.el/")
 (add-to-list 'load-path "~/.emacs.d/common/helm/")
 (add-to-list 'load-path "~/.emacs.d/common/undo-tree")
@@ -34,6 +35,16 @@
 (add-to-list 'load-path "~/.emacs.d/common/smartparens/")
 (add-to-list 'load-path "~/.emacs.d/common/expand-region.el/")
 (add-to-list 'load-path "~/.emacs.d/common/restclient.el/")
+(add-to-list 'load-path "~/.emacs.d/common/rainbow-mode")
+(add-to-list 'load-path "~/.emacs.d/common/window-numbering.el")
+(add-to-list 'load-path "~/.emacs.d/common/wcy-swbuff/")
+(add-to-list 'load-path "~/.emacs.d/common/minimap")
+(add-to-list 'load-path "~/.emacs.d/common/yafolding.el")
+(add-to-list 'load-path "~/.emacs.d/common/ace-jump-mode")
+
+; language
+(add-to-list 'load-path "~/.emacs.d/lang/c/")
+(add-to-list 'load-path "~/.emacs.d/lang/c/smart-compile-plus/")
 (add-to-list 'load-path "~/.emacs.d/lang/js/js2-mode/")
 (add-to-list 'load-path "~/.emacs.d/lang/js/")
 (add-to-list 'load-path "~/.emacs.d/lang/org/org-bullets")
@@ -48,18 +59,14 @@
 (add-to-list 'load-path "~/.emacs.d/lang/scala/scala-mode2/")
 (add-to-list 'load-path "~/.emacs.d/lang/scala/sbt-mode/")
 (add-to-list 'load-path "~/.emacs.d/lang/scala/ensime-emacs/")
-(add-to-list 'load-path "~/.emacs.d/themes/hl-line-plus")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
-(add-to-list 'load-path "~/.emacs.d/common/window-numbering.el")
-(add-to-list 'load-path "~/.emacs.d/common/wcy-swbuff/")
-(add-to-list 'load-path "~/.emacs.d/common/minimap")
 (add-to-list 'load-path "~/.emacs.d/lang/php/php-mode")
 (add-to-list 'load-path "~/.emacs.d/lang/web/web-mode")
-(add-to-list 'load-path "~/.emacs.d/common/rainbow-mode")
 (add-to-list 'load-path "~/.emacs.d/lang/web/emmet-mode")
 (add-to-list 'load-path "~/.emacs.d/lang/web/ac-emmet")
-(add-to-list 'load-path "~/.emacs.d/common/yafolding.el")
-(add-to-list 'load-path "~/.emacs.d/common/ace-jump-mode")
+
+; theme
+(add-to-list 'load-path "~/.emacs.d/themes/hl-line-plus")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
 
 ;; before conf
 (require 'dash)
@@ -105,6 +112,7 @@
 (global-set-key [f11] 'toggle-fullscreen)
 
 ;;gdb
+(global-set-key [(f9)] 'smart-compile)
 (global-set-key [(f8)] 'gud-step)
 (global-set-key [(f7)] 'gud-next)
 (global-set-key [(f4)] 'gud-until);;Recover kmacro-end-or-call-macro

@@ -11,6 +11,7 @@
 ;     based on lertsau                            .
 ;;-------------------------------------------------
 (require 'cc-mode)
+(require 'smart-compile+)
 ;;space setting
 (setq c-basic-offset 4)
 (c-set-offset 'inline-open 0)

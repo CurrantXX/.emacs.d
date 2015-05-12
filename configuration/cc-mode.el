@@ -22,6 +22,7 @@
   ;;; hungry-delete and auto-newline
   ;; (c-set-style "gnu")
   (c-toggle-auto-hungry-state 1)
+  (setq gdb-many-windows t)
   (define-key c-mode-base-map [(return)] 'newline-and-indent)
   (define-key c-mode-base-map [(f5)] 'gdb)
   (define-key c-mode-base-map [(f6)] 'speedbar)
@@ -31,7 +32,7 @@
   (setq c-macro-prompt-flag t)
   (setq abbrev-mode t)
   (delq 'ac-source-yasnippet ac-sources)
-  (delq 'ac-source-words-in-same-mode-buffers ac-sources)
+  ;; (delq 'ac-source-words-in-same-mode-buffers ac-sources)
   )
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 

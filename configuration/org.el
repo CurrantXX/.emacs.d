@@ -32,7 +32,33 @@
 (require 'magic-latex-buffer)
 (add-hook 'latex-mode-hook 'magic-latex-buffer)
 
+(defun org-html-src-block (src-block contents info)
+  "Transcode a SRC-BLOCK element from Org to HTML.
+CONTENTS holds the contents of the item.  INFO is a plist holding
+contextual information."
+  (if (org-export-read-attribute :attr_html src-block :textarea)
+      (org-html--textarea-block src-block)
+    (let ((lang (org-element-property :language src-block))
+      (caption (org-export-get-caption src-block))
+      (code (org-html-format-code src-block info))
+      (label (let ((lbl (and (org-element-property :name src-block)
+                 (org-export-get-reference src-block info))))
+           (if lbl (format " id=\"%s\"" lbl) ""))))
+      (if (not lang) (format "<pre class=\"example\"%s>\n%s</pre>" label code)
+    (format
+     "<div class=\"org-src-container\">\n%s%s\n</div>"
+     (if (not caption) ""
+       (format "<label class=\"org-src-name\">%s</label>"
+           (org-export-data caption info)))
+     (format "\n<pre class=\"src src-%s line-numbers\" data-language=\"%s\" %s><code class=\"language-%s\">%s</code></pre>" lang lang label lang code))))))
 
+(setq org-html-doctype "html5")
+(setq org-html-head-include-default-style nil)
+(setq org-html-validation-link nil)
+(setq org-html-preamble t)
+(setq org-html-preamble-format '(("en" "<a class=\"preamble\" href=\"/\">Home</a> | <a class=\"preamble\" href=\"http://override.rocks\">Blog</a> | <a class=\"preamble\" href=\"https://github.com/gallonchoi\">GitHub</a>")))
+(setq org-export-with-email t)
+(setq org-export-with-section-numbers nil)
 
 ;; ---- xelatex generate pdf -----------------
 (add-hook 'org-mode-hook

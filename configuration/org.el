@@ -27,11 +27,6 @@
              ))
 
 
-(require 'ox-latex)
-
-(require 'magic-latex-buffer)
-(add-hook 'latex-mode-hook 'magic-latex-buffer)
-
 (defun org-html-src-block (src-block contents info)
   "Transcode a SRC-BLOCK element from Org to HTML.
 CONTENTS holds the contents of the item.  INFO is a plist holding
@@ -59,6 +54,11 @@ contextual information."
 (setq org-html-preamble-format '(("en" "<a class=\"preamble\" href=\"/\">Home</a> | <a class=\"preamble\" href=\"http://override.rocks\">Blog</a> | <a class=\"preamble\" href=\"https://github.com/gallonchoi\">GitHub</a>")))
 (setq org-export-with-email t)
 (setq org-export-with-section-numbers nil)
+
+(require 'ox-latex)
+
+(require 'magic-latex-buffer)
+(add-hook 'latex-mode-hook 'magic-latex-buffer)
 
 ;; ---- xelatex generate pdf -----------------
 (add-hook 'org-mode-hook
@@ -91,7 +91,7 @@ contextual information."
                "\\documentclass[10pt,a4paper]{article}
 \\usepackage{graphicx}
 \\usepackage{xcolor}
-\\usepackage{xeCJK}
+\\usepackage[slantfont, boldfont]{xeCJK}
 \\usepackage{lmodern}
 \\usepackage{verbatim}
 \\usepackage{fixltx2e}
@@ -110,13 +110,9 @@ contextual information."
 \\usepackage{latexsym}
 \\usepackage{natbib}
 \\usepackage{fancyhdr}
-\\usepackage[xetex,colorlinks=true,CJKbookmarks=true,
-linkcolor=blue,
-urlcolor=blue,
-menucolor=blue]{hyperref}
-\\usepackage{fontspec,xunicode,xltxtra}
-%\\setmainfont[BoldFont=WenQuanYi Micro Hei]{Times New Roman}
-%\\setsansfont[BoldFont=WenQuanYi Micro Hei]{Times New Roman}
+\\usepackage{titling}
+\\usepackage[xetex, colorlinks=true, CJKbookmarks=true, linkcolor=black, urlcolor=blue, menucolor=blue]{hyperref}
+\\usepackage{fontspec, xunicode, xltxtra}
 \\setmainfont{Times New Roman}
 \\setsansfont{Times New Roman}
 \\setmonofont{WenQuanYi Micro Hei Mono}
@@ -142,17 +138,26 @@ menucolor=blue]{hyperref}
 \\definecolor{buildin}{RGB}{127,159,127}%深铅绿
 \\punctstyle{kaiming}
 \\title{}
-\\fancyfoot[C]{\\bfseries\\thepage}
-\\chead{\\MakeUppercase\\sectionmark}
 \\pagestyle{fancy}
+\\fancyhf{}
+\\fancyfoot[C]{\\bfseries\\thepage}
+\\fancyhead[LO]{\\leftmark}
+\\fancyhead[RO]{\\thetitle}
 \\tolerance=1000
+\\setcounter{tocdepth}{2}
+\\setcounter{secnumdepth}{0}
 [NO-DEFAULT-PACKAGES]
 [NO-PACKAGES]"
-("\\section{%s}" . "\\section*{%s}")
-("\\subsection{%s}" . "\\subsection*{%s}")
-("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-("\\paragraph{%s}" . "\\paragraph*{%s}")
-("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+;; 自动添加结点到TOC
+("\\section{%s}" . "\\section{%s}")
+("\\subsection{%s}" . "\\subsection{%s}")
+("\\subsubsection{%s}" . "\\subsubsection{%s}")
+("\\paragraph{%s}" . "\\paragraph{%s}")
+("\\subparagraph{%s}" . "\\subparagraph{%s}")
+))
+
+(setq org-latex-toc-command "\\tableofcontents\n\\pagebreak\n")
 
 ;; 使用Listings宏包格式化源代码(只是把代码框用listing环境框起来，还需要额外的设置)
 (setq org-export-latex-listings t)

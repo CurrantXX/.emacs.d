@@ -139,3 +139,6 @@
 [submodule "common/ace-jump-mode"]
 	path = common/ace-jump-mode
 	url = https://github.com/winterTTr/ace-jump-mode.git
+[submodule "lang/c/auto-complete-clang"]
+	path = lang/c/auto-complete-clang
+	url = https://github.com/brianjcj/auto-complete-clang.git

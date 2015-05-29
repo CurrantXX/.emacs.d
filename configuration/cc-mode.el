@@ -12,6 +12,11 @@
 ;;-------------------------------------------------
 (require 'cc-mode)
 (require 'smart-compile+)
+(setq smart-compile-alist
+  '(("\\.c$"          . "clang -O2 %f -lm -o %n")
+    ("\\.[Cc]+[Pp]*$" . "clang++ -O2 %f -lm -o %n")
+    ("\\.tex$"        . "latex %f")
+    (emacs-lisp-mode  . (emacs-lisp-byte-compile))))
 ;;space setting
 (setq c-basic-offset 4)
 (c-set-offset 'inline-open 0)

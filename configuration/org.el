@@ -25,7 +25,7 @@
              (insert-loli)
              (eshell-send-input "*eshell*")
              ))
-
+(require 'ox-latex)
 
 (defun org-html-src-block (src-block contents info)
   "Transcode a SRC-BLOCK element from Org to HTML.
@@ -40,12 +40,12 @@ contextual information."
                  (org-export-get-reference src-block info))))
            (if lbl (format " id=\"%s\"" lbl) ""))))
       (if (not lang) (format "<pre class=\"example\"%s>\n%s</pre>" label code)
-    (format
-     "<div class=\"org-src-container\">\n%s%s\n</div>"
+    (format "<div class=\"org-src-container\">\n%s%s\n</div>"
      (if (not caption) ""
        (format "<label class=\"org-src-name\">%s</label>"
            (org-export-data caption info)))
      (format "\n<pre class=\"src src-%s line-numbers\" data-language=\"%s\" %s><code class=\"language-%s\">%s</code></pre>" lang lang label lang code))))))
+
 
 (setq org-html-doctype "html5")
 (setq org-html-head-include-default-style nil)
@@ -54,8 +54,6 @@ contextual information."
 (setq org-html-preamble-format '(("en" "<a class=\"preamble\" href=\"/\">Home</a> | <a class=\"preamble\" href=\"http://override.rocks\">Blog</a> | <a class=\"preamble\" href=\"https://github.com/gallonchoi\">GitHub</a>")))
 (setq org-export-with-email t)
 (setq org-export-with-section-numbers nil)
-
-(require 'ox-latex)
 
 (require 'magic-latex-buffer)
 (add-hook 'latex-mode-hook 'magic-latex-buffer)
@@ -113,6 +111,8 @@ contextual information."
 \\usepackage{titling}
 \\usepackage[xetex, colorlinks=true, CJKbookmarks=true, linkcolor=black, urlcolor=blue, menucolor=blue]{hyperref}
 \\usepackage{fontspec, xunicode, xltxtra}
+\\usepackage{indentfirst}
+\\setlength{\\parindent}{2em}
 \\setmainfont{Times New Roman}
 \\setsansfont{Times New Roman}
 \\setmonofont{WenQuanYi Micro Hei Mono}

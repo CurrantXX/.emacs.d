@@ -36,7 +36,7 @@
 (c-set-offset 'inline-open 0)
 (c-set-offset 'friend '-)
 (c-set-offset 'substatement-open 0)
-(defun my-c-mode-common-hook()
+(defun my-cc-mode-common-hook()
   (setq tab-width 4 indent-tabs-mode nil)
   ;;; hungry-delete and auto-newline
   ;; (c-set-style "gnu")
@@ -50,11 +50,13 @@
   (setq c-macro-cppflags " ")
   (setq c-macro-prompt-flag t)
   (setq abbrev-mode t)
-  (delq 'ac-source-yasnippet ac-sources)
-  ;; (delq 'ac-source-words-in-same-mode-buffers ac-sources)
+  (delq 'ac-source-dictionary ac-sources)
+  (delq 'ac-source-words-in-same-mode-buffers ac-sources)
   (setq ac-sources (append '(ac-source-clang) ac-sources))
   )
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c-mode-common-hook 'my-cc-mode-common-hook)
+
+;; (add-hook 'c++-mode-hook 'my-cc-mode-common-hook)
 
 (custom-set-variables
  '(c-offsets-alist (quote ((inline-open . 0) (substatement-open . 0) (cpp-macro . 0) (friend . -))))

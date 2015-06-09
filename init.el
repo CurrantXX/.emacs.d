@@ -41,6 +41,7 @@
 (add-to-list 'load-path "~/.emacs.d/common/minimap")
 (add-to-list 'load-path "~/.emacs.d/common/yafolding.el")
 (add-to-list 'load-path "~/.emacs.d/common/ace-jump-mode")
+(add-to-list 'load-path "~/.emacs.d/common/fold-this.el/")
 
 ; language
 (add-to-list 'load-path "~/.emacs.d/lang/c/")
@@ -209,10 +210,10 @@
  ;; If there is more than one, they won't work right.
  '(c-offsets-alist
    (quote
-    ((inline-open . 0)
-     (substatement-open . 0)
-     (cpp-macro . 0)
-     (friend . -))))
+	((inline-open . 0)
+	 (substatement-open . 0)
+	 (cpp-macro . 0)
+	 (friend . -))))
  '(safe-local-variable-values (quote ((folded-file . t))))
  '(scroll-bar-mode nil))
 (custom-set-faces

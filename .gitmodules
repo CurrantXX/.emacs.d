@@ -142,3 +142,6 @@
 [submodule "lang/c/auto-complete-clang"]
 	path = lang/c/auto-complete-clang
 	url = https://github.com/brianjcj/auto-complete-clang.git
+[submodule "common/fold-this.el"]
+	path = common/fold-this.el
+	url = https://github.com/magnars/fold-this.el.git

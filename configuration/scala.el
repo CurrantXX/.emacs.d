@@ -2,8 +2,4 @@
 (require 'scala-mode2)
 (require 'sbt-mode)
 (require 'ensime)
-(defun my-scala-hook ()
-  (ensime-scala-mode-hook)
-  (local-set-key (kbd "TAB") 'ac-complete-ensime-completions))
-;; (add-hook 'scala-mode-hook 'my-scala-hook)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)

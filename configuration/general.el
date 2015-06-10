@@ -56,12 +56,15 @@
 ;;Tab width
 (setq default-tab-width 4)
 
+;; recursion depth
+(setq max-lisp-eval-depth 10000)
+
 ;;Prevent jumping while scrolling
 (setq redisplay-dont-pause t
-	  scroll-step 1
-	  scroll-margin 5
-	  scroll-conservatively 10000
-	  scroll-preserve-screen-position 1)
+      scroll-step 1
+      scroll-margin 5
+      scroll-conservatively 10000
+      scroll-preserve-screen-position 1)
 
 ;;Show image
 (auto-image-file-mode t)
@@ -69,7 +72,7 @@
 (global-font-lock-mode 1)
 ;;; Also highlight parens
 (setq show-paren-delay 0
-	  show-paren-style 'parenthesis)
+      show-paren-style 'parenthesis)
 (show-paren-mode 1)
 
 ;;Cursor
@@ -117,13 +120,13 @@ occurence of CHAR."
 (defadvice kill-ring-save (before slickcopy activate compile)
   (interactive
    (if mark-active (list (region-beginning) (region-end))
-	 (list (line-beginning-position)
-		   (line-beginning-position 2)))))
+     (list (line-beginning-position)
+           (line-beginning-position 2)))))
 (defadvice kill-region (before slickcut activate compile)
   (interactive
    (if mark-active (list (region-beginning) (region-end))
-	 (list (line-beginning-position)
-		   (line-beginning-position 2)))))
+     (list (line-beginning-position)
+           (line-beginning-position 2)))))
 
 
 ;;Full screen
@@ -132,11 +135,11 @@ occurence of CHAR."
 (defun toggle-fullscreen (&optional f)
   (interactive)
   (let ((current-value (frame-parameter nil 'fullscreen)))
-	(set-frame-parameter nil 'fullscreen
-						 (if (equal 'fullboth current-value)
-							 (if (boundp 'old-fullscreen) old-fullscreen nil)
-						   (progn (setq old-fullscreen current-value)
-								  'fullboth)))))
+    (set-frame-parameter nil 'fullscreen
+                         (if (equal 'fullboth current-value)
+                             (if (boundp 'old-fullscreen) old-fullscreen nil)
+                           (progn (setq old-fullscreen current-value)
+                                  'fullboth)))))
 (add-hook 'emacs-startup-hook 'toggle-fullscreen)
 ;;============================================================================
 
@@ -154,21 +157,21 @@ occurence of CHAR."
   "Indent a region if selected, otherwise the whole buffer."
   (interactive)
   (save-excursion
-	(if (region-active-p)
-		(progn
-		  (indent-region (region-beginning) (region-end))
-		  (message "Indented selected region."))
-	  (progn
-		(indent-buffer)
-		(message "Indented buffer.")))
-	(whitespace-cleanup)
-	(untabify (point-min) (point-max))))
+    (if (region-active-p)
+        (progn
+          (indent-region (region-beginning) (region-end))
+          (message "Indented selected region."))
+      (progn
+        (indent-buffer)
+        (message "Indented buffer.")))
+    (whitespace-cleanup)
+    (untabify (point-min) (point-max))))
 
 
 ;; package
 (require 'package)
 (add-to-list 'package-archives
-			 '("melpa" . "http://melpa.org/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
@@ -186,8 +189,8 @@ occurence of CHAR."
   "When called interactively with no active region, toggle comment on current line instead."
   (interactive
    (if mark-active (list (region-beginning) (region-end))
-	 (list (line-beginning-position)
-		   (line-beginning-position 2)))))
+     (list (line-beginning-position)
+           (line-beginning-position 2)))))
 
 ;;
 (defvar current-date-time-format "%a %b %d %H:%M:%S %Z %Y"
@@ -201,16 +204,16 @@ Note the weekly scope of the command's precision.")
 (defun insert-current-date-time ()
   "insert the current date and time into current buffer.
 Uses `current-date-time-format' for the formatting the date/time."
-	   (interactive)
+       (interactive)
 ;       (insert (let () (comment-start)))
-	   (insert (format-time-string current-date-time-format (current-time)))
-	   )
+       (insert (format-time-string current-date-time-format (current-time)))
+       )
 
 (defun insert-current-time ()
   "insert the current time (1-week scope) into the current buffer."
-	   (interactive)
-	   (insert (format-time-string current-time-format (current-time)))
-	   )
+       (interactive)
+       (insert (format-time-string current-time-format (current-time)))
+       )
 
 
 ;; Hungry-delete

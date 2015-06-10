@@ -10,7 +10,8 @@
 ;;Fonts
 (defun frame-setting ()
   (set-default-font "文泉驿等宽正黑-12")
-  (set-frame-font "Monaco-12")
+  ;; (set-frame-font "Monaco-12")
+  (set-frame-font "Source Code Pro-13")
   (set-fontset-font "fontset-default" 'han "文泉驿等宽正黑-12")
   ;; (set-frame-parameter (selected-frame) 'alpha '(85 50))
   )

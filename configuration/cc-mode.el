@@ -1,14 +1,14 @@
 ;;-------------------- cc mode --------------------
-                                        ;     Setting up the CC mode .                    .
-                                        ;                                                 .
-                                        ;     :[Tab-Width]      : 4                       .
-                                        ;                                                 .
-                                        ;     & compile         : F9                      .
-                                        ;     & gdb             : F5                      .
-                                        ;     & speedbar        : F6                      .
-                                        ;     & c-indent        : M-`                     .
-                                        ;                                                 .
-                                        ;     based on lertsau                            .
+;     Setting up the CC mode .                    .
+;                                                 .
+;     :[Tab-Width]      : 4                       .
+;                                                 .
+;     & compile         : F9                      .
+;     & gdb             : F5                      .
+;     & speedbar        : F6                      .
+;     & c-indent        : M-`                     .
+;                                                 .
+;     based on lertsau                            .
 ;;-------------------------------------------------
 (require 'cc-mode)
 (require 'smart-compile+)
@@ -28,7 +28,7 @@
                )))
 (setq smart-compile-alist
       '(("\\.c$"          . "clang -O2 %f -lm -o %n")
-        ("\\.[Cc]+[Pp]*$" . "clang++ -O2 %f -lm -o %n")
+        ("\\.[Cc]+[Pp]*$" . "clang++ -std=c++11 -O2 %f -lm -o %n")
         ("\\.tex$"        . "latex %f")
         (emacs-lisp-mode  . (emacs-lisp-byte-compile))))
 ;;space setting

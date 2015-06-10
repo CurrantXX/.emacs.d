@@ -1,14 +1,14 @@
 ;;-------------------- cc mode --------------------
-;     Setting up the CC mode .                    .
-;                                                 .
-;     :[Tab-Width]      : 4                       .
-;                                                 .
-;     & compile         : F9                      .
-;     & gdb             : F5                      .
-;     & speedbar        : F6                      .
-;     & c-indent        : M-`                     .
-;                                                 .
-;     based on lertsau                            .
+                                        ;     Setting up the CC mode .                    .
+                                        ;                                                 .
+                                        ;     :[Tab-Width]      : 4                       .
+                                        ;                                                 .
+                                        ;     & compile         : F9                      .
+                                        ;     & gdb             : F5                      .
+                                        ;     & speedbar        : F6                      .
+                                        ;     & c-indent        : M-`                     .
+                                        ;                                                 .
+                                        ;     based on lertsau                            .
 ;;-------------------------------------------------
 (require 'cc-mode)
 (require 'smart-compile+)
@@ -57,6 +57,10 @@
 (add-hook 'c-mode-common-hook 'my-cc-mode-common-hook)
 
 ;; (add-hook 'c++-mode-hook 'my-cc-mode-common-hook)
+
+(require 'flycheck)
+(add-hook 'c-mode-common-hook #'global-flycheck-mode)
+(add-hook 'c-mode-common-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
 
 (custom-set-variables
  '(c-offsets-alist (quote ((inline-open . 0) (substatement-open . 0) (cpp-macro . 0) (friend . -))))

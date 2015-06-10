@@ -145,3 +145,6 @@
 [submodule "common/fold-this.el"]
 	path = common/fold-this.el
 	url = https://github.com/magnars/fold-this.el.git
+[submodule "common/flycheck"]
+	path = common/flycheck
+	url = https://github.com/flycheck/flycheck.git

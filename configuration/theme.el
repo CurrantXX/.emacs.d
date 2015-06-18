@@ -13,7 +13,7 @@
   ;; (set-frame-font "Monaco-12")
   (set-frame-font "Source Code Pro-13")
   (set-fontset-font "fontset-default" 'han "文泉驿等宽正黑-12")
-  ;; (set-frame-parameter (selected-frame) 'alpha '(85 50))
+  (set-frame-parameter (selected-frame) 'alpha '(85 85))
   )
 
 (if (and (fboundp 'daemonp) (daemonp))

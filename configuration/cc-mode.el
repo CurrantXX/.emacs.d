@@ -60,7 +60,8 @@
 
 (require 'flycheck)
 (add-hook 'c-mode-common-hook #'global-flycheck-mode)
-(add-hook 'c-mode-common-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
+;; (add-hook 'c-mode-common-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
+(add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
 
 (custom-set-variables
  '(c-offsets-alist (quote ((inline-open . 0) (substatement-open . 0) (cpp-macro . 0) (friend . -))))

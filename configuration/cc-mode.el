@@ -62,7 +62,9 @@
 (add-hook 'c-mode-common-hook #'global-flycheck-mode)
 ;; (add-hook 'c-mode-common-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
-
+;; highlight keyword
+(font-lock-add-keywords 'c++-mode
+                        '(("constexpr" . 'font-lock-keyword-face)))
 (custom-set-variables
  '(c-offsets-alist (quote ((inline-open . 0) (substatement-open . 0) (cpp-macro . 0) (friend . -))))
  '(scroll-bar-mode nil))

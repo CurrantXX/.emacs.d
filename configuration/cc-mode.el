@@ -64,7 +64,12 @@
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
 ;; highlight keyword
 (font-lock-add-keywords 'c++-mode
-                        '(("constexpr" . 'font-lock-keyword-face)))
+                        '(("constexpr" . 'font-lock-keyword-face)
+                          ("final" . 'font-lock-keyword-face)
+                          ("\\<[A-Z]+[A-Z_]+\\>" . font-lock-constant-face)
+                          ;; hexadecimal numbers
+                          ("\\<0[xX][0-9A-Fa-f]+\\>" . font-lock-constant-face)
+                          ("\\<[\\-+]*[0-9]*\\.?[0-9]+\\([ulUL]+\\|[eE][\\-+]?[0-9]+\\)?\\>" . font-lock-constant-face)))
 (custom-set-variables
  '(c-offsets-alist (quote ((inline-open . 0) (substatement-open . 0) (cpp-macro . 0) (friend . -))))
  '(scroll-bar-mode nil))

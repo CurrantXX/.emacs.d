@@ -17,12 +17,12 @@
       (mapcar (lambda (item)(concat "-I" item))
               (split-string
                "
-/usr/include/c++/5.1.0
-/usr/include/c++/5.1.0/x86_64-unknown-linux-gnu
-/usr/include/c++/5.1.0/backward
-/usr/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/include
+/usr/include/c++/5.2.0
+/usr/include/c++/5.2.0/x86_64-unknown-linux-gnu
+/usr/include/c++/5.2.0/backward
+/usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/include
 /usr/local/include
-/usr/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/include-fixed
+/usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/include-fixed
 /usr/include
 "
                )))

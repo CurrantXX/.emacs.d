@@ -56,12 +56,30 @@
   )
 (add-hook 'c-mode-common-hook 'my-cc-mode-common-hook)
 
-;; (add-hook 'c++-mode-hook 'my-cc-mode-common-hook)
+
+(require 'auto-complete-clang-async)
+
+(defun ac-cc-mode-setup ()
+  (setq ac-clang-cflags '("-std=c++11"))
+  (setq ac-clang-complete-executable "~/.emacs.d/lang/c/emacs-clang-complete-async/clang-complete")
+  (setq ac-sources '(ac-source-clang-async))
+  (ac-clang-launch-completion-process))
+
+(defun my-ac-config ()
+  (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
+  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
+  (global-auto-complete-mode t))
+
+(my-ac-config)
+
 
 (require 'flycheck)
-(add-hook 'c-mode-common-hook #'global-flycheck-mode)
-;; (add-hook 'c-mode-common-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
-(add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
+(add-hook 'c-mode-common-hook 'global-flycheck-mode)
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (setq flycheck-clang-language-standard "c++11")))
+
+
 ;; highlight keyword
 (font-lock-add-keywords 'c++-mode
                         '(("constexpr" . 'font-lock-keyword-face)
@@ -71,8 +89,3 @@
                           ;; hexadecimal numbers
                           ("\\<0[xX][0-9A-Fa-f]+\\>" . font-lock-constant-face)
                           ("\\<[\\-+]*[0-9]*\\.?[0-9]+\\([ulUL]+\\|[eE][\\-+]?[0-9]+\\)?\\>" . font-lock-constant-face)))
-(custom-set-variables
- '(c-offsets-alist (quote ((inline-open . 0) (substatement-open . 0) (cpp-macro . 0) (friend . -))))
- '(scroll-bar-mode nil))
-(custom-set-faces
- )

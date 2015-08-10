@@ -48,6 +48,7 @@
 (add-to-list 'load-path "~/.emacs.d/lang/c/")
 (add-to-list 'load-path "~/.emacs.d/lang/c/smart-compile-plus/")
 (add-to-list 'load-path "~/.emacs.d/lang/c/auto-complete-clang/")
+(add-to-list 'load-path "~/.emacs.d/lang/c/emacs-clang-complete-async/")
 (add-to-list 'load-path "~/.emacs.d/lang/js/js2-mode/")
 (add-to-list 'load-path "~/.emacs.d/lang/js/")
 (add-to-list 'load-path "~/.emacs.d/lang/org/org-bullets")
@@ -204,22 +205,3 @@
 
 ;; ace-jump-mode
 (define-key global-map (kbd "C-t") 'ace-jump-mode)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(c-offsets-alist
-   (quote
-    ((inline-open . 0)
-     (substatement-open . 0)
-     (cpp-macro . 0)
-     (friend . -))))
- '(safe-local-variable-values (quote ((folded-file . t))))
- '(scroll-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

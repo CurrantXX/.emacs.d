@@ -1,14 +1,14 @@
 ;;-------------------- cc mode --------------------
-                                        ;     Setting up the CC mode .                    .
-                                        ;                                                 .
-                                        ;     :[Tab-Width]      : 4                       .
-                                        ;                                                 .
-                                        ;     & compile         : F9                      .
-                                        ;     & gdb             : F5                      .
-                                        ;     & speedbar        : F6                      .
-                                        ;     & c-indent        : M-`                     .
-                                        ;                                                 .
-                                        ;     based on lertsau                            .
+;;     Setting up the CC mode                     .
+;;                                                .
+;;    :[Tab-Width]      : 4                       .
+;;                                                .
+;;    & compile         : F9                      .
+;;    & gdb             : F5                      .
+;;    & speedbar        : F6                      .
+;;    & c-indent        : M-`                     .
+;;                                                .
+;;    based on lertsau                            .
 ;;-------------------------------------------------
 (require 'cc-mode)
 (require 'smart-compile+)
@@ -34,7 +34,7 @@
 ;;space setting
 (setq c-basic-offset 4)
 (c-set-offset 'inline-open 0)
-(c-set-offset 'friend '-)
+;;(c-set-offset 'friend '-)
 (c-set-offset 'substatement-open 0)
 (defun my-cc-mode-common-hook()
   (setq tab-width 4 indent-tabs-mode nil)

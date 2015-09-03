@@ -163,9 +163,3 @@
 [submodule "lang/rust/company-racer"]
 	path = lang/rust/company-racer
 	url = https://github.com/emacs-pe/company-racer.git
-[submodule "lang/rust/flymake-rust"]
-	path = lang/rust/flymake-rust
-	url = https://github.com/jxs/flymake-rust.git
-[submodule "common/flymake-easy"]
-	path = common/flymake-easy
-	url = https://github.com/purcell/flymake-easy.git

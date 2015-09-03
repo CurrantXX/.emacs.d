@@ -43,6 +43,7 @@
 (add-to-list 'load-path "~/.emacs.d/common/ace-jump-mode")
 (add-to-list 'load-path "~/.emacs.d/common/fold-this.el/")
 (add-to-list 'load-path "~/.emacs.d/common/flycheck/")
+(add-to-list 'load-path "~/.emacs.d/common/flymake-easy")
 
 ; language
 (add-to-list 'load-path "~/.emacs.d/lang/c/")
@@ -67,6 +68,10 @@
 (add-to-list 'load-path "~/.emacs.d/lang/web/web-mode")
 (add-to-list 'load-path "~/.emacs.d/lang/web/emmet-mode")
 (add-to-list 'load-path "~/.emacs.d/lang/web/ac-emmet")
+(add-to-list 'load-path "~/.emacs.d/lang/rust/rust-mode")
+(add-to-list 'load-path "~/.emacs.d/lang/rust/emacs-racer")
+(add-to-list 'load-path "~/.emacs.d/lang/rust/company-racer")
+(add-to-list 'load-path "~/.emacs.d/lang/rust/flymake-rust")
 
 ; theme
 (add-to-list 'load-path "~/.emacs.d/themes/hl-line-plus")
@@ -90,6 +95,7 @@
 (load "~/.emacs.d/configuration/web-mode.el")
 (load "~/.emacs.d/configuration/yafolding.el")
 (load "~/.emacs.d/configuration/theme.el")
+(load "~/.emacs.d/configuration/rust-mode.el")
 
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/common/auto-complete/dict")
 

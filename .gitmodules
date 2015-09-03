@@ -151,3 +151,21 @@
 [submodule "lang/c/emacs-clang-complete-async"]
 	path = lang/c/emacs-clang-complete-async
 	url = https://github.com/Golevka/emacs-clang-complete-async.git
+[submodule "lang/rust/racer"]
+	path = lang/rust/racer
+	url = https://github.com/phildawes/racer.git
+[submodule "lang/rust/rust-mode"]
+	path = lang/rust/rust-mode
+	url = https://github.com/rust-lang/rust-mode.git
+[submodule "lang/rust/emacs-racer"]
+	path = lang/rust/emacs-racer
+	url = https://github.com/racer-rust/emacs-racer.git
+[submodule "lang/rust/company-racer"]
+	path = lang/rust/company-racer
+	url = https://github.com/emacs-pe/company-racer.git
+[submodule "lang/rust/flymake-rust"]
+	path = lang/rust/flymake-rust
+	url = https://github.com/jxs/flymake-rust.git
+[submodule "common/flymake-easy"]
+	path = common/flymake-easy
+	url = https://github.com/purcell/flymake-easy.git

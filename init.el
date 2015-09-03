@@ -70,6 +70,7 @@
 (add-to-list 'load-path "~/.emacs.d/lang/rust/rust-mode")
 (add-to-list 'load-path "~/.emacs.d/lang/rust/emacs-racer")
 (add-to-list 'load-path "~/.emacs.d/lang/rust/company-racer")
+(add-to-list 'load-path "~/.emacs.d/lang/rust/flycheck-rust")
 
 ; theme
 (add-to-list 'load-path "~/.emacs.d/themes/hl-line-plus")

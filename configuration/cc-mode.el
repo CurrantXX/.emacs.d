@@ -85,7 +85,7 @@
                         '(("constexpr" . 'font-lock-keyword-face)
                           ("final" . 'font-lock-keyword-face)
                           ("nullptr" . 'font-lock-keyword-face)
-                          ("\\<[A-Z]+[A-Z_]+\\>" . font-lock-constant-face)
+                          ("\\<[A-Z]+[A-Z0-9_]+\\>" . font-lock-constant-face)
                           ;; hexadecimal numbers
                           ("\\<0[xX][0-9A-Fa-f]+\\>" . font-lock-constant-face)
                           ("\\<[\\-+]*[0-9]*\\.?[0-9]+\\([ulUL]+\\|[eE][\\-+]?[0-9]+\\)?\\>" . font-lock-constant-face)))

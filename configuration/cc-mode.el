@@ -84,6 +84,7 @@
 (font-lock-add-keywords 'c++-mode
                         '(("constexpr" . 'font-lock-keyword-face)
                           ("final" . 'font-lock-keyword-face)
+                          ("override" . 'font-lock-keyword-face)
                           ("nullptr" . 'font-lock-keyword-face)
                           ("\\<[A-Z]+[A-Z0-9_]+\\>" . font-lock-constant-face)
                           ;; hexadecimal numbers

@@ -166,3 +166,6 @@
 [submodule "lang/rust/flycheck-rust"]
 	path = lang/rust/flycheck-rust
 	url = https://github.com/flycheck/flycheck-rust.git
+[submodule "lang/haskell/haskell-mode"]
+	path = lang/haskell/haskell-mode
+	url = https://github.com/haskell/haskell-mode.git

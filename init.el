@@ -71,6 +71,7 @@
 (add-to-list 'load-path "~/.emacs.d/lang/rust/emacs-racer")
 (add-to-list 'load-path "~/.emacs.d/lang/rust/company-racer")
 (add-to-list 'load-path "~/.emacs.d/lang/rust/flycheck-rust")
+(add-to-list 'load-path "~/.emacs.d/lang/haskell/haskell-mode/")
 
 ; theme
 (add-to-list 'load-path "~/.emacs.d/themes/hl-line-plus")
@@ -95,6 +96,7 @@
 (load "~/.emacs.d/configuration/yafolding.el")
 (load "~/.emacs.d/configuration/theme.el")
 (load "~/.emacs.d/configuration/rust-mode.el")
+(load "~/.emacs.d/configuration/haskell.el")
 
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/common/auto-complete/dict")
 

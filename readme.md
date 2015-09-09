@@ -3,7 +3,7 @@ My emacs configuration files, for backup
 
 #### Screenshot
 
-![screenshot](https://raw.github.com/gallochoi/.emacs.d/master/screenshot.jpg)
+![screenshot](https://raw.githubusercontent.com/Gallonchoi/.emacs.d/master/screenshot.jpg)
 
 #### Installation
 ```

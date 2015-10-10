@@ -20,11 +20,13 @@
 /usr/include/c++/5.2.0
 /usr/include/c++/5.2.0/x86_64-unknown-linux-gnu
 /usr/include/c++/5.2.0/backward
-/usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/include
 /usr/local/include
-/usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/include-fixed
 /usr/include
+/usr/lib/clang/3.7.0/include/
 "
+;;                "
+;; /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/include
+;; /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/include-fixed"
                )))
 (setq smart-compile-alist
       '(("\\.c$"          . "clang -O2 %f -lm -o %n")
@@ -36,6 +38,7 @@
 (c-set-offset 'inline-open 0)
 ;;(c-set-offset 'friend '-)
 (c-set-offset 'substatement-open 0)
+(c-set-offset 'innamespace 0)
 (defun my-cc-mode-common-hook()
   (setq tab-width 4 indent-tabs-mode nil)
   ;;; hungry-delete and auto-newline
@@ -85,6 +88,7 @@
                         '(("constexpr" . 'font-lock-keyword-face)
                           ("final" . 'font-lock-keyword-face)
                           ("override" . 'font-lock-keyword-face)
+                          ("noexcept" . 'font-lock-keyword-face)
                           ("nullptr" . 'font-lock-keyword-face)
                           ("\\<[A-Z]+[A-Z0-9_]+\\>" . font-lock-constant-face)
                           ;; hexadecimal numbers

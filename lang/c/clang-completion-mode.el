@@ -32,8 +32,12 @@
 ;;
 ;;   (load-library "clang-completion-mode")
 ;;
+;; Once you have done this, you can set various parameters with
+;;
+;;   M-x customize-group RET clang-completion-mode RET
+;;
 ;; Finally, to try Clang-based code completion in a particular buffer,
-;; use M-x clang-completion-mode. When "Clang-CC" shows up in the mode
+;; use M-x clang-completion-mode. When "Clang" shows up in the mode
 ;; line, Clang's code-completion is enabled.
 ;;
 ;; Clang's code completion is based on parsing the complete source
@@ -42,7 +46,7 @@
 ;; options, etc.) to provide code-completion results. Currently, these
 ;; need to be placed into the clang-flags variable in a format
 ;; acceptable to clang. This is a hack: patches are welcome to
-;; improve the interface between this Emacs mode and Clang! 
+;; improve the interface between this Emacs mode and Clang!
 ;;
 
 ;;; Code:
@@ -59,7 +63,7 @@ This variable will typically contain include paths, e.g., -I~/MyProject."
   :type '(repeat (string :tag "Argument" ""))
   :group 'clang-completion-mode)
 
-;;; The prefix header to use with Clang code completion. 
+;;; The prefix header to use with Clang code completion.
 (setq clang-completion-prefix-header "")
 
 ;;; The substring we will use to filter completion results
@@ -70,7 +74,7 @@ This variable will typically contain include paths, e.g., -I~/MyProject."
 
 (setq clang-result-string "")
 
-;;; Compute the current line in the buffer	
+;;; Compute the current line in the buffer
 (defun current-line ()
   "Return the vertical position of point..."
   (+ (count-lines (point-min) (point))
@@ -92,56 +96,44 @@ This variable will typically contain include paths, e.g., -I~/MyProject."
 
 ;; Filter the given list based on a predicate.
 (defun filter (condp lst)
-    (delq nil
-          (mapcar (lambda (x) (and (funcall condp x) x)) lst)))
+  (delq nil
+        (mapcar (lambda (x) (and (funcall condp x) x)) lst)))
 
-;; Determine whether 
+;; Determine whether FIXME: explain better
 (defun is-completion-line (line)
   (or (string-match "OVERLOAD:" line)
       (string-match (concat "COMPLETION: " clang-completion-substring) line)))
 
+
+;; re-process the completions when further input narrows the field
 (defun clang-completion-display (buffer)
+  (fill-buffer buffer))
+
+(defun fill-buffer (buffer)
   (let* ((all-lines (split-string clang-result-string "\n"))
          (completion-lines (filter 'is-completion-line all-lines)))
     (if (consp completion-lines)
         (progn
-         ;; Erase the process buffer
-         (let ((cur (current-buffer)))
-           (set-buffer buffer)
-           (goto-char (point-min))
-           (erase-buffer)
-           (set-buffer cur))
-         
-         ;; Display the process buffer
-         (display-buffer buffer)
-         
-         ;; Insert the code-completion string into the process buffer.
-         (with-current-buffer buffer
-           (insert (mapconcat 'identity completion-lines "\n")))
-         ))))
+          ;; Erase the process buffer.
+          (let ((cur (current-buffer)))
+            (set-buffer buffer)
+            (goto-char (point-min))
+            (erase-buffer)
+            (set-buffer cur))
 
-;; Process "sentinal" that, on successful code completion, replaces the 
+          ;; Display the process buffer.
+          (display-buffer buffer)
+
+          ;; Insert the code-completion string into the process buffer.
+          (with-current-buffer buffer
+            (insert (mapconcat 'identity completion-lines "\n")))
+          ))))
+
+;; Process "sentinel" that, on successful code completion, replaces the
 ;; contents of the code-completion buffer with the new code-completion results
 ;; and ensures that the buffer is visible.
 (defun clang-completion-sentinel (proc event)
-  (let* ((all-lines (split-string clang-result-string "\n"))
-         (completion-lines (filter 'is-completion-line all-lines)))
-    (if (consp completion-lines)
-        (progn
-         ;; Erase the process buffer
-         (let ((cur (current-buffer)))
-           (set-buffer (process-buffer proc))
-           (goto-char (point-min))
-           (erase-buffer)
-           (set-buffer cur))
-         
-         ;; Display the process buffer
-         (display-buffer (process-buffer proc))
-         
-         ;; Insert the code-completion string into the process buffer.
-         (with-current-buffer (process-buffer proc)
-           (insert (mapconcat 'identity completion-lines "\n")))
-         ))))
+  (fill-buffer (process-buffer proc)))
 
 (defun clang-complete ()
   (let* ((cc-point (concat (buffer-file-name)
@@ -159,7 +151,7 @@ This variable will typically contain include paths, e.g., -I~/MyProject."
                              `("-code-completion-at" ,cc-point)
                              (list (buffer-file-name))))
          (cc-buffer-name (concat "*Clang Completion for " (buffer-name) "*")))
-    ;; Start the code-completion process
+    ;; Start the code-completion process.
     (if (buffer-file-name)
         (progn
           ;; If there is already a code-completion process, kill it first.
@@ -170,7 +162,7 @@ This variable will typically contain include paths, e.g., -I~/MyProject."
           (setq clang-completion-substring "")
           (setq clang-result-string "")
           (setq clang-completion-buffer cc-buffer-name)
-            
+
           (let ((cc-proc (apply 'start-process
                                 (append (list "Clang Code-Completion" cc-buffer-name)
                                         cc-command))))
@@ -194,7 +186,7 @@ This variable will typically contain include paths, e.g., -I~/MyProject."
       ()
     (clang-completion-display clang-completion-buffer)
     ))
-  
+
 ;; Invoked when the user types an alphanumeric character or "_" to
 ;; update the filter for the currently-active code completion.
 (defun clang-filter-self-insert (arg)
@@ -222,7 +214,7 @@ This variable will typically contain include paths, e.g., -I~/MyProject."
   "Keymap for Clang Completion Mode.")
 
 (if (null clang-completion-mode-map)
-    (fset 'clang-completion-mode-map 
+    (fset 'clang-completion-mode-map
           (setq clang-completion-mode-map (make-sparse-keymap))))
 
 (if (not (assq 'clang-completion-mode minor-mode-map-alist))
@@ -249,9 +241,8 @@ This variable will typically contain include paths, e.g., -I~/MyProject."
 (define-key clang-completion-mode-map [(delete)] 'clang-delete)
 
 ;; Set up the Clang minor mode.
-(define-minor-mode clang-completion-mode 
+(define-minor-mode clang-completion-mode
   "Clang code-completion mode"
   nil
   " Clang"
   clang-completion-mode-map)
-

@@ -49,29 +49,29 @@
 (add-to-list 'load-path "~/.emacs.d/lang/c/smart-compile-plus/")
 (add-to-list 'load-path "~/.emacs.d/lang/c/auto-complete-clang/")
 (add-to-list 'load-path "~/.emacs.d/lang/c/emacs-clang-complete-async/")
-(add-to-list 'load-path "~/.emacs.d/lang/js/js2-mode/")
-(add-to-list 'load-path "~/.emacs.d/lang/js/")
-(add-to-list 'load-path "~/.emacs.d/lang/org/org-bullets")
-(add-to-list 'load-path "~/.emacs.d/lang/latex/magic-latex-buffer")
-(add-to-list 'load-path "~/.emacs.d/lang/python")
-(add-to-list 'load-path "~/.emacs.d/lang/python/emacs-deferred")
-(add-to-list 'load-path "~/.emacs.d/lang/python/emacs-ctable")
-(add-to-list 'load-path "~/.emacs.d/lang/python/emacs-epc")
-(add-to-list 'load-path "~/.emacs.d/lang/python/emacs-python-environment")
-(add-to-list 'load-path "~/.emacs.d/lang/python/emacs-jedi")
-(add-to-list 'load-path "~/.emacs.d/lang/scala/s.el/")
-(add-to-list 'load-path "~/.emacs.d/lang/scala/scala-mode2/")
-(add-to-list 'load-path "~/.emacs.d/lang/scala/sbt-mode/")
-(add-to-list 'load-path "~/.emacs.d/lang/scala/ensime-emacs/")
-(add-to-list 'load-path "~/.emacs.d/lang/php/php-mode")
-(add-to-list 'load-path "~/.emacs.d/lang/web/web-mode")
-(add-to-list 'load-path "~/.emacs.d/lang/web/emmet-mode")
-(add-to-list 'load-path "~/.emacs.d/lang/web/ac-emmet")
-(add-to-list 'load-path "~/.emacs.d/lang/rust/rust-mode")
-(add-to-list 'load-path "~/.emacs.d/lang/rust/emacs-racer")
-(add-to-list 'load-path "~/.emacs.d/lang/rust/company-racer")
-(add-to-list 'load-path "~/.emacs.d/lang/rust/flycheck-rust")
-(add-to-list 'load-path "~/.emacs.d/lang/haskell/haskell-mode/")
+;; (add-to-list 'load-path "~/.emacs.d/lang/js/js2-mode/")
+;; (add-to-list 'load-path "~/.emacs.d/lang/js/")
+;; (add-to-list 'load-path "~/.emacs.d/lang/org/org-bullets")
+;; (add-to-list 'load-path "~/.emacs.d/lang/latex/magic-latex-buffer")
+;; (add-to-list 'load-path "~/.emacs.d/lang/python")
+;; (add-to-list 'load-path "~/.emacs.d/lang/python/emacs-deferred")
+;; (add-to-list 'load-path "~/.emacs.d/lang/python/emacs-ctable")
+;; (add-to-list 'load-path "~/.emacs.d/lang/python/emacs-epc")
+;; (add-to-list 'load-path "~/.emacs.d/lang/python/emacs-python-environment")
+;; (add-to-list 'load-path "~/.emacs.d/lang/python/emacs-jedi")
+;; (add-to-list 'load-path "~/.emacs.d/lang/scala/s.el/")
+;; (add-to-list 'load-path "~/.emacs.d/lang/scala/scala-mode2/")
+;; (add-to-list 'load-path "~/.emacs.d/lang/scala/sbt-mode/")
+;; (add-to-list 'load-path "~/.emacs.d/lang/scala/ensime-emacs/")
+;; (add-to-list 'load-path "~/.emacs.d/lang/php/php-mode")
+;; (add-to-list 'load-path "~/.emacs.d/lang/web/web-mode")
+;; (add-to-list 'load-path "~/.emacs.d/lang/web/emmet-mode")
+;; (add-to-list 'load-path "~/.emacs.d/lang/web/ac-emmet")
+;; (add-to-list 'load-path "~/.emacs.d/lang/rust/rust-mode")
+;; (add-to-list 'load-path "~/.emacs.d/lang/rust/emacs-racer")
+;; (add-to-list 'load-path "~/.emacs.d/lang/rust/company-racer")
+;; (add-to-list 'load-path "~/.emacs.d/lang/rust/flycheck-rust")
+;; (add-to-list 'load-path "~/.emacs.d/lang/haskell/haskell-mode/")
 
 ; theme
 (add-to-list 'load-path "~/.emacs.d/themes/hl-line-plus")
@@ -88,15 +88,15 @@
 (load "~/.emacs.d/configuration/decode.el")
 (load "~/.emacs.d/configuration/flymake.el")
 (load "~/.emacs.d/configuration/general.el")
-(load "~/.emacs.d/configuration/js2-mode.el")
-(load "~/.emacs.d/configuration/org.el")
-(load "~/.emacs.d/configuration/python.el")
-(load "~/.emacs.d/configuration/scala.el")
-(load "~/.emacs.d/configuration/web-mode.el")
+;; (load "~/.emacs.d/configuration/js2-mode.el")
+;; (load "~/.emacs.d/configuration/org.el")
+;; (load "~/.emacs.d/configuration/python.el")
+;; (load "~/.emacs.d/configuration/scala.el")
+;; (load "~/.emacs.d/configuration/web-mode.el")
 (load "~/.emacs.d/configuration/yafolding.el")
 (load "~/.emacs.d/configuration/theme.el")
-(load "~/.emacs.d/configuration/rust-mode.el")
-(load "~/.emacs.d/configuration/haskell.el")
+;; (load "~/.emacs.d/configuration/rust-mode.el")
+;; (load "~/.emacs.d/configuration/haskell.el")
 
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/common/auto-complete/dict")
 
@@ -162,8 +162,8 @@
 (global-set-key (kbd "M-S-<right>") 'sp-add-to-previous-sexp)
 
 ;; python
-(setq jedi:goto-definition (kbd "C-c C-.")) ;; change keybinds
-(define-key python-mode-map (kbd "C-c C-a") 'py-pep8-run)
+;; (setq jedi:goto-definition (kbd "C-c C-.")) ;; change keybinds
+;; (define-key python-mode-map (kbd "C-c C-a") 'py-pep8-run)
 
 
 ;; window-numbering
@@ -194,17 +194,17 @@
 
 
 ;; web-mode
-(define-key web-mode-map (kbd "C-.") 'web-mode-comment-or-uncomment)
-(define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
-(define-key web-mode-map (kbd "C-c C-d") 'hungry-delete-forward)
-(define-key web-mode-map (kbd "C-c DEL") 'hungry-delete-backward)
+;; (define-key web-mode-map (kbd "C-.") 'web-mode-comment-or-uncomment)
+;; (define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
+;; (define-key web-mode-map (kbd "C-c C-d") 'hungry-delete-forward)
+;; (define-key web-mode-map (kbd "C-c DEL") 'hungry-delete-backward)
 
 
 ;; emmet-mode
-(define-key emmet-mode-keymap (kbd "C-c C-j") 'emmet-expand-line)
-(define-key emmet-mode-keymap (kbd "C-j") 'newline-and-indent)
-(define-key emmet-mode-keymap (kbd "C-c C-n") 'emmet-next-edit-point)
-(define-key emmet-mode-keymap (kbd "C-c C-p") 'emmet-prev-edit-point)
+;; (define-key emmet-mode-keymap (kbd "C-c C-j") 'emmet-expand-line)
+;; (define-key emmet-mode-keymap (kbd "C-j") 'newline-and-indent)
+;; (define-key emmet-mode-keymap (kbd "C-c C-n") 'emmet-next-edit-point)
+;; (define-key emmet-mode-keymap (kbd "C-c C-p") 'emmet-prev-edit-point)
 
 ;; yafolding
 (define-key global-map (kbd "C-'") 'yafolding-toggle-element)

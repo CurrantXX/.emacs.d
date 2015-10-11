@@ -49,6 +49,7 @@
 (add-to-list 'load-path "~/.emacs.d/lang/c/smart-compile-plus/")
 (add-to-list 'load-path "~/.emacs.d/lang/c/auto-complete-clang/")
 (add-to-list 'load-path "~/.emacs.d/lang/c/emacs-clang-complete-async/")
+(add-to-list 'load-path "~/.emacs.d/lang/c/emacs-helm-gtags/")
 ;; (add-to-list 'load-path "~/.emacs.d/lang/js/js2-mode/")
 ;; (add-to-list 'load-path "~/.emacs.d/lang/js/")
 ;; (add-to-list 'load-path "~/.emacs.d/lang/org/org-bullets")

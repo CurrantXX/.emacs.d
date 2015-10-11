@@ -139,9 +139,6 @@
 [submodule "common/ace-jump-mode"]
 	path = common/ace-jump-mode
 	url = https://github.com/winterTTr/ace-jump-mode.git
-[submodule "lang/c/auto-complete-clang"]
-	path = lang/c/auto-complete-clang
-	url = https://github.com/brianjcj/auto-complete-clang.git
 [submodule "common/fold-this.el"]
 	path = common/fold-this.el
 	url = https://github.com/magnars/fold-this.el.git
@@ -166,3 +163,6 @@
 [submodule "lang/rust/flycheck-rust"]
 	path = lang/rust/flycheck-rust
 	url = https://github.com/flycheck/flycheck-rust.git
+[submodule "lang/c/emacs-helm-gtags"]
+	path = lang/c/emacs-helm-gtags
+	url = https://github.com/syohex/emacs-helm-gtags.git

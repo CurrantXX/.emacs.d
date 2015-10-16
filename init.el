@@ -27,9 +27,6 @@
 (add-to-list 'load-path "~/.emacs.d/common/undo-tree")
 (add-to-list 'load-path "~/.emacs.d/common/hungry-delete")
 (add-to-list `load-path "~/.emacs.d/common/yasnippet/")
-(add-to-list 'load-path "~/.emacs.d/common/auto-complete/")
-(add-to-list 'load-path "~/.emacs.d/common/popup-el/")
-(add-to-list 'load-path "~/.emacs.d/common/fuzzy-el/")
 (add-to-list 'load-path "~/.emacs.d/common/company-mode/")
 (add-to-list 'load-path "~/.emacs.d/common/")
 (add-to-list 'load-path "~/.emacs.d/common/smartparens/")
@@ -47,8 +44,6 @@
 ; language
 (add-to-list 'load-path "~/.emacs.d/lang/c/")
 (add-to-list 'load-path "~/.emacs.d/lang/c/smart-compile-plus/")
-(add-to-list 'load-path "~/.emacs.d/lang/c/auto-complete-clang/")
-(add-to-list 'load-path "~/.emacs.d/lang/c/emacs-clang-complete-async/")
 (add-to-list 'load-path "~/.emacs.d/lang/c/emacs-helm-gtags/")
 ;; (add-to-list 'load-path "~/.emacs.d/lang/js/js2-mode/")
 ;; (add-to-list 'load-path "~/.emacs.d/lang/js/")
@@ -60,10 +55,6 @@
 ;; (add-to-list 'load-path "~/.emacs.d/lang/python/emacs-epc")
 ;; (add-to-list 'load-path "~/.emacs.d/lang/python/emacs-python-environment")
 ;; (add-to-list 'load-path "~/.emacs.d/lang/python/emacs-jedi")
-;; (add-to-list 'load-path "~/.emacs.d/lang/scala/s.el/")
-;; (add-to-list 'load-path "~/.emacs.d/lang/scala/scala-mode2/")
-;; (add-to-list 'load-path "~/.emacs.d/lang/scala/sbt-mode/")
-;; (add-to-list 'load-path "~/.emacs.d/lang/scala/ensime-emacs/")
 ;; (add-to-list 'load-path "~/.emacs.d/lang/php/php-mode")
 ;; (add-to-list 'load-path "~/.emacs.d/lang/web/web-mode")
 ;; (add-to-list 'load-path "~/.emacs.d/lang/web/emmet-mode")
@@ -72,7 +63,6 @@
 ;; (add-to-list 'load-path "~/.emacs.d/lang/rust/emacs-racer")
 ;; (add-to-list 'load-path "~/.emacs.d/lang/rust/company-racer")
 ;; (add-to-list 'load-path "~/.emacs.d/lang/rust/flycheck-rust")
-;; (add-to-list 'load-path "~/.emacs.d/lang/haskell/haskell-mode/")
 
 ; theme
 (add-to-list 'load-path "~/.emacs.d/themes/hl-line-plus")
@@ -92,14 +82,10 @@
 ;; (load "~/.emacs.d/configuration/js2-mode.el")
 ;; (load "~/.emacs.d/configuration/org.el")
 ;; (load "~/.emacs.d/configuration/python.el")
-;; (load "~/.emacs.d/configuration/scala.el")
 ;; (load "~/.emacs.d/configuration/web-mode.el")
 (load "~/.emacs.d/configuration/yafolding.el")
 (load "~/.emacs.d/configuration/theme.el")
 ;; (load "~/.emacs.d/configuration/rust-mode.el")
-;; (load "~/.emacs.d/configuration/haskell.el")
-
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/common/auto-complete/dict")
 
 ;; key bingdings
 ;;===================================================
@@ -153,9 +139,6 @@
 
 ;; insert date time
 (global-set-key (kbd "C-c C-t") 'insert-current-date-time)
-
-;; auto-complete
-(ac-set-trigger-key "TAB")
 
 ;; autopair
 (global-set-key (kbd "M-k") 'sp-kill-sexp)

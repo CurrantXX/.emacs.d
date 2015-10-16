@@ -10,10 +10,6 @@
 	path = lang/js/js2-mode
 	url = https://github.com/mooz/js2-mode.git
 
-[submodule "lang/scala/s.el"]
-	path = lang/scala/s.el
-	url = https://github.com/magnars/s.el.git
-
 [submodule "common/undo-tree"]
 	path = common/undo-tree
 	url = https://github.com/emacsmirror/undo-tree.git
@@ -42,33 +38,9 @@
 	path = common/yafolding.el
 	url = https://github.com/zenozeng/yafolding.el.git
 
-[submodule "lang/scala/ensime-emacs"]
-	path = lang/scala/ensime-emacs
-	url = https://github.com/ensime/ensime-emacs.git
-
-[submodule "lang/scala/sbt-mode"]
-	path = lang/scala/sbt-mode
-	url = https://github.com/hvesalai/sbt-mode.git
-
-[submodule "lang/scala/scala-mode2"]
-	path = lang/scala/scala-mode2
-	url = https://github.com/hvesalai/scala-mode2.git
-
 [submodule "common/dash.el"]
 	path = common/dash.el
 	url = https://github.com/magnars/dash.el.git
-
-[submodule "common/auto-complete"]
-	path = common/auto-complete
-	url = https://github.com/auto-complete/auto-complete.git
-
-[submodule "common/popup-el"]
-	path = common/popup-el
-	url = https://github.com/auto-complete/popup-el.git
-
-[submodule "common/fuzzy-el"]
-	path = common/fuzzy-el
-	url = https://github.com/auto-complete/fuzzy-el.git
 
 [submodule "lang/web/emmet-mode"]
 	path = lang/web/emmet-mode
@@ -145,9 +117,6 @@
 [submodule "common/flycheck"]
 	path = common/flycheck
 	url = https://github.com/flycheck/flycheck.git
-[submodule "lang/c/emacs-clang-complete-async"]
-	path = lang/c/emacs-clang-complete-async
-	url = https://github.com/Golevka/emacs-clang-complete-async.git
 [submodule "lang/rust/racer"]
 	path = lang/rust/racer
 	url = https://github.com/phildawes/racer.git
